@@ -2,49 +2,52 @@
 /*全局配置  */
 .body{
   font-family:'苹方' SC 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #f1f5f8; 
 }
 /*头部配置  */
 .header {
   width: 100%;
   height: 88rpx;
-  background: #75C9D3;
-  vertical-align: middle;
+  position: absolute;
+  z-index: 1;
 }
 
 .header .search {
   font-size: 22rpx;
-  color: #ccc;
   width: 400rpx;
   height: 48rpx;
-  text-align: center;
+  text-align: center; 
   margin-top: 20rpx;
-  margin-left:150rpx;
+  margin-left: 150rpx;
   border-radius: 25rpx;
   background: rgba(255, 255, 255, .3);
   display: inline-block;
+}
+.input-placeholder{
+  color: #666;
 }
 
 .header .search-img {
   width: 44rpx;
   height: 44rpx;
   margin-left:15rpx;  
-  border-bottom:3rpx solid #75C9D3;
+  border-bottom:3rpx solid rgba(255,255,255,0);
 }
 
 /* 轮播图  */
 .swiper {
   width: 100%;
-  background: hotpink;
 }
 .swiper .slide-image{
   width: 100%;
+  height:100%;
 }
 
   
 /* 小分类  */
 .type{
-  background: #fff;
-  margin-top: 32rpx;
+  background-color: #fff;
+  margin: 32rpx 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -52,34 +55,25 @@
 .type-item{
   width: 25%;
   text-align: center;
+  padding: 32rpx 0;
 }
-.type .type-item-box{
-  font-size:0;
-  background-color: #ccc; 
-  margin-bottom: 16rpx;
-}
-.type .type-item-box .type-img{
-  width: 72px;
-  height: 72px;
-}
-.type .introduction {
+ .type-item-img{
+  width: 72rpx;
+  height: 72rpx;
+} 
+.type-item-introduction {
   font-size: 22rpx;
   line-height: 44rpx;
-  background-color: #ccc; 
-  margin-bottom: 32rpx;
 }
 
 /* 签证  */
 .visa{
 
 }
-.visa .separated{
-  height: 32rpx;
-  background-color: #f1f5f8;
-}
 .visa .visa-header{
   height: 88rpx;
   line-height: 88rpx;
+  background-color: #fff;
   display: flex;
   justify-content: space-between; 
 }
@@ -89,15 +83,17 @@
 }
 .visa .visa-header-box{
   font-size: 22rpx;
+  color: #999;
   padding-right: 24rpx;
 }
 .visa .visa-header-box-img{
-  width: 24rpx;
-  height: 24rpx;
+  width: 22rpx;
+  height: 22rpx;
+  vertical-align: middle;
 }
 
 .visa .visa-content{
-  background: #ccc;
+  background: #eee;
   padding-bottom: 24rpx;
   text-align: center;
   padding-left: 10rpx;
@@ -147,12 +143,13 @@
   overflow: hidden; 
   text-overflow: ellipsis;
 }
-.content-item .item-footer .promotion{
+.content-item .item-footer .activity{
   font-size: 16rpx;
   color: #0A87AE;
   line-height: 28rpx;
   padding: 2rpx 4rpx;
-  margin-bottom:10rpx;
+  margin-bottom: 10rpx;
+  margin-right: 4rpx;
   display: inline-block;
   border: #0A87AE 1px solid;
   border-radius: 4px;
@@ -171,7 +168,7 @@
 }
 
 .like .like-content{
-  background: #ccc;
+  background: #eee;
   padding-bottom: 24rpx;
   text-align: center;
   padding-left: 10rpx;

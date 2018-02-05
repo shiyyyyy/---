@@ -1,0 +1,6 @@
+[
+    { "img":"../../images/1.jpg", "money": 4999, "transport": "北京送签", "Introduction": "日本签证,旅游三年,多次往返,我要显示省略号", "activity":{"promotion": "元旦春节促销","countries": "日本", "boundaries": "境外游"} },
+    { "img":"../../images/0.jpg", "money": 4999, "transport": "北京送签", "Introduction": "日本签证,旅游三年,多次往返,我要显示省略号", "activity":{"countries": "日本", "boundaries": "境外游"} },
+    { "img":"../../images/0.jpg", "money": 4999, "transport": "北京送签", "Introduction": "日本签证,旅游三年,多次往返,我要显示省略号", "activity":{"promotion": "元旦春节促销", "boundaries": "境外游"} },
+    { "img":"../../images/1.jpg", "money": 4999, "transport": "北京送签", "Introduction": "日本签证,旅游三年,多次往返,我要显示省略号", "activity":{"promotion": "元旦春节促销","countries": "日本"} }
+]
