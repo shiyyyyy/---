@@ -1,0 +1,234 @@
+/**index.wxss**/
+/*全局配置  */
+.body{
+  font-family:'苹方' SC 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/*头部配置  */
+.header {
+  width: 100%;
+  height: 88rpx;
+  background: #75C9D3;
+  vertical-align: middle;
+}
+
+.header .search {
+  font-size: 22rpx;
+  color: #ccc;
+  width: 400rpx;
+  height: 48rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-left:150rpx;
+  border-radius: 25rpx;
+  background: rgba(255, 255, 255, .3);
+  display: inline-block;
+}
+
+.header .search-img {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left:15rpx;  
+  border-bottom:3rpx solid #75C9D3;
+}
+
+/* 轮播图  */
+.swiper {
+  width: 100%;
+  background: hotpink;
+}
+.swiper .slide-image{
+  width: 100%;
+}
+
+  
+/* 小分类  */
+.type{
+  background: #fff;
+  margin-top: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.type-item{
+  width: 25%;
+  text-align: center;
+}
+.type .type-item-box{
+  font-size:0;
+  background-color: #ccc; 
+  margin-bottom: 16rpx;
+}
+.type .type-item-box .type-img{
+  width: 72px;
+  height: 72px;
+}
+.type .introduction {
+  font-size: 22rpx;
+  line-height: 44rpx;
+  background-color: #ccc; 
+  margin-bottom: 32rpx;
+}
+
+/* 签证  */
+.visa{
+
+}
+.visa .separated{
+  height: 32rpx;
+  background-color: #f1f5f8;
+}
+.visa .visa-header{
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  justify-content: space-between; 
+}
+.visa .visa-header-text{
+  font-size: 26rpx;
+  padding-left: 24rpx;
+}
+.visa .visa-header-box{
+  font-size: 22rpx;
+  padding-right: 24rpx;
+}
+.visa .visa-header-box-img{
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.visa .visa-content{
+  background: #ccc;
+  padding-bottom: 24rpx;
+  text-align: center;
+  padding-left: 10rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.content-item{
+  background: #fff;
+  width: 345rpx;
+  flex: 1;
+  margin-right: 10rpx; 
+  margin-top: 10rpx;
+}
+.content-item .item-header{
+  height:258rpx;
+}
+.content-item .content-img{
+  font-size: 0;  
+  width: 100%;
+  height: 258rpx;
+}
+.content-item .item-body{
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.content-item .item-body .money{
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.content-item .item-body .transport{
+    font-size: 20rpx;
+    color: #999;
+}
+
+.content-item .item-footer{
+  text-align: left;
+  padding-left: 14rpx;
+}
+.content-item .item-footer .text{
+  font-size: 20rpx; 
+  color: #333;
+  width: 100%;
+  display: block;  
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+.content-item .item-footer .promotion{
+  font-size: 16rpx;
+  color: #0A87AE;
+  line-height: 28rpx;
+  padding: 2rpx 4rpx;
+  margin-bottom:10rpx;
+  display: inline-block;
+  border: #0A87AE 1px solid;
+  border-radius: 4px;
+}
+
+/* 可能喜欢  */
+.like{
+
+}
+.like .like-header{
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.like .like-content{
+  background: #ccc;
+  padding-bottom: 24rpx;
+  text-align: center;
+  padding-left: 10rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.like-content-item{
+  background: #fff;
+  width: 345rpx;
+  flex: 1;
+  margin-right: 10rpx; 
+  margin-top: 10rpx;
+}
+.like-content-item .like-item-header{
+  height:258rpx;
+}
+.like-content-item .like-content-img{
+  font-size: 0;
+  width: 100%;
+  height: 258rpx;
+}
+.like-content-item .like-item-body{
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.like-content-item .like-item-body .money{
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.like-content-item .like-item-body .transport{
+    font-size: 20rpx;
+    color: #999;
+}
+
+.like-content-item .like-item-footer{
+  text-align: left;
+  padding-left: 14rpx;
+}
+.like-content-item .like-item-footer .text{
+  font-size: 20rpx; 
+  color: #333;
+  width: 100%;
+  display: block;  
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+.like-content-item .like-item-footer .countries,.boundaries{
+  font-size: 16rpx;
+  color: #0A87AE;
+  line-height: 28rpx;
+  padding: 2rpx 4rpx;
+  margin-bottom:10rpx;
+  margin-left: 5rpx;
+  display: inline-block;
+  border: #0A87AE 1px solid;
+  border-radius: 4px;
+}
