@@ -1,0 +1,41 @@
+/* pages/search/search.wxss */
+
+.search {
+  height: 80rpx;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 后退按键  */
+.back{
+  margin: 14rpx 0 0 20rpx;
+}
+.back-img {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+/* 输入框  */
+.input {
+  width: 540rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 48rpx;
+  background-color: #f1f5f8;
+  border-radius: 20px;
+}
+
+.placeholder {
+  color: #7f8182;
+}
+
+/* 搜索按键  */
+.icon{
+  margin: 14rpx 20rpx 0 0;
+}
+.search-img {
+  width: 44rpx;
+  height: 44rpx;
+}

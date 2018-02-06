@@ -1,1 +1,5 @@
-<text>分类</text>
+
+<view>
+  <component-search></component-search>
+  <component-xx></component-xx>  
+</view>
