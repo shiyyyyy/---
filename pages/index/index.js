@@ -54,20 +54,31 @@ Page({
   },
   // input输入框改变事件
   b_input_change: function (event) {
-    console.log(event)
+    console.log(event);
+    console.log("inputChange")
   },
-
+  b_search_tap: function() {
+    console.log(event);
+    console.log("点击搜索")
+  },
   // 轮播图点击事件
   c_swiper_tag: function (event) {
-
+    console.log(event);
+    console.log("点击了轮播图片")
   },
-  
+  // 绑定小分类点击事件
+  b_type_tap: function() {
+    console.log(event);
+    console.log("点击了分类小图标")
+  },
   // 点击 more 显示全部签证服务
   c_more_tap: function() {
-
+    console.log(event);
+    console.log("更多签证服务")
   },
-  // 点击 签证服务主题内容 
+  // 点击 签证服务主体内容 
   b_visa_item_tap: function() {
-
-  }
+    console.log(event);
+    console.log("进入具体点击页面")
+  },
 })

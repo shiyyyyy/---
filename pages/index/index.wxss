@@ -1,10 +1,14 @@
 /**index.wxss**/
+
 /*全局配置  */
-.body{
-  font-family:'苹方' SC 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: #f1f5f8; 
+
+.body {
+  font-family: '苹方' SC 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #f1f5f8;
 }
+
 /*头部配置  */
+
 .header {
   width: 100%;
   height: 88rpx;
@@ -16,216 +20,98 @@
   font-size: 22rpx;
   width: 400rpx;
   height: 48rpx;
-  text-align: center; 
+  text-align: center;
   margin-top: 20rpx;
   margin-left: 150rpx;
   border-radius: 25rpx;
-  background: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, 0.3);
   display: inline-block;
 }
-.input-placeholder{
+
+.input-placeholder {
   color: #666;
 }
 
 .header .search-img {
   width: 44rpx;
   height: 44rpx;
-  margin-left:15rpx;  
-  border-bottom:3rpx solid rgba(255,255,255,0);
+  margin-left: 15rpx;
+  border-bottom: 3rpx solid rgba(255, 255, 255, 0);
 }
 
 /* 轮播图  */
+
 .swiper {
   width: 100%;
 }
-.swiper .slide-image{
+
+.swiper .slide-image {
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 
-  
 /* 小分类  */
-.type{
+
+.type {
   background-color: #fff;
   margin: 32rpx 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.type-item{
+
+.type-item {
   width: 25%;
   text-align: center;
   padding: 32rpx 0;
 }
- .type-item-img{
+
+.type-item-img {
   width: 72rpx;
   height: 72rpx;
-} 
+}
+
 .type-item-introduction {
   font-size: 22rpx;
   line-height: 44rpx;
 }
 
 /* 签证  */
-.visa{
 
-}
-.visa .visa-header{
+.visa .visa-header {
+  width: 110%;
   height: 88rpx;
+  margin-left: -5%;
   line-height: 88rpx;
   background-color: #fff;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
-.visa .visa-header-text{
+
+.visa .visa-header-text {
   font-size: 26rpx;
-  padding-left: 24rpx;
+  padding-left: 6%;
 }
-.visa .visa-header-box{
+
+.visa .visa-header-box {
   font-size: 22rpx;
   color: #999;
-  padding-right: 24rpx;
+  padding-right: 15rpx;
 }
-.visa .visa-header-box-img{
+
+.visa .visa-header-box-img {
   width: 22rpx;
   height: 22rpx;
   vertical-align: middle;
 }
 
-.visa .visa-content{
-  background: #eee;
-  padding-bottom: 24rpx;
-  text-align: center;
-  padding-left: 10rpx;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.content-item{
-  background: #fff;
-  width: 345rpx;
-  flex: 1;
-  margin-right: 10rpx; 
-  margin-top: 10rpx;
-}
-.content-item .item-header{
-  height:258rpx;
-}
-.content-item .content-img{
-  font-size: 0;  
-  width: 100%;
-  height: 258rpx;
-}
-.content-item .item-body{
-  line-height: 80rpx;
-  display: flex;
-  justify-content: space-around;
-}
-.content-item .item-body .money{
-  font-size: 28rpx;
-  line-height: 80rpx;
-}
-.content-item .item-body .transport{
-    font-size: 20rpx;
-    color: #999;
-}
-
-.content-item .item-footer{
-  text-align: left;
-  padding-left: 14rpx;
-}
-.content-item .item-footer .text{
-  font-size: 20rpx; 
-  color: #333;
-  width: 100%;
-  display: block;  
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis;
-}
-.content-item .item-footer .activity{
-  font-size: 16rpx;
-  color: #0A87AE;
-  line-height: 28rpx;
-  padding: 2rpx 4rpx;
-  margin-bottom: 10rpx;
-  margin-right: 4rpx;
-  display: inline-block;
-  border: #0A87AE 1px solid;
-  border-radius: 4px;
-}
-
 /* 可能喜欢  */
-.like{
 
-}
-.like .like-header{
+.like-header {
+  width: 100%;
   font-size: 28rpx;
-  color: #333;
+  color: #595a5a;
   text-align: center;
   height: 88rpx;
   line-height: 88rpx;
-}
-
-.like .like-content{
-  background: #eee;
-  padding-bottom: 24rpx;
-  text-align: center;
-  padding-left: 10rpx;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.like-content-item{
-  background: #fff;
-  width: 345rpx;
-  flex: 1;
-  margin-right: 10rpx; 
-  margin-top: 10rpx;
-}
-.like-content-item .like-item-header{
-  height:258rpx;
-}
-.like-content-item .like-content-img{
-  font-size: 0;
-  width: 100%;
-  height: 258rpx;
-}
-.like-content-item .like-item-body{
-  line-height: 80rpx;
-  display: flex;
-  justify-content: space-around;
-}
-.like-content-item .like-item-body .money{
-  font-size: 28rpx;
-  line-height: 80rpx;
-}
-.like-content-item .like-item-body .transport{
-    font-size: 20rpx;
-    color: #999;
-}
-
-.like-content-item .like-item-footer{
-  text-align: left;
-  padding-left: 14rpx;
-}
-.like-content-item .like-item-footer .text{
-  font-size: 20rpx; 
-  color: #333;
-  width: 100%;
-  display: block;  
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis;
-}
-.like-content-item .like-item-footer .countries,.boundaries{
-  font-size: 16rpx;
-  color: #0A87AE;
-  line-height: 28rpx;
-  padding: 2rpx 4rpx;
-  margin-bottom:10rpx;
-  margin-left: 5rpx;
-  display: inline-block;
-  border: #0A87AE 1px solid;
-  border-radius: 4px;
 }

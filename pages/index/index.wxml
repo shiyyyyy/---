@@ -1,84 +1,52 @@
 <!--index.wxml-->
+<!-- <import src="../common/main.wxml" /> -->
+
 <view class="body">
   <!--头部搜索框 \ 点击按钮  -->
-  <view class="header" bindtap="click" id="parent">
+  <view class="header">
     <input class="search" placeholder="请输入关键字" placeholder-style="input-placeholder" confirm-type="search" bindinput="b_input_change" />
-    <image class="search-img" src='../../images/icon/search.png' mode="aspectFill"></image>
+    <image class="search-img" src='../../images/icon/search.png' mode="aspectFill" bindtap="b_search_tap" />
   </view>
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" circular="circular">
-    <block wx:for="{{imgUrls}}">
-      <swiper-item catchtag="c_swiper_tag">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item catchtap="c_swiper_tag" data-index="{{index}}">
         <image src="{{item}}" class="slide-image" width="400" height="150" />
       </swiper-item>
     </block>
   </swiper>
   <!-- 中间的小分类 -->
   <view class="type">
-    <block wx:for="{{tourism_type}}">
-      <!--  url='detail?id={{item.id}}'  -->
-      <navigator class='type-item' > 
+    <block wx:for="{{tourism_type}}" wx:key="{{index}}">
+      <view class='type-item' bindtap='b_type_tap'>
         <image class="type-item-img" src="{{item}}" mode="aspectFill"></image>
         <view class="type-item-introduction"> {{index}} </view>
-      </navigator>
+      </view>
     </block>
   </view>
+
+
   <!-- 签证服务 -->
   <view class="visa">
-    <view class="visa-header">
-      <view class="visa-header-text">签证服务</view>
-      <view class="visa-header-box" catchtap='c_more_tap'>
-        <text class="visa-header-box-more">更多</text>
-        <image class="visa-header-box-img" src="../../images/icon/more.png"></image>
-      </view>
-    </view>
-    <!-- 签证主体内容 -->
-    <view class="visa-content" bindtap="b_visa_item_tap">
-      <block wx:for="{{ response }}">
-        <view class="content-item">
-          <view class="item-header">
-            <image class="content-img" src="{{item.img}}" mode="aspectFill"></image>
-          </view>
-          <view class="item-body">
-            <text class="money">{{ "￥" + item.money}}</text>
-            <text class="transport">{{item.transport}}</text>
-          </view>
-          <view class="item-footer">
-            <text class="text">{{item.Introduction}}</text>
-            <!-- 绑定链接的小标签  -->
-            <navigator class="activity" wx:if="{{item.activity.promotion}}">{{item.activity.promotion}}</navigator>
-            <!-- <navigator></navigator> -->
-            <navigator class="activity" wx:if="{{item.activity.countries}}">{{item.activity.countries}}</navigator>
-            <navigator class="activity" wx:if="{{item.activity.boundaries}}">{{item.activity.boundaries}}</navigator>     
-
-          </view>
+    <component-main data="{{response}}">
+      <view class="visa-header">
+        <view class="visa-header-text">签证服务</view>
+        <view class="visa-header-box" catchtap='c_more_tap'>
+          <text class="visa-header-box-more">更多</text>
+          <image class="visa-header-box-img" src="../../images/icon/more.png"></image>
         </view>
-      </block>
-    </view>
+      </view>
+    </component-main>
   </view>
 
   <!--还喜欢  -->
   <view class="like">
-    <view class="like-header">- 你还可能喜欢 -</view>
-
-    <view class="like-content">
-      <block wx:for="{{ service }}">
-        <view class="like-content-item">
-          <view class="like-item-header">
-            <image class="like-content-img" src="{{item.img}}" mode="aspectFill"></image>
-          </view>
-          <view class="like-item-body">
-            <text class="money">{{ "￥" + item.money}}</text>
-            <text class="transport">{{item.transport}}</text>
-          </view>
-          <view class="like-item-footer">
-            <text class="text">{{item.text}}</text>
-            <text class="countries">{{item.countries}}</text>
-            <text class="boundaries">{{item.boundaries}}</text>
-          </view>
-        </view>
-      </block>
-    </view>
+    <component-main data="{{response}}">
+      <view class="like-header">- 你还可能喜欢 -</view>
+    </component-main>
   </view>
-
+  <!-- 列表  -->
+  <view>
+    <component-list data="{{response}}"></component-list>
+  </view>
 </view>
