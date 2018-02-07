@@ -1,0 +1,21 @@
+
+.like-header {
+  width: 100%;
+  font-size: 28rpx;
+  color: #595a5a;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.theme-text {
+  line-height: 74rpx;
+}
+
+.theme-img {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 6rpx;
+  margin-bottom: 2rpx;
+  vertical-align: middle;
+}

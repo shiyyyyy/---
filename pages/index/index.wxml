@@ -5,7 +5,7 @@
   <!--头部搜索框 \ 点击按钮  -->
   <view class="header">
     <input class="search" placeholder="请输入关键字" placeholder-style="input-placeholder" confirm-type="search" bindinput="b_input_change" />
-    <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" bindtap="b_search_tap" />
+    <image class="search-img" src='../../../images/icon/search-w.png' mode="aspectFill" bindtap="b_search_tap" />
   </view>
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" circular="circular">

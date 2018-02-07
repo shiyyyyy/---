@@ -1,0 +1,13 @@
+<!--pages/xx/xx.wxml-->
+<view class="choose">
+  <view class="price">
+     <text class="prive-text" >价格</text>
+    <image class="price-img" src="../../../images/icon/an.png" /> 
+  </view>
+   <view class="destination">
+     <text class="destination-text">目的地</text>
+    <image class="destination-img" src="../../../images/icon/place.png"></image> 
+  </view>
+  <slot></slot> 
+</view>
+

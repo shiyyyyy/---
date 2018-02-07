@@ -1,0 +1,17 @@
+<view bindtap='click'>
+  <component-search></component-search>
+  <component-choose>
+    <view class="theme">
+      <text class="theme-text">主题</text>
+      <image class="theme-img" src="../../images/icon/theme.png"></image>
+    </view>
+  </component-choose>
+  <view>
+    <component-list data="{{response}}"></component-list>
+  </view>
+  <view>
+    <component-main data="{{response}}">
+      <view class="like-header">- 你还可能喜欢 -</view>
+    </component-main>
+  </view>
+</view>

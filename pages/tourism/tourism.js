@@ -1,19 +1,16 @@
 // pages/logs/index.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    response:{},
-    // 旅行路线&&全球签证当前样式判断
-    active: false,
-    text: ""
+    response: {}
   },
-  c_route_tap: function() {
-    console.log(this.text)
-    console.log(this)
-    this.setData({
-      active: true
+  click: function () {
+    console.log("跳转")
+    wx.navigateTo({
+      url: '../visa/visa'
     })
   },
   /**

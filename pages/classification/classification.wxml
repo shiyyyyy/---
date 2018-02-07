@@ -1,5 +1,18 @@
-
-<view>
+<view class="classification">
   <component-search></component-search>
-  <component-xx></component-xx>  
+  <!-- 路线 和 签证  -->
+  <view class="route-and-visa">
+    <view class="route" data-text='active-route' catchtap='c_route_tap'>旅行路线</view>
+    <view class="separated"></view>
+    <view class="visa" catchtap='c_visa_tap'>全球签证</view>
+  </view>
+
+  <!-- <view>
+    <component-list data="{{response}}"></component-list>
+  </view>
+  <view>
+    <component-main data="{{response}}">
+      <view class="like-header">- 你还可能喜欢 -</view>
+    </component-main>
+  </view> -->
 </view>

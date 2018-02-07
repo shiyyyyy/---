@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "component-main": "../common/main",
-    "component-list": "../list/list"
+    "component-main": "../components/common/main",
+    "component-list": "../components/list/list"
   }
 }

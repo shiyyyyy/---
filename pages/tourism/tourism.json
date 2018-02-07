@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "component-search": "../components/search/search",
+    "component-choose": "../components/choose/choose",
     "component-list": "../components/list/list",
     "component-main": "../components/common/main"
   },
@@ -9,5 +10,4 @@
   "navigationBarTitleText": "北青旅行社",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
-
 }

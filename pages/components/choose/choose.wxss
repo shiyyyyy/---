@@ -1,0 +1,39 @@
+/* pages/xx/xx.wxss */
+
+.choose {
+  font-size: 26rpx;
+  line-height: 74rpx;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.price {
+}
+
+.price-text {
+  line-height: 74rpx;
+}
+
+.price-img {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 6rpx;
+  margin-bottom: 2rpx;
+  vertical-align: middle;
+}
+
+.destination {
+}
+
+.destination-text {
+  line-height: 74rpx;
+}
+
+.destination-img {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 6rpx;
+  margin-bottom: 2rpx;
+  vertical-align: middle;
+}

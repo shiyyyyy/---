@@ -6,10 +6,10 @@ Page({
   data: {
     // 轮播图
     imgUrls: [
-      '../../images/banner/banner1.jpg',
-      '../../images/banner/banner2.jpg',
-      '../../images/banner/banner3.jpg',
-      '../../images/banner/banner4.jpg'
+      '../../../images/banner/banner1.jpg',
+      '../../../images/banner/banner2.jpg',
+      '../../../images/banner/banner3.jpg',
+      '../../../images/banner/banner4.jpg'
     ],
     indicatorDots: true,
     autoplay: true,
@@ -19,14 +19,14 @@ Page({
     circular:true,
 
     // 小分类列表
-    tourism_type: { '旅游线路': '../../images/icon/1.jpg', '欧美': '../../images/icon/2.jpg', '东南亚': '../../images/icon/3.jpg', '国内': '../../images/icon/4.jpg', '蜜月游': '../../images/icon/5.jpg', '亲子游': '../../images/icon/6.jpg', '自由行': '../../images/icon/7.jpg', '探险游': '../../images/icon/8.jpg' },
+    tourism_type: { '旅游线路': '../../../images/icon/1.jpg', '欧美': '../../../images/icon/2.jpg', '东南亚': '../../../images/icon/3.jpg', '国内': '../../../images/icon/4.jpg', '蜜月游': '../../../images/icon/5.jpg', '亲子游': '../../../images/icon/6.jpg', '自由行': '../../../images/icon/7.jpg', '探险游': '../../../images/icon/8.jpg' },
 
     // 签证服务
     service: [
-      { img: "../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
-      { img: "../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
-      { img: "../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
-      { img: "../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" }],
+      { img: "../../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
+      { img: "../../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
+      { img: "../../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
+      { img: "../../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" }],
     response:[]
   },
 
@@ -54,8 +54,7 @@ Page({
   },
   // input输入框改变事件
   b_input_change: function (event) {
-    console.log(event);
-    console.log("inputChange")
+    console.log(event.detail.value)
   },
   b_search_tap: function() {
     console.log(event);

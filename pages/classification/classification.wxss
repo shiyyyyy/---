@@ -1,0 +1,43 @@
+.route-and-visa{
+  font-size: 26rpx;
+  line-height: 72rpx;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  border-bottom: 1px solid red; 
+}
+.route{
+  width: 285rpx;
+  /* background-color: cyan; */
+}
+.active{
+  color: #399;
+  border-bottom: 1px solid #399;
+}
+
+.separated{
+  width: 1px;
+  height: 38rpx;
+  margin-top: 17rpx;
+  background-color: #f1f5f8;
+}
+
+.visa{
+  width: 285rpx;
+}
+.active-visa{
+  color: #399;
+  border-bottom: 1px solid #399;
+}
+
+/* main组件slot  */
+.like-header {
+  width: 100%;
+  font-size: 28rpx;
+  color: #595a5a;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+  

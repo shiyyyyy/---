@@ -1,0 +1,8 @@
+.like-header {
+  width: 100%;
+  font-size: 28rpx;
+  color: #595a5a;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+}

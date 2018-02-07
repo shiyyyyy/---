@@ -1,0 +1,12 @@
+<view>
+  <component-search></component-search>
+  <component-choose></component-choose>
+  <view>
+    <component-list data="{{response}}"></component-list>
+  </view>
+  <view>
+    <component-main data="{{response}}">
+      <view class="like-header">- 你还可能喜欢 -</view>
+    </component-main>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+/* pages/common/main.wxss */
+
+.main {
+  background: #f1f5f8;
+  padding-bottom: 24rpx;
+  text-align: center;
+  padding-left: 10rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.main-item {
+  background: #fff;
+  width: 345rpx;
+  flex: 1;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+
+.header {
+  height: 258rpx;
+}
+
+.header-img {
+  font-size: 0;
+  width: 100%;
+  height: 258rpx;
+}
+
+.body {
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.money {
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.transport {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.footer {
+  text-align: left;
+  padding-left: 14rpx;
+}
+
+.text {
+  font-size: 20rpx;
+  color: #333;
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity {
+  font-size: 18rpx;
+  color: #0a87ae;
+  line-height: 28rpx;
+  padding: 3rpx 6rpx;
+  margin-bottom: 10rpx;
+  margin-right: 6rpx;
+  display: inline-block;
+  border: #0a87ae 1px solid;
+  border-radius: 4px;
+}
+
+.countries {
+  color: #d4881d;
+  border: 1px solid #d4881d;
+}
+
+.promote {
+  color: #c0d097;
+  border: 1px solid #c0d097;
+}
