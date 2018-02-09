@@ -5,15 +5,40 @@ Page({
    */
   data: {
     response:{},
+    // 旅游线路分类
+    partition: ["国内","北美","澳洲","北极"],
     // 旅行路线&&全球签证当前样式判断
     active: false,
-    text: ""
+    currentStyle: 1,
+    // key 为判断 左边nav样式,i为判断右边区块样式
+    key: 1,
+    i: null
   },
   c_route_tap: function() {
-    console.log(this.text)
     console.log(this)
     this.setData({
-      active: true
+      currentStyle: 1
+    })
+  },
+  c_visa_tap: function() {
+    console.log(this.currentStyle)
+    this.setData({
+      currentStyle: 2
+    })    
+  },
+  // 点击左边导航栏触发
+  c_navBar_tap: function(e) {
+    console.log(this)
+    this.setData({
+      i: null,
+      key: e.currentTarget.dataset.key
+    })
+  },
+  // 点击右边区块内容 触发
+  c_class_item_tap: function(e) {
+    console.log(e)
+    this.setData({
+      i: e.currentTarget.dataset.i
     })
   },
   /**
@@ -22,15 +47,14 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost/test.json',
+      url: 'http://localhost/partition.json',
       data: {},
       method: 'GET',
       success: function (res) {
         // success
         that.setData({
-          response: res.data
+          response: res.data.partition,
         })
-        console.log(that.data.response)
       },
       fail: function () {
         // fail
@@ -52,7 +76,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

@@ -1,37 +1,39 @@
-.route-and-visa{
+.route-and-visa {
   font-size: 26rpx;
   line-height: 72rpx;
   text-align: center;
   display: flex;
   justify-content: space-around;
   align-content: center;
-  border-bottom: 1px solid red; 
 }
-.route{
+
+.route {
   width: 285rpx;
-  /* background-color: cyan; */
 }
-.active{
+
+.active-route {
   color: #399;
   border-bottom: 1px solid #399;
 }
 
-.separated{
+.separated {
   width: 1px;
   height: 38rpx;
   margin-top: 17rpx;
   background-color: #f1f5f8;
 }
 
-.visa{
+.visa {
   width: 285rpx;
 }
-.active-visa{
+
+.active-visa {
   color: #399;
   border-bottom: 1px solid #399;
 }
 
 /* main组件slot  */
+
 .like-header {
   width: 100%;
   font-size: 28rpx;
@@ -40,4 +42,57 @@
   height: 88rpx;
   line-height: 88rpx;
 }
-  
+
+/* footer部分  */
+
+.footer {
+  height: 938rpx;
+  background-color: #f1f5f8; 
+  padding-top: 16rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.partition {
+  width: 200rpx;
+  height: 100%;
+  border-top: 1px solid #fff;  
+}
+
+.partition-item {
+  font-size: 26rpx;
+  color: #333333;
+  line-height: 88rpx;
+  text-align: center;
+  border-bottom: 2rpx solid #fff;
+}
+
+.active-partition {
+  color: #222222;
+  border-left: 6rpx solid #38b2c0;
+  background-color: #fff;
+}
+
+.class {
+  background-color: #fff;
+  flex: 1;
+  padding-left: 24rpx;
+  padding-top: 20rpx;
+}
+
+.class-item {
+  width: 144rpx;
+  font-size: 20rpx;
+  line-height: 50rpx;
+  margin-right: 20rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+  display: inline-block;
+  border: 1rpx solid #999;
+  border-radius: 6rpx;
+}
+.active-calss{
+  color: #fff;
+  background-color: #38b2c0;
+  border-color: #38b2c0;
+}

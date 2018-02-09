@@ -2,17 +2,21 @@
   <component-search></component-search>
   <!-- 路线 和 签证  -->
   <view class="route-and-visa">
-    <view class="route" data-text='active-route' catchtap='c_route_tap'>旅行路线</view>
+    <view class="route {{ currentStyle == 1 ? 'active-route' : '' }}" data-text='active-route' catchtap='c_route_tap'>旅行路线</view>
     <view class="separated"></view>
-    <view class="visa" catchtap='c_visa_tap'>全球签证</view>
+    <view class="visa {{ currentStyle == 2 ? 'active-visa' : '' }}" catchtap='c_visa_tap'>全球签证</view>
   </view>
 
-  <!-- <view>
-    <component-list data="{{response}}"></component-list>
+  <view class="footer">
+    <view  class="partition" data-ind="{{index}}">
+      <view wx:for="{{partition}}" class="partition-item {{ index == key ? 'active-partition' : '' }}" catchtap="c_navBar_tap" data-key="{{index}}">
+        {{ item }}
+      </view>
+    </view>
+    <view  class="class" wx:for="{{response}}" wx:if="{{ index == key}}">
+      <view wx:for="{{ item }}" class="class-item {{index === i ? 'active-calss' : ''}}"  data-i="{{index}}" catchtap="c_class_item_tap">
+        {{item}}
+      </view>
+    </view>
   </view>
-  <view>
-    <component-main data="{{response}}">
-      <view class="like-header">- 你还可能喜欢 -</view>
-    </component-main>
-  </view> -->
 </view>
