@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/order/order",
     "pages/classification/classification",
     "pages/index/index",
-    "pages/order/order",
     "pages/visa/visa",
     "pages/tourism/tourism"
   ],

@@ -1,0 +1,27 @@
+<!--pages/components/swiper/swiper.wxml-->
+
+<!-- 头部图片部分  -->
+<view bindtap='click' class="swiper">
+  <swiper class="slide" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="circular">
+    <block wx:for="{{response.img}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 中间主题内容 费用和出发地 -->
+   <view class="body">
+      <text class="money">{{ "￥" + response.money}}</text>
+      <text class="transport">{{response.transport}}</text>
+    </view>
+    <!-- 底下的简介和小标签  -->
+    <view class="footer">
+      <text class="text">{{response.Introduction}}</text>
+      <!-- 绑定链接的小标签  注意 navigator还没添加跳转方式-->
+      <navigator catchtap="no-bubbling" class="activity" url="" wx:if="{{response.activity.promotion}}">{{response.activity.promotion}}</navigator>
+      <navigator catchtap="no-bubbling" class="activity countries" url="" wx:if="{{response.activity.countries}}">{{response.activity.countries}}</navigator>
+      <navigator catchtap="no-bubbling" class="activity" url="" wx:if="{{response.activity.boundaries}}">{{response.activity.boundaries}}</navigator>
+      <navigator catchtap="no-bubbling" class="activity promote" url="" wx:if="{{response.activity.promote}}">{{response.activity.promote}}</navigator>
+    </view>
+
+</view> 

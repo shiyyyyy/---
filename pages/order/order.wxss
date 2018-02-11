@@ -1,1 +1,94 @@
 /* pages/order/order.wxss */
+.body{
+  /* background-color: #ccc;   */
+}
+
+
+.main {
+  padding-bottom: 16rpx;
+   padding-top: 16rpx; 
+  background-color: #f1f5f8;
+}
+
+/* 选择日期  */
+
+.select-date {
+  background-color: #fff;  
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  width: 49%;
+  text-align: center;
+  padding-left: 4rpx;
+}
+
+.select-text {
+  width: 100%;
+  font-size: 26rpx;
+  line-height: 88rpx;
+  padding-left: 34rpx;
+}
+
+.go, .come {
+  font-size: 24rpx;
+  line-height: 52rpx;
+}
+
+.picker .img, .picker .img {
+  width: 24rpx;
+  height: 24rpx;
+  padding-left: 19rpx;
+  padding-right: 15rpx;
+  vertical-align: sub;
+}
+
+.picker {
+  font-size: 20rpx;
+  line-height: 48rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 6rpx;
+  padding-left: 23rpx;
+  display: inline-block;
+}
+
+/* 行程亮点  */
+
+.bright {
+  background-color: #fff;  
+  
+}
+
+.trip {
+  font-size: 26rpx;
+  line-height: 88rpx;
+  padding-left: 34rpx;
+}
+
+.li {
+  font-size: 24rpx;
+  color: #333;
+  line-height: 36rpx;
+  padding-left: 34rpx;
+}
+
+/* details 详情  */
+.details{
+
+}
+.tab{
+  font-size: 28rpx;
+  line-height: 88rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.tab-item{
+
+}
+.active-tab-item{
+  color: #38b2c0;
+  padding-bottom: -4rpx;
+  border-bottom: 4rpx solid #38b2c0;  
+}

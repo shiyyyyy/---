@@ -1,2 +1,40 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="body">
+
+  <view>
+    <component-swiper response="{{response}}"></component-swiper>
+  </view>
+    <!-- 选择时间和亮点介绍 -->
+  <view class="main">
+    <view class="select-date">
+      <view class="select-text">选择日期</view>
+      <view class="flex-item">
+        <text class="go">出团日期: </text>
+        <picker class="picker" mode="date" fields="day" start="now_date" bindchange="datechange">{{ select_date }} <image class="img" src='../../images/icon/calendar.png' /></picker> 
+      </view>
+      <view class="flex-item">
+        <text class="come">回团日期: </text>
+        <picker class="picker" mode="date" fields="day">{{setting_date}} <image class="img" src='../../images/icon/calendar.png' /></picker>
+      </view>
+    </view>
+
+    <view class="bright">
+      <view class="trip">行程亮点</view>
+      <view class="li" wx:for="{{li}}">{{(index + 1 + ".") + item}}</view>
+    </view>
+  </view>
+  
+  <!-- tab切换 -->
+  <view class='details'>
+    <view class='tab'>
+      <view class='tab-item {{ current_tab_index == idn ? "active-tab-item" : "" }}' wx:for="{{tab}}" wx:for-index="idn" data-idn="{{idn}}" catchtap='c_tab_item_tap'>{{ item }}</view>
+    </view>
+
+    <view class='content'>
+      <view>111</view>
+      <view>222</view>
+      <view>333</view>
+    </view>
+  </view>
+
+</view>

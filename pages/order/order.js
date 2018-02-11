@@ -1,66 +1,61 @@
-// pages/logs/index.js
+//index.js
+//获取应用实例
+const util = require("../../utils/util.js");
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    // 请求返回值
+    response: [],
+    // 轮播图控件
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+    current: true,
+    circular: true,
+    // 时间相关
+    select_date: util.getDay(new Date),
+    setting_date: util.getDay(new Date),
+    // 列表相关
+    li: ["南亚风情","众信","北青"],
+    // tab列表 && 样式下标
+    tab: ["行程详情","资费说明","签证说明"],
+    current_tab_index: 0
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  // picker 时间选择事件
+  datechange: function(e) {
+    console.log(e);
+    this.setData({
+      select_date: e.detail.value
+    })
+    var date = this.data.select_date
+    this.setData({
+      setting_date: util.getDay(new Date(new Date(date).getTime() + 86400000) ) 
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  filter: function (){
+    return "行程亮点"
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 加载触发 发送请求
+  onLoad: function (event) {
+    var that = this;
+    wx.request({
+      url: "http://localhost/danpin.json",
+      success: function (res) {
+        that.setData({
+          response: res.data
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // tab 切换
+  c_tab_item_tap: function(e) {
+    console.log(e)
+    this.setData({
+      current_tab_index: e.currentTarget.dataset.idn
+    })
   }
+
 })

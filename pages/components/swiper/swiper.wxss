@@ -1,0 +1,67 @@
+/* pages/components/swiper/swiper.wxss */
+.swiper{
+  padding-bottom: 50rpx;
+}
+.slide{
+  width: 100%;
+  height: 400rpx;
+}
+.slide-image{
+  width: 100%;
+  height: 400rpx; 
+}
+.body {
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.money {
+  font-size: 30rpx;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+}
+
+.transport {
+  font-size: 20rpx;
+  color: #999;
+  margin-right: 30rpx; 
+}
+
+.footer {
+  text-align: left;
+  padding-left: 34rpx;
+  padding-right: 30rpx;
+}
+
+.text {
+  font-size: 26rpx;
+  color: #000000;
+  line-height: 28rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.activity {
+  font-size: 18rpx;
+  color: #0a87ae;
+  line-height: 28rpx;
+  padding: 3rpx 6rpx;
+  margin-bottom: 10rpx;
+  margin-right: 6rpx;
+  display: inline-block;
+  border: #0a87ae 1px solid;
+  border-radius: 4px;
+}
+
+.countries {
+  color: #d4881d;
+  border: 1px solid #d4881d;
+}
+
+.promote {
+  color: #c0d097;
+  border: 1px solid #c0d097;
+}
