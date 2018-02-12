@@ -1,0 +1,82 @@
+/* pages/components/orderInformation/order information.wxss */
+
+/* pages/list/list.wxss */
+.body{
+  height: 252rpx;
+  margin-top: 24rpx;
+  margin-bottom: 16rpx;
+  background-color: #fff;
+}
+.title {
+  font-size: 26rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+}
+
+.order {
+  border-top: 1px solid #f1f5f8;
+  background-color: #f5f5f5;
+  padding-left: 24rpx;
+  padding-top: 4rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  margin-right: 32rpx;
+  height: 152rpx;
+}
+
+.img {
+  width: 210rpx;
+  height: 152rpx;
+}
+
+/* 右边整体  */
+
+.right {
+  font-size: 0;
+  flex: 1;
+}
+
+/* 右上  */
+
+.right-header {
+  width: 56%;
+  font-size: 20rpx;
+  color: #696969;
+  line-height: 38rpx;
+  padding-right: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 右中  */
+
+.right-body {
+  width: 56%;
+  line-height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.money {
+  font-size: 26rpx;
+}
+
+.transport {
+  font-size: 20rpx;
+  color: #c2c2c2;
+}
+
+/* 右下  */
+
+.right-footer {
+  width: 56%;
+  line-height: 60rpx;
+  font-size: 18rpx;
+  color: #707070;
+  display: flex;
+  justify-content: space-between;
+}

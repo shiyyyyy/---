@@ -1,0 +1,76 @@
+<!--pages/order/order.wxml-->
+<view class="body">
+
+  <view>
+    <component-swiper response="{{response}}"></component-swiper>
+  </view>
+  <!-- 选择时间和亮点介绍 -->
+  <view class="main">
+    <view class="select-date">
+      <view class="select-text">选择日期</view>
+      <view class="flex-item">
+        <text class="go">出团日期: </text>
+        <picker class="picker" mode="date" fields="day" start="now_date" bindchange="datechange">{{ select_date }}
+          <image class="img" src='../../images/icon/calendar.png' />
+        </picker>
+      </view>
+      <view class="flex-item">
+        <text class="come">回团日期: </text>
+        <picker class="picker" mode="date" fields="day">{{setting_date}}
+          <image class="img" src='../../images/icon/calendar.png' />
+        </picker>
+      </view>
+    </view>
+
+    <view class="bright">
+      <view class="trip">行程亮点</view>
+      <view class="li" wx:for="{{li}}">{{(index + 1 + ".") + item}}</view>
+    </view>
+  </view>
+
+  <!-- tab 切换 -->
+  <view class='details'>
+    <!-- tab 标题  -->
+    <view class='tab'>
+      <view class='tab-item {{ current_tab_index == idn ? "active-tab-item" : "" }}' wx:for="{{tab}}" wx:for-index="idn" data-idn="{{idn}}" catchtap='c_tab_item_tap'>{{ item }}</view>
+    </view>
+    <!-- tab 内容  -->
+    <swiper duration="{{duration}}" circular="true" current="{{current_tab_index}}" bindchange="bindchange" style='height:1000rpx;'>
+      <!-- 行程详情  -->
+      <swiper-item>
+        <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
+          <block wx:for="dfjwioehgsadlknsfhaljasdklfjweoifjaslfjwoeifjsldksfasdfadsfadfasdf">
+            <view>
+              1111{{item}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 资费说明  -->
+      <swiper-item>
+        <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
+          <block wx:for="2222222222222222222222222222222222222222222222222222222222222">
+            <view>
+              222{{item}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 签证说明  -->
+      <swiper-item>
+        <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
+          <block wx:for="3333333333333333333333333333333333333333333333333333333333">
+            <view>
+              333{{item}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+
+    </swiper>
+
+  </view>
+
+</view>

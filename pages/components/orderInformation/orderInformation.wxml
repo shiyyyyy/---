@@ -1,0 +1,26 @@
+<!--pages/components/orderInformation/order information.wxml-->
+<view class="body">
+
+  <text bindtap="click" class="title">订单信息</text>
+  <slot></slot>
+  <view class="order" bindtap='b_list_item_tap'>
+    <view class="left">
+      <image class="img" src="{{response.img}}" mode="scaleToFill"></image>
+    </view>
+
+    <view class="right">
+      <view class="right-body">
+        <text class="money">{{ "￥" + response.money}}</text>
+        <text class="transport">{{response.transport}}</text>
+      </view>
+
+      <view class="right-header">{{response.Introduction}}</view>
+
+      <view class="right-footer">
+        <text class="time">{{ response.time }}</text>
+        <text class="number"> 人数: {{ response.number }}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

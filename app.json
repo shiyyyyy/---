@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/order/order",
+    "pages/submit/submit",    
+    "pages/tourDetails/tourDetails",
     "pages/classification/classification",
     "pages/index/index",
     "pages/visa/visa",
@@ -31,7 +32,7 @@
         "selectedIconPath": "./images/tabBar/selected-class-icon.jpg"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/tourDetails/tourDetails",
         "text": "订单",
         "iconPath": "./images/tabBar/order-icon.jpg",
         "selectedIconPath": "./images/tabBar/selected-order-icon.jpg"

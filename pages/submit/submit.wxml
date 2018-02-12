@@ -1,0 +1,7 @@
+<view class="body">
+
+  <component-ord-in response="{{response}}">
+
+  </component-ord-in>
+  
+</view>
