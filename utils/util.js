@@ -1,3 +1,5 @@
+const config = require("./config.js");
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -22,7 +24,28 @@ function getDay(date) {
   const r = day < 10 ? "0" + day : day
   return year + "-" + y + "-" + r
 }
+//  请求 函数
+function request(parameters = "", success, method = "GET", header = {}) {
+  wx.request({
+    url: config.BaseURL + (method == "GET" ? "?" : "") + parameters,
+    data: {},
+    method: method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    header: header ? header : "application/json", // 设置请求的 header
+    success: function (res) {
+      console.log("网络请求返回值:res");
+      console.log(res);
+      success(res);
+    },
+    fail: function () {
+      // fail
+    },
+    complete: function () {
+      // complete
+    }
+  })
+}
 module.exports = {
   formatTime: formatTime,
-  getDay: getDay
+  getDay: getDay,
+  request: request
 }

@@ -1,5 +1,173 @@
-.body{
+.body {
   border-top: 1rpx solid rgba(255, 255, 255, 0);
   border-bottom: 1rpx solid rgba(255, 255, 255, 0);
   background-color: #f1f5f8;
+}
+
+/* 签证 选择  */
+
+.visa {
+  background-color: #fff;
+  margin-bottom: 18rpx;
+}
+
+.visa-text {
+  font-size: 26rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+}
+
+.visa-radio {
+  width: 100%;
+  font-size: 22rpx;
+  line-height: 120rpx;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.visa-radio radio {
+  transform: scale(0.7);
+}
+
+.oneself {
+  width: 50%;
+}
+
+.agent {
+  width: 50%;
+}
+
+/* 机票  */
+
+.ticket {
+  background-color: #fff;
+  margin-bottom: 18rpx;
+}
+
+.ticket-text {
+  font-size: 26rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+}
+
+.ticket-radio {
+  width: 100%;
+  font-size: 22rpx;
+  line-height: 120rpx;
+  padding-left: 24rpx;
+}
+
+.ticket-radio radio {
+  transform: scale(0.7);
+}
+
+.ticket-oneself {
+  display: block;
+}
+
+.oneself-text {
+  font-size: 22rpx;
+  color: #cacaca;
+  line-height: 28rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+
+.ticket-agent {
+  display: block;
+}
+
+/* 其他需求  */
+
+.other {
+  background-color: #fff;
+  border-bottom: 1rpx solid #fff;
+  margin-bottom: 18rpx;
+}
+
+.other-text {
+  font-size: 26rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+}
+
+.text-box {
+  width: 95%;
+  margin: 16rpx auto 30rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.textarea {
+  font-size: 22rpx;
+  width: 95%;
+  height: 200rpx;
+  margin: 24rpx auto;
+}
+
+.placeholder {
+  color: #999;
+}
+
+/* 联系人信息  */
+
+.contact {
+  background-color: #fff;
+  border-bottom: 1rpx solid #fff;
+  margin-bottom: 18rpx;
+  padding-bottom: 30rpx;
+}
+
+.contact-text {
+  font-size: 26rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+}
+
+.contact-box {
+  line-height: 96rpx;
+  font-size: 24rpx;
+}
+
+.contact-box .left {
+  width: 116rpx;
+  text-align: center;
+  padding-left: 24rpx;
+  display: inline-block;
+}
+
+.contact-box input {
+  width: 420rpx;
+  padding-left: 24rpx;
+  border: 1rpx solid #cccccc;
+  border-radius: 6rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+.contact-box .will {
+  padding-left: 26rpx;
+  color: red;
+}
+
+/* footer submit  */
+.footer{
+  height: 297rpx;
+  padding-top: 1px;
+}
+.submit{
+  width: 85%;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 88rpx;
+  text-align: center;
+  background-color: #38b2c0;
+  border-radius: 10rpx;
+  margin: 105rpx auto 0;
+  box-shadow: 0 10rpx 30rpx #7cc0c9;
 }

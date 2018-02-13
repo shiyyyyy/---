@@ -23,7 +23,37 @@ Page({
       }
     })
   },
+  // 表单提交事件 
+  formSubmit: function(e) {
+    console.log(e)
+    console.log(this)
+  },
+  // 签证 单选 改变 事件
+  visa_radioChange: function(e) {
+    console.log(e)
+    console.log(this)
+  },
+  //  机票 单选 改变
+  ticket_radioChange: function(e) {
+    console.log(e)
+    console.log(this)
+  },
+  //  姓名 input 输入验证
+  input_name: function(e) {
+    var rex = /^([a-zA-Z0-9\u4e00-\u9fa5\·]{1,10})$/
+    var userName = e.detail.value
+    if (rex.test(userName) ) {
+      
+    }
+  },
+  // 电话 验证 
+  tel_input: function(e) {
 
+  },
+  // 身份证验证
+  card_input: function(e) {
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

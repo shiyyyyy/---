@@ -1,7 +1,82 @@
 <view class="body">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <component-ord-in response="{{response}}"></component-ord-in>
+    <!-- 签证选择  -->
+    <view class="visa">
+      <view class="visa-text">签证</view>
+      <view>
+        <radio-group class="visa-radio" bindchange="visa_radioChange">
+          <view class="oneself">
+            <radio value="visa_oneself" name="visa_oneself" />
+            <text>自理签证</text>
+          </view>
+          <view class="agent">
+            <radio value="visa_agent" name="visa_agent" checked="true" />
+            <text>带办签证</text>
+          </view>
+        </radio-group>
+      </view>
+    </view>
 
-  <component-ord-in response="{{response}}">
+    <!-- 机票  -->
+    <view class="ticket">
+      <view class="ticket-text">机票</view>
+      <view>
+        <radio-group class="ticket-radio" bindchange="ticket_radioChange">
+          <view class="ticket-oneself">
+            <radio value="ticket_oneself" name="ticket_oneself" />
+            <text>机票自理</text>
+            <view class="oneself-text">选择国际机票+目的地境内机票的组合，可能更优惠。如需专车接送机， 客服将与您确认航班信息
+            </view>
+          </view>
+          <view class="ticket-agent">
+            <radio value="ticket_agent" name="ticket_agent" checked="true" />
+            <text>代购机票</text>
+          </view>
+        </radio-group>
+      </view>
+    </view>
 
-  </component-ord-in>
-  
+    <!-- 其他需求  -->
+    <view class="other">
+      <view class="other-text">其他需求</view>
+      <view class="text-box">
+        <textarea class="textarea" name="textarea" placeholder="请输入您的其它需求，等待客服与您二次确认" placeholder-style="placeholder" maxlength="500"> </textarea>
+      </view>
+    </view>
+
+    <!-- 联系人信息  -->
+    <view class="contact">
+      <view class="contact-text">联系人信息</view>
+      <view class="contact-box">
+        <view class="name">
+          <text space="emsp" class="left">姓 名</text>
+          <input placeholder='请输入联系人姓名' bindblur='input_name' name="name" />
+          <text class="will">(必填)</text>
+          <view class="hidden">请输入正确姓名格式</view>
+        </view>
+        <view class="tel">
+          <text space="emsp" class="left">电 话</text>
+          <input placeholder='请输入联系人电话' name="tel" />
+          <text class="will">(必填)</text>
+          <view class="hidden"></view>
+        </view>
+        <view class="card">
+          <text space="emsp" class="left">身份证</text>
+          <input placeholder='请输入联系人身份证号码' name="card" />
+          <text class="will">(必填)</text>
+          <view class="hidden"></view>
+        </view>
+        <view class="weixin">
+          <text space="emsp" class="left">微 信</text>
+          <input placeholder='请输入联系人微信号' name="weixin" />
+          <text class="will"></text>
+        </view>
+      </view>
+    </view>
+    <!-- footer submit  -->
+    <view class='footer'>
+      <button formType="submit" class="submit">提交订单</button>
+    </view>
+  </form>
 </view>
