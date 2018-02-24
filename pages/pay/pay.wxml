@@ -1,0 +1,88 @@
+<view class="body">
+  <component-ord-in response="{{response}}">
+    <text class="serial">订单编号: {{response.SerialNumber}}</text>
+  </component-ord-in>
+
+  <!-- 价格明细  -->
+  <view class="price">
+    <view class="price-1">价格明细</view>
+    <view class="price-2 price-item">
+      <view class="left main-item">价格列表</view>
+      <view class="right main-item">金额</view>
+    </view>
+    <view class="price-3 price-item">
+      <view class="left main-item">旅游活动费</view>
+      <view class="right main-item">￥2333</view>
+    </view>
+    <view class="price-4 price-item">
+      <view class="left main-item">签证费</view>
+      <view class="right main-item">￥6666</view>
+    </view>
+    <view class="price-5 price-item">
+      <view class="left main-item">机票费</view>
+      <view class="right main-item">￥2342</view>
+    </view>
+    <view class="price-6 price-item">
+      <view class="left main-item">附加服务费</view>
+      <view class="right main-item">￥2343</view>
+    </view>
+    <view class="price-7 price-item">
+      <view class="left main-item">人均费用</view>
+      <view class="right main-item">￥99999</view>
+    </view>
+  </view>
+
+  <!-- 联系人-成人 -->
+  <view class="contact">
+    <view class="title">联系人-成人</view>
+    <view class="name">
+      <text space="emsp">姓 名</text>
+      <text class="contact-right">{{info.name}}</text>
+    </view>
+    <view class="tel">
+      <text space="emsp">电 话</text>
+      <text class="contact-right">{{info.tel}}</text>
+    </view>
+    <view class="card">
+      <text space="emsp">身份证</text>
+      <text class="contact-right">{{info.card}}</text>
+    </view>
+    <view class="weixin">
+      <text space="emsp">微 信</text>
+      <text class="contact-right">{{info.weixin}}</text>
+    </view>
+  </view>
+
+  <!-- 联系人-儿童 -->
+  <view class="contact">
+    <view class="title">联系人-儿童</view>
+    <view class="name">
+      <text space="emsp">姓 名</text>
+      <text class="contact-right">张三</text>
+    </view>
+    <view class="tel">
+      <text space="emsp">电 话</text>
+      <text class="contact-right">13888888888</text>
+    </view>
+    <view class="card">
+      <text space="emsp">身份证</text>
+      <text class="contact-right">23232323232323232323</text>
+    </view>
+    <view class="weixin">
+      <text space="emsp">微 信</text>
+      <text class="contact-right">qewrsdafa</text>
+    </view>
+  </view>
+
+  <!-- 其他需求  -->
+  <view class="other">  
+    <view class="other-title">其他需求</view>
+    <view class="other-content">{{info.textarea}}</view>
+  </view>
+
+  <!-- 底部支付  -->
+  <view class="pay">
+    <view class="amount">￥999999 </view>
+    <view class="payment" bindtap="pay">立即支付</view>
+  </view>
+</view>

@@ -1,0 +1,126 @@
+.body {
+  border-top: 1rpx solid rgba(255, 255, 255, 0);
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0);
+  background-color: #f1f5f8;
+}
+
+/* 定位 slot 的 text标签 */
+
+.serial {
+  font-size: 24rpx;
+  line-height: 64rpx;
+  position: absolute;
+  right: 24rpx;
+}
+
+/* 价格明细 */
+
+.price {
+  font-size: 24rpx;
+  line-height: 72rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+}
+
+.price-item {
+  border-top: 1rpx solid #f1f5f8;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-item {
+  display: inline-block;
+}
+
+.left {
+  color: #999;
+}
+
+.right {
+  width: 100rpx;
+}
+
+.price-1 {
+  font-size: 26rpx;
+  line-height: 64rpx;
+}
+
+.price-2 {
+  color: #999;
+}
+
+.price-7 .left {
+  color: #000;
+}
+
+.price-7 .right {
+  color: red;
+}
+
+/* 联系人  */
+
+.contact {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 72rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+}
+
+.title {
+  font-size: 26rpx;
+  color: black;
+}
+
+.contact-right {
+  margin-left: 48rpx;
+}
+
+/* 其他需求  */
+
+.other {
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  background-color: #fff;
+  margin-bottom: 32rpx;
+}
+
+.other-title {
+  font-size: 26rpx;
+  line-height: 64rpx;
+}
+
+.other-content {
+  height: 236rpx;
+  font-size: 22rpx;
+  color: #666;
+  border-top: 1rpx solid #f1f5f8;
+  text-indent: 2em;
+  padding: 36rpx 0;
+  overflow: auto;
+}
+
+/* 支付  */
+
+.pay {
+  font-size: 28rpx;
+  line-height: 98rpx;
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount {
+  flex: 1;
+}
+
+.payment {
+  color: #fefefe;
+  background-color: #e24949;
+  flex: 1;
+}

@@ -7,6 +7,7 @@ Page({
   data: {
     // 请求返回值
     response: [],
+    details: {},
     // 轮播图控件
     indicatorDots: true,
     autoplay: true,
@@ -24,7 +25,12 @@ Page({
     current_tab_index: 0,
     // tab切换 内容滑动时间
     duration: 500,
-
+    // 动态改变scroll高度
+    boxHeight: 100,
+    scrollHeight: 100,
+    // 图片/文字的展开 收起
+    openImg: "",
+    openText: ""
   },
   // picker 时间选择事件
   datechange: function (e) {
@@ -61,9 +67,54 @@ Page({
   scrolltolower: function (e) {
     console.log("到底了")
   },
+
+
+  // 点击图片盒子 展开 (不能左右滚动,所以只能笨方法)
+  c_img_box_tap: function (e) {
+    console.log(e)
+    this.setData({
+      openImg: e.currentTarget.dataset.idn
+    })
+  },
+  // 点击其他地方,图片收起
+  b_open_false: function () {
+    this.setData({
+      openImg: ""
+    })
+  },
+  // 点击图片 放大预览
+  b_img_c: function(e) {
+    console.log("预览")
+    console.log(e)
+    console.log(this)
+    var currentUrl = e.currentTarget.dataset.imgurls
+    var currentIndex = e.currentTarget.dataset.imgindex
+    wx.previewImage({
+      current: currentUrl[currentIndex], 
+      urls: currentUrl // 需要预览的图片http链接列表
+    })
+  },
+  // 点击 展开盒子 文本展开
+  c_text_tap: function (e) {
+    //  判断点击的 标签的 idn 是否相同 => 让每个相同标签显示不同
+    if (this.data.openText === e.currentTarget.dataset.idn) {
+      this.setData({
+        openText: ""
+      })
+    } else {
+      this.setData({
+        openText: e.currentTarget.dataset.idn
+      })
+    }
+  },
+
+
+
   // 加载触发 发送请求
   onLoad: function (event) {
     var that = this;
+
+    // 请求轮播图返回对象
     wx.request({
       url: "http://localhost/danpin.json",
       success: function (res) {
@@ -72,6 +123,52 @@ Page({
         })
       }
     })
-  },
 
+    // 请求路由详情
+    wx.request({
+      url: "http://localhost/details.json",
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          details: res.data
+        })
+      }
+    })
+
+
+    // 系统高度(屏幕)
+    var height = 0
+    // tab切换 高度
+    var boxHeight = 0
+    // 滚动条高度
+    var scrollHeight = 0
+
+    // 获取 系统信息 (高度)
+    wx.getSystemInfo({
+      success: function (res) {
+        height = res.windowHeight
+      }
+    });
+    // 获取节点信息
+    //创建节点选择器
+    var query = wx.createSelectorQuery();
+    //选择 节点
+    var tab = query.select('.tab').boundingClientRect()
+    var footer = query.select('.footer').boundingClientRect()
+    query.exec(function (res) {
+      //取高度
+      console.log(res)
+      console.log(res[0].height);
+      //  tab 切换 高度
+      boxHeight = height - res[1].height - 10
+      // 滚动条 scroll 高度
+      scrollHeight = boxHeight - res[0].height
+      // 设置 高度
+      that.setData({
+        boxHeight: boxHeight,
+        scrollHeight: scrollHeight
+      })
+    })
+  }
+  
 })

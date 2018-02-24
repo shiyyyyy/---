@@ -1,0 +1,30 @@
+/* pages/components/footerPay/footerPay.wxss */
+.footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 98rpx;
+  text-align: center;
+  margin-top: 23rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-left{
+  flex: 5;
+}
+image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+}
+.footer-center{
+  background-color: #ff9251;
+  flex: 9;
+}
+.footer-right{
+  background-color: #e24949;  
+  flex: 11;
+}

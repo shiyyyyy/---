@@ -1,9 +1,10 @@
 <!--pages/order/order.wxml-->
-<view class="body">
+<view class="body" bindtap='b_open_false'>
 
   <view>
     <component-swiper response="{{response}}"></component-swiper>
   </view>
+
   <!-- 选择时间和亮点介绍 -->
   <view class="main">
     <view class="select-date">
@@ -28,29 +29,81 @@
     </view>
   </view>
 
+
+
   <!-- tab 切换 -->
-  <view class='details'>
+  <view class='details' style='height:"{{boxHeight}}px"'>
     <!-- tab 标题  -->
     <view class='tab'>
       <view class='tab-item {{ current_tab_index == idn ? "active-tab-item" : "" }}' wx:for="{{tab}}" wx:for-index="idn" data-idn="{{idn}}" catchtap='c_tab_item_tap'>{{ item }}</view>
     </view>
     <!-- tab 内容  -->
-    <swiper duration="{{duration}}" circular="true" current="{{current_tab_index}}" bindchange="bindchange" style='height:1000rpx;'>
+    <swiper duration="{{duration}}" circular="true" current="{{current_tab_index}}" bindchange="bindchange" style='height: {{scrollHeight}}px;'>
       <!-- 行程详情  -->
       <swiper-item>
-        <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
-          <block wx:for="dfjwioehgsadlknsfhaljasdklfjweoifjaslfjwoeifjsldksfasdfadsfadfasdf">
-            <view>
-              1111{{item}}
+        <scroll-view scroll-y="true" lower-threshold="50" style='height:100%;'>
+          <!-- 循环details (res.data)  item=D1-D4 -->
+          <view class="for1" wx:for="{{details}}" wx:for-index="idn">
+            <!-- item=Dn 下面的对象 -->
+            <view class="for2" wx:for="{{item}}" wx:for-item="for2item">
+              <!--item=titlen 下面的对象  -->
+              <view class="s-title" hidden="{{!for2item.title}}" data-id="title">
+                <view class="title-time">{{for2item.title.time}}</view>
+                <view class="title-place">{{for2item.title.place}}</view>
+                <view class="left-box left-text" >
+                  {{idn}}
+                </view>
+              </view>
+
+              <view class="s-line" hidden="{{!for2item.line}}">
+                <view class="line-type">{{for2item.line.type}}</view>
+                <view class="line-time">{{for2item.line.time}}</view>
+                <view class="line-place">{{for2item.line.place}}</view>
+                <view class="left-box">
+                  <image class="left-img" src="../../images/icon/line.png"></image>
+                </view>
+              </view>
+
+              <view class="s-live" hidden="{{!for2item.live}}">
+                <view class="live-name">{{for2item.live.name}}</view>
+                <view class="live-contain">{{for2item.live.contain}}</view>
+                <view class="live-img {{openImg === idn? 'active-live':''}}" data-idn="{{idn}}" catchtap="c_img_box_tap">
+                  <image class="image" data-imgUrls="{{for2item.live.img}}" wx:for="{{for2item.live.img}}" src="{{item}}" wx:for-index="imgIndex" data-imgIndex="{{imgIndex}}"  bindtap='b_img_c'/>
+                </view>
+                <view class="left-box">
+                  <image class="left-img" src="../../images/icon/live.png"></image>
+                </view>
+              </view>
+
+              <view class="s-play" hidden="{{!for2item.play}}">
+                <view class="play-header">
+                  <view class="play-time">{{for2item.play.time}}</view>
+                  <view class="play-place">{{for2item.play.place}}</view>
+                  <view class="play-contain">{{for2item.play.contain}}</view>
+                </view>
+                <view class="play-img {{openImg === idn? 'active-play':''}}" data-idn="{{idn}}" catchtap="c_img_box_tap">
+                  <image class="image" data-imgUrls="{{for2item.play.img}}" wx:for="{{for2item.live.img}}" src="{{item}}" wx:for-index="imgIndex" data-imgIndex="{{imgIndex}}"  bindtap='b_img_c'/>
+                </view>
+                <view class="{{ openText === idn? 'active-play-introduce' : 'play-introduce'}}" data-idn="{{idn}}">
+                  {{for2item.play.introduce}}
+                  <view class="click-box" data-idn="{{idn}}" catchtap="c_text_tap" >
+                    {{ openText === idn ? "收起全部" : "展开全部" }}
+                    <image class="click-an-img {{ openText === idn ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
+                  </view>
+                </view>
+                <view class="left-box left-play-img">
+                  <image class="left-img" src="../../images/icon/play.png"></image>
+                </view>
+              </view>
             </view>
-          </block>
+          </view>
         </scroll-view>
       </swiper-item>
 
       <!-- 资费说明  -->
       <swiper-item>
         <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
-          <block wx:for="2222222222222222222222222222222222222222222222222222222222222">
+          <block wx:for="22222222222222222222222222222222222222222222222222222222222224">
             <view>
               222{{item}}
             </view>
@@ -61,7 +114,7 @@
       <!-- 签证说明  -->
       <swiper-item>
         <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
-          <block wx:for="3333333333333333333333333333333333333333333333333333333333">
+          <block wx:for="33333333333333333333333333333333333333333333333333333333334">
             <view>
               333{{item}}
             </view>
@@ -72,5 +125,16 @@
     </swiper>
 
   </view>
+
+  <!-- 底部 支付  -->
+  <!-- <component-footer-pay></component-footer-pay> -->
+  <view class="footer">
+    <view class="footer-left">
+      <image class="message-img" src="../../images/icon/message.png"></image>
+    </view>
+    <view class="footer-center">￥4680</view>
+    <view class="footer-right">立即预定</view>
+  </view>
+
 
 </view>

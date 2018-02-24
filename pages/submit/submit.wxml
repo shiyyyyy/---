@@ -1,18 +1,22 @@
 <view class="body">
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <form bindsubmit="formSubmit">
     <component-ord-in response="{{response}}"></component-ord-in>
     <!-- 签证选择  -->
     <view class="visa">
       <view class="visa-text">签证</view>
       <view>
-        <radio-group class="visa-radio" bindchange="visa_radioChange">
+        <radio-group class="visa-radio" name="visa">
           <view class="oneself">
-            <radio value="visa_oneself" name="visa_oneself" />
-            <text>自理签证</text>
+            <label>
+              <radio value="visa_oneself" />
+              <text>自理签证</text>
+            </label>
           </view>
           <view class="agent">
-            <radio value="visa_agent" name="visa_agent" checked="true" />
-            <text>带办签证</text>
+            <label>
+              <radio value="visa_agent" checked="true" />
+              <text>带办签证</text>
+            </label>
           </view>
         </radio-group>
       </view>
@@ -22,16 +26,20 @@
     <view class="ticket">
       <view class="ticket-text">机票</view>
       <view>
-        <radio-group class="ticket-radio" bindchange="ticket_radioChange">
+        <radio-group class="ticket-radio" name="ticket">
           <view class="ticket-oneself">
-            <radio value="ticket_oneself" name="ticket_oneself" />
-            <text>机票自理</text>
+            <label>
+              <radio value="ticket_oneself" />
+              <text>机票自理</text>
+            </label>
             <view class="oneself-text">选择国际机票+目的地境内机票的组合，可能更优惠。如需专车接送机， 客服将与您确认航班信息
             </view>
           </view>
           <view class="ticket-agent">
-            <radio value="ticket_agent" name="ticket_agent" checked="true" />
-            <text>代购机票</text>
+            <label>
+              <radio value="ticket_agent" checked="true" />
+              <text>代购机票</text>
+            </label>
           </view>
         </radio-group>
       </view>
@@ -51,21 +59,21 @@
       <view class="contact-box">
         <view class="name">
           <text space="emsp" class="left">姓 名</text>
-          <input placeholder='请输入联系人姓名' bindblur='input_name' name="name" />
+          <input placeholder='请输入联系人姓名' bindblur='name_input' name="name" />
           <text class="will">(必填)</text>
-          <view class="hidden">请输入正确姓名格式</view>
+          <view class="hidden" hidden="{{name_hidden}}">(请输入正确姓名格式)</view>
         </view>
         <view class="tel">
           <text space="emsp" class="left">电 话</text>
-          <input placeholder='请输入联系人电话' name="tel" />
+          <input placeholder='请输入联系人电话' bindblur='tel_input' name="tel" />
           <text class="will">(必填)</text>
-          <view class="hidden"></view>
+          <view class="hidden" hidden="{{tel_hidden}}">(请输入正确电话格式)</view>
         </view>
         <view class="card">
           <text space="emsp" class="left">身份证</text>
-          <input placeholder='请输入联系人身份证号码' name="card" />
+          <input placeholder='请输入联系人身份证号码' bindblur='card_input' name="card" />
           <text class="will">(必填)</text>
-          <view class="hidden"></view>
+          <view class="hidden" hidden="{{card_hidden}}">(请输入正确身份证格式)</view>
         </view>
         <view class="weixin">
           <text space="emsp" class="left">微 信</text>

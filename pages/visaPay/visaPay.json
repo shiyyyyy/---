@@ -2,6 +2,5 @@
   "usingComponents": {
     "component-swiper": "../components/swiper/swiper",
     "component-footer-pay": "../components/footerPay/footerPay"
-  },
-  "enablePullDownRefresh": true
+  }
 }

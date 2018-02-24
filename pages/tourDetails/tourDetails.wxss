@@ -1,7 +1,9 @@
 /* pages/order/order.wxss */
-page{
+
+page {
   height: 100%;
 }
+
 .body {
   /* background-color: #ccc;   */
   width: 100%;
@@ -80,7 +82,7 @@ page{
 /* details 详情  */
 
 .details {
-  height: 99.9%;
+  width: 100%;
 }
 
 .tab {
@@ -98,4 +100,194 @@ page{
   color: #38b2c0;
   padding-bottom: -4rpx;
   border-bottom: 4rpx solid #38b2c0;
+}
+
+/* 双重循环样式 */
+.for2 {
+  font-size: 26rpx;
+  padding-left: 88rpx;
+  padding-right: 24rpx;
+  border-bottom: 1px #e7e7e7 dashed;
+}
+
+/* title  */
+.s-title {
+  line-height: 87rpx;
+  border-bottom: 1px #e7e7e7 dashed;
+  display: flex;
+}
+.title-time {
+}
+.title-place {
+  margin-left: 80rpx;
+}
+
+/* line 行 */
+.s-line {
+  color: #333;
+  line-height: 46rpx;
+  padding-top: 22rpx;
+  padding-bottom: 22rpx;
+  border-bottom: 1px #e7e7e7 dashed;
+  display: flex;
+  flex-wrap: wrap;
+}
+.line-type {
+}
+.line-time {
+  margin-left: 48rpx;
+}
+.line-place {
+  width: 100%;
+  text-align: center;
+}
+
+/* live 住 生活  */
+.s-live {
+  width: 100%;
+  line-height: 50rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px #e7e7e7 dashed;
+  display: flex;
+  flex-wrap: wrap;
+}
+.live-name {
+  width: 100%;
+}
+.live-contain {
+  width: 100%;
+  font-size: 24rpx;
+  color: #666;
+}
+.live-img {
+  padding-top: 20rpx;
+  white-space: nowrap;
+}
+.active-live {
+  white-space: pre-wrap;
+}
+.live-img .image {
+  width: 280rpx;
+  height: 200rpx;
+  padding-right: 20rpx;  
+  padding-bottom: 20rpx;
+}
+
+/* play 游玩 */
+.s-play {
+  width: 100%;
+  line-height: 50rpx;
+  padding-top: 20rpx;
+  padding-bottom: 100rpx;
+  border-bottom: 1px #e7e7e7 dashed;
+  position: relative;
+}
+.play-header {
+  display: flex;
+  flex-wrap: wrap;
+}
+.play-place {
+  margin-left: 48rpx;
+}
+.play-contain {
+  width: 100%;
+  font-size: 24rpx;
+  color: #666;
+}
+.play-img {
+  padding-top: 20rpx;
+  white-space: nowrap;
+}
+.active-play {
+  white-space: pre-wrap;
+}
+.play-img .image {
+  width: 280rpx;
+  height: 200rpx;
+  padding-right: 20rpx;
+  padding-bottom: 20rpx;
+}
+.play-introduce {
+  font-size: 24rpx;
+  color: #666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden; 
+}
+.active-play-introduce{
+  font-size: 24rpx;
+  color: #666;
+}
+.click-box{
+  color: #6ac5d0;
+  position: absolute;
+  bottom: 30rpx;
+  right: 20rpx;
+}
+.click-an-img{
+  width: 24rpx;
+  height: 24rpx;
+}
+.active-an-img{
+  transform: rotate(180deg);
+}
+
+/* 左边图标样式  */
+.for2>view{
+  position: relative;
+}
+.left-box{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: -70rpx;
+}
+.left-img{
+  width: 40rpx;
+  height: 40rpx;
+}
+.left-play-img{
+  top: 18rpx;
+}
+.left-text{
+  font-size: 30rpx;
+  color: #38b2c0;
+}
+
+
+/* pages/components/footerPay/footerPay.wxss */
+
+.footer {
+  width: 100%;
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 98rpx;
+  text-align: center;
+  padding-top: 10px;
+  background-color: #f1f5f8;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left {
+  background-color: #fff;
+  flex: 5;
+}
+
+.message-img {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+}
+
+.footer-center {
+  background-color: #ff9251;
+  flex: 9;
+}
+
+.footer-right {
+  background-color: #e24949;
+  flex: 11;
 }

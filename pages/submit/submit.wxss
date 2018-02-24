@@ -28,7 +28,7 @@
 }
 
 .visa-radio radio {
-  transform: scale(0.7);
+  transform: scale(0.5);
 }
 
 .oneself {
@@ -61,7 +61,7 @@
 }
 
 .ticket-radio radio {
-  transform: scale(0.7);
+  transform: scale(.5);
 }
 
 .ticket-oneself {
@@ -170,4 +170,11 @@
   border-radius: 10rpx;
   margin: 105rpx auto 0;
   box-shadow: 0 10rpx 30rpx #7cc0c9;
+}
+
+.hidden{
+  font-size: 22rpx;
+  color: red;
+  line-height: 32rpx;
+  text-align: center;
 }

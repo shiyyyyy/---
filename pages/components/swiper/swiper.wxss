@@ -1,6 +1,7 @@
 /* pages/components/swiper/swiper.wxss */
 .swiper{
   padding-bottom: 50rpx;
+  background-color: #fff;
 }
 .slide{
   width: 100%;

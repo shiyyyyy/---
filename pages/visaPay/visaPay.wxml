@@ -1,0 +1,73 @@
+<!--pages/order/order.wxml-->
+<view class="body">
+  <!--头部搜索框 \ 点击按钮  -->
+  <view class="header">
+    <input class="search" placeholder="请输入关键字" placeholder-style="input-placeholder" confirm-type="search" bindinput="b_input_change" />
+    <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" bindtap="b_search_tap" />
+  </view>
+  <view>
+    <component-swiper response="{{response}}">
+
+    </component-swiper>
+  </view>
+
+  <!-- 套餐类型 -->
+  <view class="package">
+    <view class="package-title">套餐类型</view>
+    <view class="content">
+      <block wx:for="{{visa}}">
+        <view class="item" data-index='{{index}}' catchtap="c_item_tap">
+          <text>{{item.visa}}</text>
+          <text>￥{{item.money}}</text>
+          <image class="down-img {{currentIndex === index ? 'active-img' : ''}}" src="../../images/icon/down.png"></image>
+        </view>
+        <view class="text" hidden="{{currentIndex !== index}}" data-index='{{index}}'>
+          <view class="text-title">申请者需满足</view>
+          <view>一年需要纳税8.5W以上</view>
+          <view>面签: 否</view>
+          <view>办理时长: 6~8个工作日</view>
+          <view>签证类型: 单次, 多次</view>
+          <view>入境次数: 单次, 多次</view>
+          <view>停留天数: 15天, 30天, 90天</view>
+          <view>有效期: 90天, 3年, 5年</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 选择人数  -->
+  <view class="number">
+    <view class="num-title">选择人数</view>
+    <view class="num-content">
+      <view class="content-left">
+        <text space="emsp">总价:  ￥8848/人</text>
+      </view>
+      <view class="content-right">
+        <image class="right-img" src="../../images/icon/jian.png" />
+        <view class="right-center">{{n}}</view>
+        <image class="right-img" src="../../images/icon/jia.png" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 签证详情  -->
+  <view class="details">
+    <view class="details-title">签证详情</view>
+    <view class="details-content">
+      <view class="item-countries">签证国家: 日本</view>
+      <view class="item-place">签送地: 北京</view>
+      <view class="item-date">建议出行日期: 15天</view>
+      <view class="item-scope">
+        <text class="scope-title">受理范围:</text>
+        <text class="scope-child">
+        北京领区: 天津、河北、天津、河北、天津、河北、天津、河北、天津、河北、天津、河北、天津、河北
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部 支付  -->
+  <view class="footer-box">
+    <component-footer-pay></component-footer-pay>
+  </view>
+</view>

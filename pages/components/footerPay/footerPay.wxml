@@ -1,0 +1,8 @@
+<!--pages/components/footerPay/footerPay.wxml-->
+<view class="footer">
+  <view class="footer-left">
+    <image src="../../../images/icon/message.png"></image>
+  </view>
+  <view class="footer-center">￥4680</view>
+  <view class="footer-right">立即预定</view>
+</view>
