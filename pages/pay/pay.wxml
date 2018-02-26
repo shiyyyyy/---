@@ -1,7 +1,11 @@
 <view class="body">
-  <component-ord-in response="{{response}}">
-    <text class="serial">订单编号: {{response.SerialNumber}}</text>
-  </component-ord-in>
+  <view class="order">
+    <view class="order-info">订单信息</view>
+    <component-ord-in response="{{response}}">
+      <text class="serial">订单编号: {{response.SerialNumber}}</text>
+    </component-ord-in>
+  </view>
+
 
   <!-- 价格明细  -->
   <view class="price">
@@ -75,7 +79,7 @@
   </view>
 
   <!-- 其他需求  -->
-  <view class="other">  
+  <view class="other">
     <view class="other-title">其他需求</view>
     <view class="other-content">{{info.textarea}}</view>
   </view>

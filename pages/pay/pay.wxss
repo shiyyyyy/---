@@ -4,6 +4,18 @@
   background-color: #f1f5f8;
 }
 
+/* 订单信息  */
+.order{
+  font-size: 26rpx;
+  line-height: 67rpx;
+  background-color: #fff;
+  padding-bottom: 25rpx;
+  margin-top: 24rpx;
+  margin-bottom: 16rpx;
+}
+.order-info{
+  padding-left: 24rpx;
+}
 /* 定位 slot 的 text标签 */
 
 .serial {
@@ -11,6 +23,7 @@
   line-height: 64rpx;
   position: absolute;
   right: 24rpx;
+  top: 26rpx; 
 }
 
 /* 价格明细 */

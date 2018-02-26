@@ -1,6 +1,9 @@
 <view class="body">
   <form bindsubmit="formSubmit">
-    <component-ord-in response="{{response}}"></component-ord-in>
+    <view class="order">
+      <view class="order-info">订单信息</view>
+      <component-ord-in response="{{response}}"></component-ord-in>      
+    </view>
     <!-- 签证选择  -->
     <view class="visa">
       <view class="visa-text">签证</view>

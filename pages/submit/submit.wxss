@@ -4,6 +4,19 @@
   background-color: #f1f5f8;
 }
 
+/* 头部 订单信息  */
+.order{
+  font-size: 26rpx;
+  line-height: 67rpx;
+  background-color: #fff;
+  padding-bottom: 25rpx;
+  margin-top: 24rpx;
+  margin-bottom: 16rpx;
+}
+.order-info{
+  padding-left: 24rpx;
+}
+
 /* 签证 选择  */
 
 .visa {

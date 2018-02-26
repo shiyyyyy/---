@@ -1,12 +1,13 @@
 {
   "pages": [
+    "pages/order/order",
+    "pages/tourism/tourism",
     "pages/tourDetails/tourDetails",
     "pages/visaPay/visaPay",
     "pages/submit/submit",
     "pages/classification/classification",
     "pages/index/index",
     "pages/visa/visa",
-    "pages/tourism/tourism",
     "pages/pay/pay"
   ],
   "window": {
@@ -34,7 +35,7 @@
         "selectedIconPath": "./images/tabBar/selected-class-icon.jpg"
       },
       {
-        "pagePath": "pages/tourism/tourism",
+        "pagePath": "pages/order/order",
         "text": "订单",
         "iconPath": "./images/tabBar/order-icon.jpg",
         "selectedIconPath": "./images/tabBar/selected-order-icon.jpg"

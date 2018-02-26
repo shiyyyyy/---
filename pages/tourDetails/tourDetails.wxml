@@ -1,5 +1,5 @@
 <!--pages/order/order.wxml-->
-<view class="body" bindtap='b_open_false'>
+<view class="body">
 
   <view>
     <component-swiper response="{{response}}"></component-swiper>
@@ -67,9 +67,9 @@
               <view class="s-live" hidden="{{!for2item.live}}">
                 <view class="live-name">{{for2item.live.name}}</view>
                 <view class="live-contain">{{for2item.live.contain}}</view>
-                <view class="live-img {{openImg === idn? 'active-live':''}}" data-idn="{{idn}}" catchtap="c_img_box_tap">
+                <scroll-view class="live-img {{openImg === idn? 'active-live':''}}" scroll-x="true" data-idn="{{idn}}">
                   <image class="image" data-imgUrls="{{for2item.live.img}}" wx:for="{{for2item.live.img}}" src="{{item}}" wx:for-index="imgIndex" data-imgIndex="{{imgIndex}}"  bindtap='b_img_c'/>
-                </view>
+                </scroll-view>
                 <view class="left-box">
                   <image class="left-img" src="../../images/icon/live.png"></image>
                 </view>
@@ -81,9 +81,9 @@
                   <view class="play-place">{{for2item.play.place}}</view>
                   <view class="play-contain">{{for2item.play.contain}}</view>
                 </view>
-                <view class="play-img {{openImg === idn? 'active-play':''}}" data-idn="{{idn}}" catchtap="c_img_box_tap">
+                <scroll-view class="play-img {{openImg === idn? 'active-play':''}}" scroll-x="true" data-idn="{{idn}}">
                   <image class="image" data-imgUrls="{{for2item.play.img}}" wx:for="{{for2item.live.img}}" src="{{item}}" wx:for-index="imgIndex" data-imgIndex="{{imgIndex}}"  bindtap='b_img_c'/>
-                </view>
+                </scroll-view>
                 <view class="{{ openText === idn? 'active-play-introduce' : 'play-introduce'}}" data-idn="{{idn}}">
                   {{for2item.play.introduce}}
                   <view class="click-box" data-idn="{{idn}}" catchtap="c_text_tap" >

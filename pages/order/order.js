@@ -1,61 +1,176 @@
-//index.js
-//获取应用实例
-const util = require("../../utils/util.js");
-const app = getApp()
-
+// pages/order/order.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    // 请求返回值
-    response: [],
-    // 轮播图控件
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000,
-    current: true,
-    circular: true,
-    // 时间相关
-    select_date: util.getDay(new Date),
-    setting_date: util.getDay(new Date),
-    // 列表相关
-    li: ["南亚风情","众信","北青"],
-    // tab列表 && 样式下标
-    tab: ["行程详情","资费说明","签证说明"],
-    current_tab_index: 0
+    // 请求数据
+    response: {},
+    
+    travel:[],
+    copyTravel: [],
+    visa: [],
+    copyVisa:[],
+    // 旅行订单 签证订单显示隐藏
+    orderHidden: true,
+
+    // 订单 样式
+    currentOrder: true,
+    // 状态 样式
+    currentState: 0
+  },
+
+  // 点击 旅行订单
+  c_travel_tap: function(e) {
+    this.setData({
+      currentOrder: true,
+      orderHidden: true,
+      currentState: 0,
+      travel: this.data.copyTravel
+    })
+  },
+  // 点击签证订单
+  c_visa_tap:function(e) {
+    this.setData({
+      currentOrder: false,
+      orderHidden: false,
+      currentState: 0,
+      visa: this.data.copyVisa     
+    })
 
   },
-  // picker 时间选择事件
-  datechange: function(e) {
-    console.log(e);
+  //  点击 状态
+  c_state_tap:function(e) {
+    console.log(e)
+    // 状态 样式改变
+    var id = e.target.dataset.id
+    var name = this.data.orderHidden
+    console.log(name)
     this.setData({
-      select_date: e.detail.value
+      currentState: id
     })
-    var date = this.data.select_date
-    this.setData({
-      setting_date: util.getDay(new Date(new Date(date).getTime() + 86400000) ) 
-    })
+    // 改变状态 改变数据
+    switch(id){
+      case "0":
+      if( name ) {
+        this.setData({
+          travel: this.data.copyTravel
+        })
+      } else {
+        this.setData({
+          visa: this.data.copyVisa
+        })
+      } 
+        break;
+      case "1":
+        this.changeList(id, name)
+        break;
+      case "2":
+        this.changeList(id, name)
+        break;
+      case "3":
+        this.changeList(id, name)
+        break;
+      default:
+        console.log("switch报错 order.JS")
+    }
   },
-  filter: function (){
-    return "行程亮点"
-  },
-  // 加载触发 发送请求
-  onLoad: function (event) {
-    var that = this;
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this
     wx.request({
-      url: "http://localhost/danpin.json",
+      url: 'http://localhost/test.json',
       success: function (res) {
+        console.log(res)
         that.setData({
-          response: res.data
+          response: res.data[0]
         })
       }
     })
-  },
-  // tab 切换
-  c_tab_item_tap: function(e) {
-    console.log(e)
-    this.setData({
-      current_tab_index: e.currentTarget.dataset.idn
-    })
-  }
 
+    wx.request({
+      url: 'http://localhost/infoList.json',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          travel: res.data.travel,
+          copyTravel: res.data.travel,
+          visa: res.data.visa,
+          copyVisa: res.data.visa,
+        })
+      }
+    })
+    console.log(this)
+  },
+  // 改变状态数组
+  changeList: function (state, name){    
+    var arr = name ? this.data.copyTravel.concat() : this.data.copyVisa.concat()
+    var newArr = []
+    for(var i = 0, len = arr.length; i < len; i++){
+      if (arr[i] == state ){
+        newArr.push(arr[i])
+      }
+    }
+    if( name ) {
+      this.setData({
+        travel: newArr
+      })
+    } else {
+      this.setData({
+        visa: newArr
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
 })

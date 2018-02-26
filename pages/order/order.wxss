@@ -1,94 +1,108 @@
-/* pages/order/order.wxss */
 .body{
-  /* background-color: #ccc;   */
+   background-color: #f1f5f8; 
 }
 
-
-.main {
-  padding-bottom: 16rpx;
-   padding-top: 16rpx; 
+.header{
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+/* 顶部 订单  */
+.order{
+  font-size: 26rpx;
+  line-height: 80rpx;
+  border-top: 2rpx solid #f1f5f8;
+  border-bottom: 1rpx solid #f1f5f8;
+  background-color: #fff;  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.travel , .visa{
+  width: 280rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #fff;
+}
+.separated{
+  width: 2rpx;
+  height: 44rpx;
   background-color: #f1f5f8;
 }
+.active-order{
+  color: #0c95a5; 
+  border-bottom: 1rpx solid #0c95a5;
+}
 
-/* 选择日期  */
+/* 顶部  状态  */
+.state{
+  font-size: 24rpx;
+  line-height: 72rpx;
+  text-align: center;
+  margin-bottom: 16rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+  background-color: #fff;    
+  display: flex;
+  justify-content: space-around;
+}
+.state>view{
+   flex: 1; 
+}
+.active-state{
+  color: #0c95a5;
+}
 
-.select-date {
-  background-color: #fff;  
+/* 订单列表    */
+.info{
+  padding-top: 173rpx;
+}
+.info-box{
+  font-size: 26rpx;
+  line-height: 88rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
-.flex-item {
-  width: 49%;
-  text-align: center;
-  padding-left: 4rpx;
+.order-num{
+  padding-left: 24rpx;
+}
+.order-state{
+  padding-right: 24rpx;
+}
+.order-state-1{
+  color: #e24949;
+}
+.order-state-2{
+ color: #0c95a5;
+}
+.order-state-3{
+  color: #999999;
 }
 
-.select-text {
+.footer-box{
   width: 100%;
+  height: 88rpx;
+  margin-top: 20rpx;
+  border-top: 1rpx solid #f1f5f8;
+  position: relative;
+}
+.order-footer{
   font-size: 26rpx;
-  line-height: 88rpx;
-  padding-left: 34rpx;
-}
-
-.go, .come {
-  font-size: 24rpx;
-  line-height: 52rpx;
-}
-
-.picker .img, .picker .img {
-  width: 24rpx;
-  height: 24rpx;
-  padding-left: 19rpx;
-  padding-right: 15rpx;
-  vertical-align: sub;
-}
-
-.picker {
-  font-size: 20rpx;
-  line-height: 48rpx;
-  border: 2rpx solid #ccc;
+  line-height: 54rpx;
+  border: 1rpx solid #000;
   border-radius: 6rpx;
-  padding-left: 23rpx;
-  display: inline-block;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  position: absolute;
+  top: 16rpx;
+  right: 24rpx;
 }
-
-/* 行程亮点  */
-
-.bright {
-  background-color: #fff;  
-  
+.order-footer-state1{
+  color: #e24949;
+  border: 1rpx solid #e24949;
 }
-
-.trip {
-  font-size: 26rpx;
-  line-height: 88rpx;
-  padding-left: 34rpx;
-}
-
-.li {
-  font-size: 24rpx;
+.order-footer-state2{
   color: #333;
-  line-height: 36rpx;
-  padding-left: 34rpx;
-}
-
-/* details 详情  */
-.details{
-
-}
-.tab{
-  font-size: 28rpx;
-  line-height: 88rpx;
-  display: flex;
-  justify-content: space-around;
-}
-.tab-item{
-
-}
-.active-tab-item{
-  color: #38b2c0;
-  padding-bottom: -4rpx;
-  border-bottom: 4rpx solid #38b2c0;  
+  border: 1rpx solid #333;
 }

@@ -2,22 +2,14 @@
 
 /* pages/list/list.wxss */
 .body{
-  height: 252rpx;
-  margin-top: 24rpx;
-  margin-bottom: 16rpx;
+  height: 160rpx;
   background-color: #fff;
-}
-.title {
-  font-size: 26rpx;
-  line-height: 64rpx;
-  padding-left: 24rpx;
 }
 
 .order {
   border-top: 1px solid #f1f5f8;
   background-color: #f5f5f5;
   padding-left: 24rpx;
-  padding-top: 4rpx;
   display: flex;
   justify-content: space-between;
 }

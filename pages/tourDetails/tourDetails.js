@@ -69,24 +69,23 @@ Page({
   },
 
 
-  // 点击图片盒子 展开 (不能左右滚动,所以只能笨方法)
-  c_img_box_tap: function (e) {
-    console.log(e)
-    this.setData({
-      openImg: e.currentTarget.dataset.idn
-    })
-  },
+  // 点击图片盒子 展开 (不能左右滚动,所以只能笨方法) (现在不需要了,scroll-x可以用了)
+  // c_img_box_tap: function (e) {
+  //   console.log(e)
+  //   this.setData({
+  //     openImg: e.currentTarget.dataset.idn
+  //   })
+  // },
   // 点击其他地方,图片收起
-  b_open_false: function () {
-    this.setData({
-      openImg: ""
-    })
-  },
+  // b_open_false: function () {
+  //   this.setData({
+  //     openImg: ""
+  //   })
+  // },
+
   // 点击图片 放大预览
   b_img_c: function(e) {
     console.log("预览")
-    console.log(e)
-    console.log(this)
     var currentUrl = e.currentTarget.dataset.imgurls
     var currentIndex = e.currentTarget.dataset.imgindex
     wx.previewImage({

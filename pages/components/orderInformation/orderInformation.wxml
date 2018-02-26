@@ -1,7 +1,6 @@
 <!--pages/components/orderInformation/order information.wxml-->
 <view class="body">
 
-  <text bindtap="click" class="title">订单信息</text>
   <slot></slot>
   <view class="order" bindtap='b_list_item_tap'>
     <view class="left">
