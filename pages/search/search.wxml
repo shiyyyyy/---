@@ -1,13 +1,26 @@
-<!--pages/search/search.wxml-->
+<view class="body">
 
-<view class="search">
-  <view class="back">
-    <image class="back-img" src="../../images/icon/back.png" mode="aspectFill"></image>
+  <view class="header">
+    <view class="input-box">
+      <input class="search-input" placeholder="请输入关键字" focus="true" placeholder-style="input-placeholder" confirm-type="search" bindtap='b_input_tap' />
+    </view>
+    <view class="img-box">
+      <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" />
+    </view>
   </view>
-  <view class="input-box">
-    <input class="input" placeholder="请输入关键字" placeholder-class='placeholder'></input>
+
+
+  <view class="test" wx:for="{{data.result.result.list}}" bindtap="click">
+    <!-- <view wx:for="{{item.title}}"> -->
+    {{item.title}}
+    <!-- </view> -->
   </view>
-  <view class="icon">
-    <image class="search-img" src="../../images/icon/search-b.png" mode="aspectFill"></image>
-  </view>
+
+
+
+
+
+
+
+
 </view>

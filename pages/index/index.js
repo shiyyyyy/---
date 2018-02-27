@@ -52,13 +52,12 @@ Page({
       }
     })
   },
-  // input输入框改变事件
-  b_input_change: function (event) {
-    console.log(event.detail.value)
-  },
-  b_search_tap: function() {
-    console.log(event);
-    console.log("点击搜索")
+
+  // 点击input 事件 跳转页面
+  b_input_tap: function(e) {
+    wx.navigateTo({
+      url: '../search/search',
+    })
   },
   // 轮播图点击事件
   c_swiper_tag: function (event) {

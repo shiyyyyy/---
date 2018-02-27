@@ -1,0 +1,6 @@
+<view bindtap="click">
+  点击获取
+  <view>openId: {{openId || 1111}}</view>
+  <view>session_ley: {{session_ley || 2222}}</view>
+
+</view>

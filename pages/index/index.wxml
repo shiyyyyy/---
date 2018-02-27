@@ -4,8 +4,12 @@
 <view class="body">
   <!--头部搜索框 \ 点击按钮  -->
   <view class="header">
-    <input class="search" placeholder="请输入关键字" placeholder-style="input-placeholder" confirm-type="search" bindinput="b_input_change" />
-    <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" bindtap="b_search_tap" />
+    <view class="input-box">
+      <input class="search-input" placeholder="请输入关键字" focus="true" placeholder-style="input-placeholder" confirm-type="search" bindtap='b_input_tap' />
+    </view>
+    <view class="img-box">
+      <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" />
+    </view>
   </view>
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" circular="circular">

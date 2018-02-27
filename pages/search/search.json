@@ -1,4 +1,7 @@
 {
-  "component": true,
-  "usingComponents": {}
+"navigationBarBackgroundColor": "#000000",
+"navigationBarTextStyle": "white",
+"navigationBarTitleText": "北青旅行社",
+"backgroundColor": "#eeeeee",
+"backgroundTextStyle": "light"
 }

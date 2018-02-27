@@ -102,14 +102,21 @@ page {
   border-bottom: 4rpx solid #38b2c0;
 }
 
+/* 左边虚线  */
+
 /* 双重循环样式 */
+.for1{
+  overflow: hidden;
+}
 .for2 {
   font-size: 26rpx;
   padding-left: 88rpx;
   padding-right: 24rpx;
   border-bottom: 1px #e7e7e7 dashed;
 }
-
+.for2 > view {
+      padding-top: 1rpx;
+}
 /* title  */
 .s-title {
   line-height: 87rpx;
