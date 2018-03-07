@@ -1,21 +1,24 @@
 {
   "pages": [
+            "pages/depart/depart",
     "pages/index/index",
+    "pages/visa/visa",
+    "pages/visaPay/visaPay",
+    "pages/classification/classification",
+    "pages/consulting/consulting",
+    "pages/order/order",
     "pages/search/search",
     "pages/login/login",
-    "pages/order/order",
     "pages/tourism/tourism",
     "pages/tourDetails/tourDetails",
-    "pages/visaPay/visaPay",
     "pages/submit/submit",
-    "pages/classification/classification",
-    "pages/visa/visa",
     "pages/pay/pay"
+
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "北青旅行社",
+    "navigationBarTitleText": "亚美运通",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
   },
@@ -31,14 +34,14 @@
         "selectedIconPath": "./images/tabBar/selected-index-icon.jpg"
       },
       {
-        "pagePath": "pages/classification/classification",
-        "text": "分类",
-        "iconPath": "./images/tabBar/class-icon.jpg",
-        "selectedIconPath": "./images/tabBar/selected-class-icon.jpg"
+        "pagePath": "pages/consulting/consulting",
+        "text": "咨询",
+        "iconPath": "./images/tabBar/consulting.jpg",
+        "selectedIconPath": "./images/tabBar/selected-consulting.jpg"
       },
       {
         "pagePath": "pages/order/order",
-        "text": "订单",
+        "text": "询单",
         "iconPath": "./images/tabBar/order-icon.jpg",
         "selectedIconPath": "./images/tabBar/selected-order-icon.jpg"
       }

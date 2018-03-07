@@ -8,11 +8,19 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
 .main-item {
   background: #fff;
-  width: 345rpx;
+  width: 348rpx;
   flex: 1;
   margin-right: 10rpx;
   margin-top: 10rpx;

@@ -5,7 +5,7 @@
       <component-ord-in response="{{response}}"></component-ord-in>      
     </view>
     <!-- 签证选择  -->
-    <view class="visa">
+    <!-- <view class="visa">
       <view class="visa-text">签证</view>
       <view>
         <radio-group class="visa-radio" name="visa">
@@ -23,10 +23,10 @@
           </view>
         </radio-group>
       </view>
-    </view>
+    </view> -->
 
     <!-- 机票  -->
-    <view class="ticket">
+    <!-- <view class="ticket">
       <view class="ticket-text">机票</view>
       <view>
         <radio-group class="ticket-radio" name="ticket">
@@ -46,7 +46,7 @@
           </view>
         </radio-group>
       </view>
-    </view>
+    </view> -->
 
     <!-- 其他需求  -->
     <view class="other">
@@ -72,12 +72,12 @@
           <text class="will">(必填)</text>
           <view class="hidden" hidden="{{tel_hidden}}">(请输入正确电话格式)</view>
         </view>
-        <view class="card">
+        <!-- <view class="card">
           <text space="emsp" class="left">身份证</text>
           <input placeholder='请输入联系人身份证号码' bindblur='card_input' name="card" />
           <text class="will">(必填)</text>
           <view class="hidden" hidden="{{card_hidden}}">(请输入正确身份证格式)</view>
-        </view>
+        </view> -->
         <view class="weixin">
           <text space="emsp" class="left">微 信</text>
           <input placeholder='请输入联系人微信号' name="weixin" />
@@ -87,7 +87,7 @@
     </view>
     <!-- footer submit  -->
     <view class='footer'>
-      <button formType="submit" class="submit">提交订单</button>
+      <button formType="submit" class="submit">提交</button>
     </view>
   </form>
 </view>

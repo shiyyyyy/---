@@ -5,13 +5,9 @@ const app = getApp()
 
 Page({
   data: {
-    test:{
-      test: "我识字",
-      test1:{lalala: "22222"},
-      test2: "h呵呵呵呵\n你好啊>>>???"  
-    },
+
     // 请求返回值
-    res: {},
+    res: [],
     features: "",
     costCentains: "",
     notCentain: "",
@@ -30,8 +26,14 @@ Page({
     // 时间相关
     select_date: util.getDay(new Date),
     setting_date: util.getDay(new Date),
+    // tab列表 && 样式下标(标题和内容都要用)
+    tab: ["行程详情", "资费说明", "签证说明"],
     current_tab_index: 0,
-
+    // tab切换 内容滑动时间
+    duration: 500,
+    // 动态改变scroll高度
+    boxHeight: 100,
+    scrollHeight: 100,
     // 图片/文字的展开 收起
     openImg: "",
     openText: "",
@@ -43,8 +45,7 @@ Page({
     H_prompt: true,
     H_booking: true,
     H_shopping: true,
-    H_instructions: true,
-    H_schedule: false
+    H_instructions: true
 
   },
   // picker 时间选择事件
@@ -59,7 +60,38 @@ Page({
     })
   },
 
+  // tab 切换区
+  // tab 标题切换
+  c_tab_item_tap: function (e) {
+    console.log(e)
+    this.setData({
+      current_tab_index: e.currentTarget.dataset.idn
+    })
+  },
+  // swiper滑动改变事件
+  bindchange: function (e) {
+    console.log(e)
+    var that = this
+    that.setData({
+      current_tab_index: e.detail.current
+    })
+  },
+  // tab 内容 滚动到底边 事件 
+  scrolltolower: function (e) {
+    console.log("到底了")
+  },
 
+
+  // 点击图片 放大预览
+  b_img_c: function (e) {
+    console.log("预览")
+    var currentUrl = e.currentTarget.dataset.imgurls
+    var currentIndex = e.currentTarget.dataset.imgindex
+    wx.previewImage({
+      current: currentUrl[currentIndex],
+      urls: currentUrl // 需要预览的图片http链接列表
+    })
+  },
   // 点击 展开全部 文本展开
   c_text_tap: function (e) {
     //  判断点击的 标签的 index 是否相同 => 让每个相同标签显示不同
@@ -73,7 +105,7 @@ Page({
         openText: e.currentTarget.dataset.index
       })
     }
-    console.log((this.data.res['产品详情'].product_modular['产品特色']))
+    console.log((this.data.res['产品详情'].product_modular['产品特色'].split('\n')))
   },
 
   // 展开隐藏 费用包含
@@ -121,11 +153,6 @@ Page({
           H_instructions: !this.data.H_instructions
         })
         break
-      case 'schedule':
-        this.setData({
-          H_schedule: !this.data.H_schedule
-        })
-        break
       default:
     }
     console.log(this)
@@ -157,8 +184,54 @@ Page({
           shopping: resp.data.data['产品详情'].product_modular['购物场所'],
           instructions: resp.data.data['产品详情'].product_modular['自费项目']
         })
-        console.log(that.data.res)
       }
     })
+
+    // 请求路由详情
+    wx.request({
+      url: "http://localhost/details.json",
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          details: res.data
+        })
+      }
+    })
+
+
+    // 系统高度(屏幕)
+    var height = 0
+    // tab切换 高度
+    var boxHeight = 0
+    // 滚动条高度
+    var scrollHeight = 0
+
+    // 获取 系统信息 (高度)
+    wx.getSystemInfo({
+      success: function (res) {
+        height = res.windowHeight
+      }
+    });
+    // 获取节点信息
+    //创建节点选择器
+    var query = wx.createSelectorQuery();
+    //选择 节点
+    var tab = query.select('.tab').boundingClientRect()
+    var footer = query.select('.footer').boundingClientRect()
+    query.exec(function (res) {
+      //取高度
+      console.log(res)
+      console.log(res[0].height);
+      //  tab 切换 高度
+      boxHeight = height - res[1].height - 10
+      // 滚动条 scroll 高度
+      scrollHeight = boxHeight - res[0].height
+      // 设置 高度
+      that.setData({
+        boxHeight: boxHeight,
+        scrollHeight: scrollHeight
+      })
+    })
   }
+
 })

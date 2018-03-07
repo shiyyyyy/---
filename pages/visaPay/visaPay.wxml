@@ -6,7 +6,7 @@
     <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" bindtap="b_search_tap" />
   </view>
   <view>
-    <component-swiper response="{{response}}">
+    <component-swiper res="{{res}}">
 
     </component-swiper>
   </view>
@@ -40,12 +40,12 @@
     <view class="num-title">选择人数</view>
     <view class="num-content">
       <view class="content-left">
-        <text space="emsp">总价:  ￥8848/人</text>
+        <text space="emsp">总价:  ￥{{4680*n}}/人</text>
       </view>
       <view class="content-right">
-        <image class="right-img" src="../../images/icon/jian.png" />
+        <image class="right-img" src="../../images/icon/jian.png" data-change="del" bindtap='control_n'/>
         <view class="right-center">{{n}}</view>
-        <image class="right-img" src="../../images/icon/jia.png" />
+        <image class="right-img" src="../../images/icon/jia.png" data-change="add" bindtap='control_n'/>
       </view>
     </view>
   </view>

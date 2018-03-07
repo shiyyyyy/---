@@ -1,0 +1,229 @@
+<!--pages/order/order.wxml-->
+<view class="body">
+
+  <view>
+    <component-swiper res="{{res}}"></component-swiper>
+  </view>
+
+  <wxs module="br">
+    function br(str) {
+      if (str === "") return
+      var arr = str.split("\n")
+      return arr
+    }
+    module.exports.br = br
+  </wxs>
+  <!-- 选择时间和亮点介绍 -->
+  <view class="main">
+    <view class="select-date">
+      <view class="select-text">选择日期</view>
+      <view class="flex-item">
+        <text class="go">出团日期: </text>
+        <picker class="picker" mode="date" fields="day" start="now_date" bindchange="datechange">{{ select_date }}
+          <image class="img" src='../../images/icon/calendar.png' />
+        </picker>
+      </view>
+      <view class="flex-item">
+        <text class="come">回团日期: </text>
+        <picker class="picker" mode="date" fields="day">{{setting_date}}
+          <image class="img" src='../../images/icon/calendar.png' />
+        </picker>
+      </view>
+    </view>
+
+    <view class="bright">
+      <!-- <view wx:for="{{ br.br(cpts) }}"> {{ item }}</view> 测试 可用    -->
+      <view class="item-box" bindtap="b_centains_t" data-name="features">
+        产品特色
+        <image class="click-an-img {{ H_features ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{br.br(features)}}" hidden="{{H_features}}">{{ item }}</view>
+
+      <!-- 费用包含 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="costCentains">
+        费用包含
+        <image class="click-an-img {{ H_costCentains ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{br.br(costCentains)}}" hidden="{{H_costCentains}}">{{ item }}</view>
+
+      <!-- 费用不含 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="notCentain">
+        费用不含
+        <image class="click-an-img {{ H_notCentain ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(notCentain) }}" hidden="{{H_notCentain}}">{{ item }}</view>
+
+      <!-- 服务说明  -->
+      <view class="item-box" bindtap="b_centains_t" data-name="instructions">
+        服务说明
+        <image class="click-an-img {{ H_instructions ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(instructions) }}" hidden="{{H_instructions}}">{{index+1}}.{{ item }}</view>
+
+      <!-- 温馨提示 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="prompt">
+        温馨提示
+        <image class="click-an-img {{ H_prompt ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(prompt) }}" hidden="{{H_prompt}}">{{index+1}}.{{ item }}</view>
+
+      <!-- 预定须知 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="booking">
+        预定须知
+        <image class="click-an-img {{ H_booking ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(booking) }}" hidden="{{H_booking}}">{{index+1}}.{{ item }}</view>
+
+      <!-- 购物场所 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="shopping">
+        购物场所
+        <image class="click-an-img {{ H_shopping ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(shopping) }}" hidden="{{H_shopping}}">{{index+1}}.{{ item }}</view>
+
+      <!-- 自费项目 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="instructions">
+        自费项目
+        <image class="click-an-img {{ H_instructions ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(instructions) }}" hidden="{{H_instructions}}">{{index+1}}.{{ item }}</view>
+    </view>
+
+  </view>
+
+
+  <!-- tab 切换 -->
+  <view class='details' style='height:"{{boxHeight}}px"'>
+    <!-- tab 标题  -->
+    <view class='tab'>
+      <view class='tab-item {{ current_tab_index == idn ? "active-tab-item" : "" }}' wx:for="{{tab}}" wx:for-index="idn" data-idn="{{idn}}" catchtap='c_tab_item_tap'>{{ item }}</view>
+    </view>
+    <!-- tab 内容  -->
+    <swiper duration="{{duration}}" circular="true" current="{{current_tab_index}}" bindchange="bindchange" style='height: {{scrollHeight}}px;'>
+      <!-- 产品特色  -->
+      <swiper-item>
+        <scroll-view scroll-y="true" lower-threshold="50" style='height:100%;'>
+          <!-- 循环details (res.data)  item=D1-D4 -->
+          <view class="for1" wx:for="{{res['产品详情'].product_modular['行程详情']}}">
+            <!-- item=Dn 下面的对象 -->
+            <!-- <view class="for2" wx:for="{{item}}" wx:for-item="for2item"> -->
+            <!--item=titlen 下面的对象  -->
+            <view class="title" hidden="{{!item.title}}" data-id="title">
+              {{ item.title }}
+              <view class="left-text left-box">
+                D{{index + 1}}
+              </view>
+            </view>
+
+            <view class="description">
+              <view class="left-box">
+                <image class="left-img" src="../../images/icon/play.png"></image>
+              </view>
+              <view class="{{ openText === index? 'active-description-text' : 'description-text'}}" data-index="{{index}}">
+                {{item.description}}
+                <view class="click-box" data-index="{{index}}" catchtap="c_text_tap">
+                  {{ openText === index ? "收起全部" : "展开全部" }}
+                  <image class="click-an-img {{ openText === index ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
+                </view>
+              </view>
+            </view>
+
+            <view class="meal" style="{{item.accommodation? '':'border:none;'}}">
+              <view class="breakfast">早餐： {{item.breakfast === true? "包含":"不含"}}</view>
+              <view class="lunch">午餐： {{item.lunch === true? "包含":"不含"}}</view>
+              <view class="dinner">晚餐： {{item.dinner === true? "包含":"不含"}}</view>
+              <view class="left-box">
+                <image class="left-img" src="../../images/icon/lunch.png"></image>
+              </view>
+            </view>
+
+            <view class="item.accommodation" style="{{item.traffic_comment? '':'border:none;'}}">
+              酒店：{{item.accommodation}}
+              <view class="left-box">
+                <image class="left-img" src="../../images/icon/live.png"></image>
+              </view>
+            </view>
+
+            <view class="traffic_comment" style="border:none">
+              交通：{{item.traffic_comment}}
+              <view class="left-box">
+                <image class="left-img" src="../../images/icon/line.png"></image>
+              </view>
+            </view>
+            <!-- <view class="s-line" hidden="{{!for2item.line}}">
+                <view class="line-type">{{for2item.line.type}}</view>
+                <view class="line-time">{{for2item.line.time}}</view>
+                <view class="line-place">{{for2item.line.place}}</view>
+                
+              </view>
+
+              <view class="s-live" hidden="{{!for2item.live}}">
+                <view class="live-name">{{for2item.live.name}}</view>
+                <view class="live-contain">{{for2item.live.contain}}</view>
+                <scroll-view class="live-img {{openImg === idn? 'active-live':''}}" scroll-x="true" data-idn="{{idn}}">
+                  <image class="image" data-imgUrls="{{for2item.live.img}}" wx:for="{{for2item.live.img}}" src="{{item}}" wx:for-index="imgIndex" data-imgIndex="{{imgIndex}}" bindtap='b_img_c' />
+                </scroll-view>
+                
+              </view>
+
+              <view class="s-play" hidden="{{!for2item.play}}">
+                <view class="play-header">
+                  <view class="play-time">{{for2item.play.time}}</view>
+                  <view class="play-place">{{for2item.play.place}}</view>
+                  <view class="play-contain">{{for2item.play.contain}}</view>
+                </view>
+                <scroll-view class="play-img {{openImg === idn? 'active-play':''}}" scroll-x="true" data-idn="{{idn}}">
+                  <image class="image" data-imgUrls="{{for2item.play.img}}" wx:for="{{for2item.live.img}}" src="{{item}}" wx:for-index="imgIndex" data-imgIndex="{{imgIndex}}" bindtap='b_img_c' />
+                </scroll-view>
+                <view class="{{ openText === idn? 'active-play-introduce' : 'play-introduce'}}" data-idn="{{idn}}">
+                  {{for2item.play.introduce}}
+                  <view class="click-box" data-idn="{{idn}}" catchtap="c_text_tap">
+                    {{ openText === idn ? "收起全部" : "展开全部" }}
+                    <image class="click-an-img {{ openText === idn ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
+                  </view>
+                </view>
+                
+              </view> -->
+            <!-- </view> -->
+          </view>
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 资费说明  -->
+      <swiper-item>
+        <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
+          <block wx:for="22222222222222222222222222222222222222222222222222222222222224">
+            <view>
+              222{{item}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 签证说明  -->
+      <swiper-item>
+        <scroll-view scroll-y="true" lower-threshold="50" style='height: 100%;'>
+          <block wx:for="33333333333333333333333333333333333333333333333333333333334">
+            <view>
+              333{{item}}
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+
+    </swiper>
+
+  </view>
+
+  <!-- 底部 支付  -->
+  <!-- <component-footer-pay></component-footer-pay> -->
+  <view class="footer">
+    <view class="footer-left">
+      <image class="message-img" src="../../images/icon/message.png"></image>
+    </view>
+    <view class="footer-center">￥4680</view>
+    <view class="footer-right" catchtap="c_pay_t">立即预定</view>
+  </view>
+
+
+</view>

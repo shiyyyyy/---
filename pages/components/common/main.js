@@ -16,9 +16,13 @@ Component({
 
   /* 组件的方法列表 */
   methods: {
-    c_main_item_tap: function(event) {
+    c_main_item_tap: function(e) {
       console.log(this);
+      console.log(e);
       console.log("点击main-item")
+      wx.navigateTo({
+        url: "../visaPay/visaPay",
+      })
     }
   },
   onLoad: function (event) {

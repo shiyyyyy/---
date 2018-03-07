@@ -6,8 +6,8 @@ Page({
    */
   data: {
     // 请求数据
-    response: {},
-    
+    response: [],
+    data: {},
     travel:[],
     copyTravel: [],
     visa: [],

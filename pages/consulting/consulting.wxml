@@ -1,0 +1,57 @@
+<view class="body">
+  <view class="header">
+    <image src="../../images/2.jpg"></image>
+  </view>
+
+
+  <view class="main">
+    <view class="name">亚美运通国际旅行社</view>
+    <view class="address">
+      <view>地址: 北京市朝阳区新源里16号琨莎中心3座</view>
+      <view class="add-img-box" bindtap="clickAddress">
+        <image src="../../images/icon/address.png" />
+      </view>
+    </view>
+    <view class="scroll">
+      <scroll-view class="scroll-view" scroll-x style="width: 100%">
+        <view class="scroll-item" wx:for="{{imgUrls}}">
+          <image src="{{item}}"></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class="weixin">
+    <view class="left">
+      <view class="img-box">
+        <image src="../../images/icon/weixin.png"></image>
+      </view>
+      <view class="text">
+        <view class="center-title">微信咨询</view>
+        <text class="center-text">使用微信在线咨询客服</text>
+      </view>
+    </view>
+
+    <view class="right">
+      <button open-type="contact" size='mini'>在线咨询</button>
+    </view>
+  </view>
+
+  <view class="tel">
+    <view class="left">
+      <view class="img-box">
+        <image src="../../images/icon/tel.png"></image>
+      </view>
+      <view class="text">
+        <view class="center-title">联系电话</view>
+        <text class="center-text">84683388</text>
+      </view>
+    </view>
+
+    <view class="right">
+      <button size='mini' bindtap="callPhone">电话咨询</button>
+    </view>
+  </view>
+
+
+</view>

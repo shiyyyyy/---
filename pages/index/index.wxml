@@ -36,7 +36,7 @@
       <view class="visa-header">
         <view class="visa-header-text">签证服务</view>
         <view class="visa-header-box" catchtap='c_more_tap'>
-          <text class="visa-header-box-more">更多</text>
+          <navigator class="visa-header-box-more" url='../visa/visa'>更多</navigator>
           <image class="visa-header-box-img" src="../../images/icon/more.png"></image>
         </view>
       </view>
@@ -51,6 +51,13 @@
   </view>
   <!-- 列表  -->
   <view>
+    <view class="tourism-header">
+      <view class="tourism-header-text">旅游景点</view>
+      <view class="tourism-header-box" catchtap='c_more_tap'>
+        <navigator class="tourism-header-box-more" url='../tourism/tourism'>更多</navigator>
+        <!-- <image class="tourism-header-box-img" src="../../images/icon/more.png"></image> -->
+      </view>
+    </view>
     <component-list data="{{response}}"></component-list>
   </view>
 </view>

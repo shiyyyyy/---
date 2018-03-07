@@ -1,0 +1,46 @@
+<view class="calendar" bindtap='tap'>
+  <view class="calendar-panel" bindtap="changeMonth">
+    <view class="prevImg">
+      <image src="../../images/icon/next.png" data-name="prev" />
+    </view>
+    <view class="time">{{calendar.year}}年{{calendar.month}}月{{calendar.date}}日</view>
+    <view class="nextImg">
+      <image src="../../images/icon/next.png" data-name="next" />
+    </view>
+  </view>
+  <view class="calendar-header">
+    <view>日</view>
+    <view>一</view>
+    <view>二</view>
+    <view>三</view>
+    <view>四</view>
+    <view>五</view>
+    <view>六</view>
+  </view>
+
+  <wxs module="split">
+    function split(data){
+      var newData = data.split(".")
+      return newData[0]
+    }
+    module.exports.split = split
+  </wxs>
+  <view class="calendar-body">
+    <block wx:for="{{calendar.weeks}}" wx:for-item="weeks">
+      <view class="calender-body-date-week">
+        <block wx:for="{{weeks}}" wx:for-item="day">
+          <view class="date {{calendar.month == day.month? '' : 'other-month'}} {{day.date==calendar.date && day.month == active ?'avtive-date': ''}}">
+            <view class="day">
+              {{day.date}}
+            </view>
+
+            <view class="stage" wx:for="{{ moneyCalendar }}" wx:if="{{item.date == day.date && item.month == day.month}}" bindtap="selectDay" data-activeDay="{{day}}" data-idn="{{index}}">
+               ￥{{ split.split( res[index].peer_price) }} 
+            </view>
+          </view>
+
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

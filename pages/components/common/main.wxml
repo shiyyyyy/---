@@ -16,10 +16,10 @@
     <view class="footer">
       <text class="text">{{item.Introduction}}</text>
       <!-- 绑定链接的小标签  注意 navigator还没添加跳转方式-->
-      <navigator catchtap="no-bubbling" class="activity" url="" wx:if="{{item.activity.promotion}}">{{item.activity.promotion}}</navigator>
-      <navigator catchtap="no-bubbling" class="activity countries" url="" wx:if="{{item.activity.countries}}">{{item.activity.countries}}</navigator>
-      <navigator catchtap="no-bubbling" class="activity" url="" wx:if="{{item.activity.boundaries}}">{{item.activity.boundaries}}</navigator>
-      <navigator catchtap="no-bubbling" class="activity promote" url="" wx:if="{{item.activity.promote}}">{{item.activity.promote}}</navigator>
+      <view catchtap="no-bubbling" class="activity"   wx:if="{{item.activity.promotion}}">{{item.activity.promotion}}</view>
+      <view catchtap="no-bubbling" class="activity countries" url="" wx:if="{{item.activity.countries}}">{{item.activity.countries}}</view>
+      <view catchtap="no-bubbling" class="activity" url="" wx:if="{{item.activity.boundaries}}">{{item.activity.boundaries}}</view>
+      <view catchtap="no-bubbling" class="activity promote" url="" wx:if="{{item.activity.promote}}">{{item.activity.promote}}</view>
     </view>
   </view>
 </view>

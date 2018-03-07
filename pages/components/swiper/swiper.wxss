@@ -19,6 +19,7 @@
 
 .money {
   font-size: 30rpx;
+  color: red;
   line-height: 90rpx;
   margin-left: 30rpx;
 }

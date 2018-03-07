@@ -3,19 +3,21 @@
 .search {
   height: 80rpx;
   border-bottom: 1px solid #e7e7e7;
+  padding: 0 60rpx;
+
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 /* 后退按键  */
-.back{
+/* .back{
   margin: 12rpx 0 0 20rpx;
-}
-.back-img {
+} */
+/* .back-img {
   width: 44rpx;
   height: 44rpx;
-}
+} */
 
 /* 输入框  */
 .input {

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "订单支付",
+  "navigationBarTitleText": "美亚运通",
   "usingComponents": {
     "component-ord-in": "../components/orderInformation/orderInformation"
   }

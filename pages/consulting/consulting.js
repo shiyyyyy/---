@@ -1,37 +1,12 @@
-// pages/logs/index.js
+// pages/order/order.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    response: []
+    imgUrls: ["../../images/2.jpg", "../../images/2.jpg", "../../images/2.jpg", "../../images/2.jpg", "../../images/2.jpg"]
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'http://localhost/test.json',
-      data: {},
-      method: 'GET',
-      success: function (res) {
-        // success
-        that.setData({
-          response: res.data
-        })
-        console.log(that.data.response)
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -78,6 +53,26 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+  // 店家电话咨询按钮
+  callPhone: function () {
+    wx.makePhoneCall({
+      phoneNumber: '84683388',
+    })
+  },
+
+  // 点击地址
+  clickAddress: function () {
+    var latitude = 39.94825 // 纬度
+    var longitude = 116.4503  // 经度
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+      scale: 28,
+      name: "南亚风情",
+      address: "北京市朝阳区新源里16号琨莎中心A座3楼(近昆仑饭店)",
+    })
 
   }
 })

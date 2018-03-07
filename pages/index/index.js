@@ -27,30 +27,30 @@ Page({
       { img: "../../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
       { img: "../../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" },
       { img: "../../../images/1.jpg", money: 4999, transport: "北京送签", text: "日本签证,旅游三年,多次往返,我要显示省略号", promotion: "元旦春节促销", countries: "日本", boundaries: "境外游" }],
-    response:[]
+    response: []
   },
 
   // 加载触发 发送请求
   onLoad: function (option) {
     var that = this
-    wx.request({
-      url: 'http://localhost/test.json',
-      data: {},
-      method: 'GET',
-      success: function (res) {
-        // success
-        that.setData({
-          response: res.data
-        })
-        console.log(that.data.response)
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
+    // wx.request({
+    //   url: 'http://localhost/test.json',
+    //   data: {},
+    //   method: 'GET',
+    //   success: function (res) {
+    //     // success
+    //     that.setData({
+    //       response: res.data
+    //     })
+    //     console.log(that.data.response)
+    //   },
+    //   fail: function () {
+    //     // fail
+    //   },
+    //   complete: function () {
+    //     // complete
+    //   }
+    // })
   },
 
   // 点击input 事件 跳转页面

@@ -9,7 +9,7 @@ Page({
     // 控制 hidden 显示隐藏(联系人信息)
     name_hidden: true,
     tel_hidden: true,
-    card_hidden: true,
+    // card_hidden: true,
     weixin_hidden: true
   },
 
@@ -89,21 +89,21 @@ Page({
     console.log(this.data.tel_hidden)
   },
   // 身份证验证
-  card_input: function(e) {
-    var rex = /(^\d{15}$)|(^\d{17}([0-9]|X)$)/
-    var card = e.detail.value
-    console.log("card_input失焦-判断输入是否符合")
-    if (rex.test(card)) {
-      this.setData({
-        card_hidden: true
-      })
-    } else {
-      this.setData({
-        card_hidden: false
-      })
-    }
-    console.log(this.data.card_hidden)
-  },
+  // card_input: function(e) {
+  //   var rex = /(^\d{15}$)|(^\d{17}([0-9]|X)$)/
+  //   var card = e.detail.value
+  //   console.log("card_input失焦-判断输入是否符合")
+  //   if (rex.test(card)) {
+  //     this.setData({
+  //       card_hidden: true
+  //     })
+  //   } else {
+  //     this.setData({
+  //       card_hidden: false
+  //     })
+  //   }
+  //   console.log(this.data.card_hidden)
+  // },
   // 判断验证是否符合正则,设置hidden显示隐藏
 
   

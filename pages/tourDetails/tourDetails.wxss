@@ -5,12 +5,14 @@ page {
 }
 
 .body {
-  /* background-color: #ccc;   */
+  /* background-color: #ccc;    */
   width: 100%;
   height: 100%;
 }
 
 .main {
+  font-size: 26rpx;
+  line-height: 72rpx;
   padding-bottom: 16rpx;
   padding-top: 16rpx;
   background-color: #f1f5f8;
@@ -60,9 +62,11 @@ page {
   display: inline-block;
 }
 
-/* 行程亮点  */
+/* 产品特色  */
 
 .bright {
+  padding-top: 1rpx;
+  padding-bottom: 16rpx;
   background-color: #fff;
 }
 
@@ -72,12 +76,40 @@ page {
   padding-left: 34rpx;
 }
 
-.li {
+.trip-text {
   font-size: 24rpx;
   color: #333;
   line-height: 36rpx;
   padding-left: 34rpx;
 }
+/* 展开列 */
+.text-box{
+  font-size: 26rpx;
+  line-height: 72rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  padding-bottom: 10rpx;
+  background-color: #fff;
+}
+.item-box{
+  text-indent: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 16rpx; 
+  padding-right: 20rpx;
+  background-color: #f6f6f6;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-item{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+
 
 /* details 详情  */
 
@@ -215,23 +247,53 @@ page {
   padding-right: 20rpx;
   padding-bottom: 20rpx;
 }
-.play-introduce {
+
+
+
+
+/* new 详情 !!!!!!!!!!!!!!!!  */
+.for1{
+  font-size: 26rpx;
+  line-height: 72rpx;
+  background-color: #fff;
+  border-bottom: 2rpx dashed #38b2c0;  
+}
+.for1 > view {
+  margin-left: 88rpx;
+  margin-right: 24rpx;
+  border-bottom: 2rpx dashed #38b2c0;
+  position: relative;
+}
+.description{
+  padding-bottom: 80rpx;
+}
+.description-text{
   font-size: 24rpx;
+  line-height: 48rpx;
   color: #666;
+  padding-top: 12rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   overflow: hidden; 
 }
-.active-play-introduce{
+.text-item {
   font-size: 24rpx;
+  color: #333;
+  line-height: 36rpx;
+  padding-left: 34rpx;
+}
+.active-description-text{
+  font-size: 24rpx;
+  line-height: 48rpx;
   color: #666;
+  padding-top: 12rpx;  
 }
 .click-box{
   color: #6ac5d0;
   position: absolute;
-  bottom: 30rpx;
-  right: 20rpx;
+  bottom: 20rpx;
+  right: 10rpx;
 }
 .click-an-img{
   width: 24rpx;
@@ -240,28 +302,29 @@ page {
 .active-an-img{
   transform: rotate(180deg);
 }
-
 /* 左边图标样式  */
-.for2>view{
-  position: relative;
-}
 .left-box{
   width: 40rpx;
   height: 40rpx;
   position: absolute;
   left: -70rpx;
+  top: 16rpx;
 }
 .left-img{
   width: 40rpx;
   height: 40rpx;
+  vertical-align: top;
 }
-.left-play-img{
-  top: 18rpx;
+.title{
+  position: relative;
 }
 .left-text{
   font-size: 30rpx;
   color: #38b2c0;
+  top: 0;
 }
+
+
 
 
 /* pages/components/footerPay/footerPay.wxss */

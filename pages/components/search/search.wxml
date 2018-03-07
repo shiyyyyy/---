@@ -1,9 +1,9 @@
 <!--pages/search/search.wxml-->
 
 <view class="search">
-   <view class="back" bindtap="back">
+   <!-- <view class="back" bindtap="back">
     <image class="back-img" src="../../../images/icon/back.png" mode="aspectFill"></image>
-  </view> 
+  </view>  -->
   <view class="input-box">
     <input class="input" placeholder="请输入关键字" placeholder-class='placeholder' bindinput="input_change" />
   </view>

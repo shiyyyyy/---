@@ -1,8 +1,8 @@
 <view class="body">
   <view class="order">
-    <view class="order-info">订单信息</view>
+    <view class="order-info">咨询信息</view>
     <component-ord-in response="{{response}}">
-      <text class="serial">订单编号: {{response.SerialNumber}}</text>
+      <text class="serial">询单编号: {{response.SerialNumber}}</text>
     </component-ord-in>
   </view>
 
@@ -16,29 +16,29 @@
     </view>
     <view class="price-3 price-item">
       <view class="left main-item">旅游活动费</view>
-      <view class="right main-item">￥2333</view>
+      <view class="right main-item">￥998</view>
     </view>
     <view class="price-4 price-item">
       <view class="left main-item">签证费</view>
-      <view class="right main-item">￥6666</view>
+      <view class="right main-item">1500</view>
     </view>
     <view class="price-5 price-item">
       <view class="left main-item">机票费</view>
-      <view class="right main-item">￥2342</view>
+      <view class="right main-item">￥2300</view>
     </view>
     <view class="price-6 price-item">
       <view class="left main-item">附加服务费</view>
-      <view class="right main-item">￥2343</view>
+      <view class="right main-item">￥200</view>
     </view>
     <view class="price-7 price-item">
       <view class="left main-item">人均费用</view>
-      <view class="right main-item">￥99999</view>
+      <view class="right main-item">￥3998</view>
     </view>
   </view>
 
   <!-- 联系人-成人 -->
   <view class="contact">
-    <view class="title">联系人-成人</view>
+    <view class="title">联系人</view>
     <view class="name">
       <text space="emsp">姓 名</text>
       <text class="contact-right">{{info.name}}</text>
@@ -47,10 +47,10 @@
       <text space="emsp">电 话</text>
       <text class="contact-right">{{info.tel}}</text>
     </view>
-    <view class="card">
+    <!-- <view class="card">
       <text space="emsp">身份证</text>
       <text class="contact-right">{{info.card}}</text>
-    </view>
+    </view> -->
     <view class="weixin">
       <text space="emsp">微 信</text>
       <text class="contact-right">{{info.weixin}}</text>
@@ -58,7 +58,7 @@
   </view>
 
   <!-- 联系人-儿童 -->
-  <view class="contact">
+  <!-- <view class="contact">
     <view class="title">联系人-儿童</view>
     <view class="name">
       <text space="emsp">姓 名</text>
@@ -76,7 +76,7 @@
       <text space="emsp">微 信</text>
       <text class="contact-right">qewrsdafa</text>
     </view>
-  </view>
+  </view> -->
 
   <!-- 其他需求  -->
   <view class="other">
@@ -86,7 +86,7 @@
 
   <!-- 底部支付  -->
   <view class="pay">
-    <view class="amount">￥999999 </view>
+    <view class="amount">￥3998 </view>
     <view class="payment" bindtap="pay">立即支付</view>
   </view>
 </view>

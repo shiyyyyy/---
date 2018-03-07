@@ -1,0 +1,92 @@
+/* 日历面板  */
+
+.calendar-panel {
+  font-size: 26rpx;
+  line-height: 72rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prevImg, .nextImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.prevImg {
+  transform: rotate(180deg);
+}
+
+.calendar-panel image {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: top;
+}
+
+.time {
+}
+
+.calendar-header {
+  font-size: 28rpx;
+  line-height: 72rpx;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+  display: flex;
+  justify-content: space-around;
+}
+
+.calendar-header view {
+  width: 75rpx;
+  text-align: center;
+}
+
+.calendar-body {
+  margin-top: 16rpx;
+  width: 100%;
+}
+
+.calender-body-date-week {
+  text-align: right;
+  display: flex;
+  justify-content: space-around;
+}
+
+.date {
+  width: 75rpx;
+  height: 80rpx;
+  position: relative;
+}
+.day{
+  width: 50rpx;
+  text-align: right;
+  margin-left: 7rpx;
+}
+
+.stage {
+  width: 100%;
+  height: 100%;
+  font-size: 20rpx;
+  color: #38b2c0;
+  box-sizing: border-box;
+  padding-top: 65%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/* 其他月份 样式  */
+
+.other-month {
+  color: #ccc;
+}
+
+/* active Day  */
+
+.avtive-date {
+  color: #38b2c0;
+}
+

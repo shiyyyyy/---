@@ -6,8 +6,8 @@ const app = getApp()
 Page({
   data: {
     // 请求返回值
-    response: [],
-    visa: {},
+    res: [],
+    visa: [],
     // 轮播图控件
     indicatorDots: true,
     autoplay: true,
@@ -24,10 +24,10 @@ Page({
   onLoad: function (event) {
     var that = this;
     wx.request({
-      url: "http://localhost/danpin.json",
+      url: "https://ssl.tlink.cc/cj-back/api/B2C/product/1",
       success: function (res) {
         that.setData({
-          response: res.data
+          res: res.data.data
         })
       }
     })
@@ -54,5 +54,24 @@ Page({
     }
   },
   // 改变人数 改变总价
+  control_n: function (e) {
+    console.log(e)
+    var target = e.currentTarget.dataset.change
+    if (target === "add") {
+      this.setData({
+        n: this.data.n + 1
+      })
+    } else {
+      if (this.data.n <= 0) {
+        this.setData({
+          n: 0
+        })
+      } else {
+        this.setData({
+          n: this.data.n - 1
+        })
+      }
+    }
+  }
 
 })
