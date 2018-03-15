@@ -1,63 +1,71 @@
 <!--index.wxml-->
 <!-- <import src="../common/main.wxml" /> -->
 
-<view class="body">
+<view class="body" bindtap='click'>
   <!--头部搜索框 \ 点击按钮  -->
   <view class="header">
     <view class="input-box">
-      <input class="search-input" placeholder="请输入关键字" focus="true" placeholder-style="input-placeholder" confirm-type="search" bindtap='b_input_tap' />
+      <input class="search-input" placeholder="请输入关键字" placeholder-style="input-placeholder" confirm-type="search" bindtap='b_input_tap' />
     </view>
     <view class="img-box">
       <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" />
     </view>
   </view>
+
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" circular="circular">
-    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <block wx:for="{{res.slide}}" wx:key="{{index}}">
       <swiper-item catchtap="c_swiper_tag" data-index="{{index}}">
-        <image src="{{item}}" class="slide-image" width="400" height="150" />
+        <image src="{{'https://ssl.tlink.cc/cj-back/' + item.pic}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>
+
   <!-- 中间的小分类 -->
-  <view class="type">
-    <block wx:for="{{tourism_type}}" wx:key="{{index}}">
+  <view class="type" catchtap='tapType'>
+    <block wx:for="{{res.icon}}" wx:key="{{index}}">
       <view class='type-item' bindtap='b_type_tap'>
-        <image class="type-item-img" src="{{item}}" mode="aspectFill"></image>
-        <view class="type-item-introduction"> {{index}} </view>
+        <image class="type-item-img" src="{{'https://ssl.tlink.cc/cj-back/' + item.pic}}" mode="aspectFill"></image>
+        <view class="type-item-introduction"> {{item.name}} </view>
       </view>
     </block>
   </view>
 
+  <!-- content-scroll -->
+  <!-- <view class="content-scroll"> -->
+  <view class="scroll" wx:for="{{res.recommend}}">
+    <view class="scorll-title">
+      <image src="../../images/icon/mark.png" class="title-left" /> {{index}}
+    </view>
 
-  <!-- 签证服务 -->
-  <view class="visa">
-    <component-main data="{{response}}">
-      <view class="visa-header">
-        <view class="visa-header-text">签证服务</view>
-        <view class="visa-header-box" catchtap='c_more_tap'>
-          <navigator class="visa-header-box-more" url='../visa/visa'>更多</navigator>
-          <image class="visa-header-box-img" src="../../images/icon/more.png"></image>
-        </view>
+    <view class="scroll-main">
+      <block wx:for="{{item}}">
+        <navigator url="../tourDetails/tourDetails?id={{item.pd_id}}">
+          <component-main-cell-col item="{{item}}">
+          </component-main-cell-col>
+        </navigator>
+      </block>
+    </view>
+  </view>
+  <!-- </view> -->
+
+  <!-- 底部 信息 -->
+  <view class="footer" catchtap='jumpConsult'>
+    <view class="footer-title">
+      <image src="../../images/icon/mark.png" class="title-left" /> 到店咨询
+    </view>
+    <view class="footer-main">
+      <view class="footer-image-box">
+        <image class="footer-image" src="../../images/icon/weixin.png" />
       </view>
-    </component-main>
-  </view>
 
-  <!--还喜欢  -->
-  <view class="like">
-    <component-main data="{{response}}">
-      <view class="like-header">- 你还可能喜欢 -</view>
-    </component-main>
-  </view>
-  <!-- 列表  -->
-  <view>
-    <view class="tourism-header">
-      <view class="tourism-header-text">旅游景点</view>
-      <view class="tourism-header-box" catchtap='c_more_tap'>
-        <navigator class="tourism-header-box-more" url='../tourism/tourism'>更多</navigator>
-        <!-- <image class="tourism-header-box-img" src="../../images/icon/more.png"></image> -->
+      <view class="footer-info">
+        <view class="name">旅游小程序</view>
+        <view>地址：北京市朝阳区</view>
+        <view>联系电话：84683388</view>
+        <view>营业时间：09:00 - 18:00</view>
       </view>
     </view>
-    <component-list data="{{response}}"></component-list>
   </view>
+
 </view>

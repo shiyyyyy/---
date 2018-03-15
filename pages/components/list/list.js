@@ -18,12 +18,4 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {
-    b_list_item_tap: function(event) {
-      console.log("list-item")
-      wx.navigateTo({
-        url: '../tourDetails/tourDetails',
-      })
-    }
-  }
 })

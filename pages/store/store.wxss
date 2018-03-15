@@ -1,0 +1,56 @@
+.body{
+  font-size: 28rpx;
+  line-height: 72rpx;
+  background-color: #f1f5f8;
+}
+
+.tel{
+  background-color: #fff;
+  margin-top: 16rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  border-top: 2rpx solid #f1f5f8;
+}
+
+.address {
+  background-color: #fff;
+  margin-top: 16rpx;  
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  border-top: 2rpx solid #f1f5f8;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-text {
+
+}
+.add-img-box{
+  width: 50rpx;
+  height: 50rpx;
+  border-left: 4rpx solid #DB2424;
+  padding-left: 24rpx;
+}
+
+.footer{
+  background-color: #fff;
+  margin-top: 16rpx;
+  padding-top: 24rpx;  
+}
+.landmark{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.callPhone{
+  width: 40%;
+  font-size: 34rpx;
+  color: #fff;
+  line-height: 88rpx;
+  text-align: center;
+  background-color: #DB2424;
+  border-radius: 8rpx;
+  margin-left: 50%;
+  transform: translateX(-50%); 
+}

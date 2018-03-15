@@ -7,7 +7,6 @@
 
   <wxs module="br">
     function br(str) {
-    console.log(111)
       if (str === "") return
       var arr = str.split("\n")
       return arr
@@ -18,93 +17,124 @@
   <view class="main">
     <view class="select-date">
       <view class="select-text">选择日期</view>
-      <view class="flex-item">
-        <text class="go">出团日期: </text>
-        <picker class="picker" mode="date" fields="day" start="now_date" bindchange="datechange">{{ select_date }}
-          <image class="img" src='../../images/icon/calendar.png' />
-        </picker>
-      </view>
-      <view class="flex-item">
-        <text class="come">回团日期: </text>
-        <picker class="picker" mode="date" fields="day">{{setting_date}}
-          <image class="img" src='../../images/icon/calendar.png' />
-        </picker>
-      </view>
-    </view>
 
+      <wxs module="timer">
+        function time(y,m,d){
+          console.log(y + "-" + m + "-" + d)
+          return y + "-" + m + "-" + d
+        }
+        module.exports.time = time
+      </wxs>
 
-    <view hidden="!res">
-      {{ md.md( test.test2 ) }}
+      <wxs module="moneyFormat">
+        function moneyFormat(data){
+          return Math.ceil(data)
+        }
+        module.exports.money = moneyFormat
+      </wxs>
+
+      <view class="date-box">
+        <view class="date-item" wx:for="{{dayArr}}" wx:for-item="date" wx:for-index="idn">
+          {{date.month}}-{{date.date}} {{date.day}}
+          <view wx:for="{{ res.groups }}" wx:if="{{item.dep_date === timer.time(date.year, date.month, date.date) }}" class='date-money' bindtap='selectDate' data-date="{{item.dep_date}}" data-idn="{{idn}}">
+            ￥{{ moneyFormat.money(item.retail_price) }}
+          </view>
+        </view>
+        <view class="date-item last-item" bindtap='selectDate'>
+          ...  
+        </view>
+      </view>
     </view>
 
 
     <view class="bright">
-    <view class="item-box" bindtap="b_centains_t" data-name="schedule">
-      行程详情
-      <image class="click-an-img {{ H_schedule ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
-    </view>
-    <!-- 循环details (res.data)  item=D1-D4 -->
-    <view class="for1" wx:for="{{res['产品详情'].product_modular['行程详情']}}" hidden="{{H_schedule}}">
-      <!-- item=Dn 下面的对象 -->
-      <!-- <view class="for2" wx:for="{{item}}" wx:for-item="for2item"> -->
-      <!--item=titlen 下面的对象  -->
-      <view class="title" hidden="{{!item.title}}" data-id="title">
-        {{ item.title }}
-        <view class="left-text left-box">
-          D{{index + 1}}
+
+      <!-- 团队属性 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="teamAttribute">
+        团队属性
+         <image class="click-an-img {{ H_teamAttribute ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" /> 
+      </view>
+      <view class="text-item" hidden="{{H_teamAttribute}}">
+         <view wx:for="{{res.pd_detail['产品团队属性']}}"> 
+          <view>往返交通：{{item.traffic}}</view>
+          <view>住宿标准：{{item.accommodation}}</view>
+          <view>用餐标准：{{item.dining_standards}}</view>
+          <view>购物情况：{{item.shopping === '1' ? "是" : "否"}}</view>
+          <view>自费情况：{{item.own_expense === '1' ? "是" : "否"}}</view>
         </view>
       </view>
 
-      <view class="description">
-        <view class="left-box">
-          <image class="left-img" src="../../images/icon/play.png"></image>
+      <!-- 途经国家城市 -->
+      <view></view>
+
+      <!-- 行程详情 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="schedule">
+        行程详情
+        <image class="click-an-img {{ H_schedule ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <!-- 循环details (res.data)  item=D1-D4 -->
+      <view class="for1" wx:for="{{res.pd_detail['行程详情']}}" hidden="{{H_schedule}}">
+        <!-- item=Dn 下面的对象 -->
+        <!-- <view class="for2" wx:for="{{item}}" wx:for-item="for2item"> -->
+        <!--item=titlen 下面的对象  -->
+        <view class="title" hidden="{{!item.title}}" data-id="title">
+          {{ item.title }}
+          <view class="left-text left-box">
+            D{{index + 1}}
+          </view>
         </view>
-        <view class="{{ openText === index? 'active-description-text' : 'description-text'}}" data-index="{{index}}">
-          {{item.description}}
-          <view class="click-box" data-index="{{index}}" catchtap="c_text_tap">
-            {{ openText === index ? "收起全部" : "展开全部" }}
-            <image class="click-an-img {{ openText === index ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
+
+        <view class="description">
+          <view class="left-box">
+            <image class="left-img" src="../../images/icon/play.png"></image>
+          </view>
+          <view class="{{ openText === index? 'active-description-text' : 'description-text'}}" data-index="{{index}}">
+            {{item.description}}
+            <view class="click-box" data-index="{{index}}" catchtap="c_text_tap">
+              {{ openText === index ? "收起全部" : "展开全部" }}
+              <image class="click-an-img {{ openText === index ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
+            </view>
+          </view>
+        </view>
+
+        <view class="meal" style="{{item.accommodation? '':'border:none;'}}">
+          <view class="breakfast">早餐： {{item.breakfast === true? "包含":"不含"}}</view>
+          <view class="lunch">午餐： {{item.lunch === true? "包含":"不含"}}</view>
+          <view class="dinner">晚餐： {{item.dinner === true? "包含":"不含"}}</view>
+          <view class="left-box">
+            <image class="left-img" src="../../images/icon/lunch.png"></image>
+          </view>
+        </view>
+
+        <view class="item.accommodation" style="{{item.traffic_comment? '':'border:none;'}}">
+          酒店：{{item.accommodation}}
+          <view class="left-box">
+            <image class="left-img" src="../../images/icon/live.png"></image>
+          </view>
+        </view>
+
+        <view class="traffic_comment" style="border:none">
+          交通：{{item.traffic_comment}}
+          <view class="left-box">
+            <image class="left-img" src="../../images/icon/line.png"></image>
           </view>
         </view>
       </view>
 
-      <view class="meal" style="{{item.accommodation? '':'border:none;'}}">
-        <view class="breakfast">早餐： {{item.breakfast === true? "包含":"不含"}}</view>
-        <view class="lunch">午餐： {{item.lunch === true? "包含":"不含"}}</view>
-        <view class="dinner">晚餐： {{item.dinner === true? "包含":"不含"}}</view>
-        <view class="left-box">
-          <image class="left-img" src="../../images/icon/lunch.png"></image>
-        </view>
-      </view>
 
-      <view class="item.accommodation" style="{{item.traffic_comment? '':'border:none;'}}">
-        酒店：{{item.accommodation}}
-        <view class="left-box">
-          <image class="left-img" src="../../images/icon/live.png"></image>
-        </view>
-      </view>
-
-      <view class="traffic_comment" style="border:none">
-        交通：{{item.traffic_comment}}
-        <view class="left-box">
-          <image class="left-img" src="../../images/icon/line.png"></image>
-        </view>
-      </view>
-    </view>
-
-      <!-- <view wx:for="{{ br.br(cpts) }}"> {{ item }}</view> 测试 可用    -->
+      <!-- <view wx:for="{{ br.br(res.pd_detail['产品特色']) }}"> {{ item }}</view> 测试 可用    -->
       <view class="item-box" bindtap="b_centains_t" data-name="features">
         产品特色
         <image class="click-an-img {{ H_features ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{br.br(features)}}" hidden="{{H_features}}">{{ item }}</view>
+      <view class="text-item" wx:for="{{br.br(features)}}" hidden="{{H_features}}">{{ item }} {{}}</view>
 
       <!-- 费用包含 -->
       <view class="item-box" bindtap="b_centains_t" data-name="costCentains">
         费用包含
         <image class="click-an-img {{ H_costCentains ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-        <view class="text-item" wx:for="{{br.br(costCentains)}}" hidden="{{H_costCentains}}">{{ item }}</view>  
+      <view class="text-item" wx:for="{{br.br(costCentains)}}" hidden="{{H_costCentains}}">{{ item }}</view>
 
       <!-- 费用不含 -->
       <view class="item-box" bindtap="b_centains_t" data-name="notCentain">
@@ -114,39 +144,55 @@
       <view class="text-item" wx:for="{{ br.br(notCentain) }}" hidden="{{H_notCentain}}">{{ item }}</view>
 
       <!-- 服务说明  -->
-      <view class="item-box" bindtap="b_centains_t" data-name="instructions" hidden="{{!instructions}}">
+      <view class="item-box" bindtap="b_centains_t" data-name="service">
         服务说明
-        <image class="click-an-img {{ H_instructions ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ H_service ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(instructions) }}" hidden="{{H_instructions}}">{{index+1}}.{{ item }}</view>
+      <view class="text-item" wx:for="{{ br.br(service) }}" hidden="{{H_service}}">{{ item }}</view>
 
       <!-- 温馨提示 -->
       <view class="item-box" bindtap="b_centains_t" data-name="prompt">
         温馨提示
         <image class="click-an-img {{ H_prompt ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(prompt) }}" hidden="{{H_prompt}}">{{index+1}}.{{ item }}</view>
+      <view class="text-item" wx:for="{{ br.br(prompt) }}" hidden="{{H_prompt}}">{{ item }}</view>
 
       <!-- 预定须知 -->
       <view class="item-box" bindtap="b_centains_t" data-name="booking">
         预定须知
         <image class="click-an-img {{ H_booking ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(booking) }}" hidden="{{H_booking}}">{{index+1}}.{{ item }}</view>
+      <view class="text-item" wx:for="{{ br.br(booking) }}" hidden="{{H_booking}}">{{ item }}</view>
 
-      <!-- 购物场所 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="shopping">
-        购物场所
+      <!-- 购物说明 -->
+      <!-- <view class="item-box" bindtap="b_centains_t" data-name="shopping" hidden='{{!shopping}}'>
+        购物说明
         <image class="click-an-img {{ H_shopping ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(shopping) }}" hidden="{{H_shopping}}">{{index+1}}.{{ item }}</view>
+      <view class="text-item" wx:for="{{ br.br(shopping) }}" hidden="{{H_shopping}}">{{ item }}</view> -->
 
-      <!-- 自费项目 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="instructions">
-        自费项目
-        <image class="click-an-img {{ H_instructions ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      <!-- 住宿说明 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="accom" hidden='{{!accom}}'>
+        住宿说明
+        <image class="click-an-img {{ H_accom ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(instructions) }}" hidden="{{H_instructions}}">{{index+1}}.{{ item }}</view>
+      <view class="text-item" wx:for="{{ br.br(accom) }}" hidden="{{H_accom}}">{{ item }}</view>
+
+      <!-- 自费说明 -->
+      <!-- <view class="item-box" bindtap="b_centains_t" data-name="ownExpense" hidden='{{!ownExpense}}'>
+        自费说明
+        <image class="click-an-img {{ H_ownExpense ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(ownExpense) }}" hidden="{{H_ownExpense}}">{{ item }}</view> -->
+
+    <!-- 其他说明 -->
+       <view class="item-box" bindtap="b_centains_t" data-name="other" hidden='{{!other}}'>
+        其他说明
+        <image class="click-an-img {{ H_other ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+      </view>
+      <view class="text-item" wx:for="{{ br.br(other) }}" hidden="{{H_other}}">{{ item }}</view> 
+
+
     </view>
 
   </view>
@@ -158,8 +204,8 @@
     <view class="footer-left">
       <image class="message-img" src="../../images/icon/message.png"></image>
     </view>
-    <view class="footer-center">￥13800</view>
-    <view class="footer-right" catchtap="c_pay_t">立即咨询</view>
+    <view class="footer-center">进店咨询</view>
+    <view class="footer-right" bindtap='selectDate'>立即预定</view>
   </view>
 
 

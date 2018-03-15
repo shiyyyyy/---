@@ -1,98 +1,27 @@
-.route-and-visa {
-  font-size: 26rpx;
-  line-height: 72rpx;
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-}
-
-.route {
-  width: 285rpx;
-}
-
-.active-route {
-  color: #399;
-  border-bottom: 1px solid #399;
-}
-
-.separated {
-  width: 1px;
-  height: 38rpx;
-  margin-top: 17rpx;
-  background-color: #f1f5f8;
-}
-
-.visa {
-  width: 285rpx;
-}
-
-.active-visa {
-  color: #399;
-  border-bottom: 1px solid #399;
-}
-
-/* main组件slot  */
-
-.like-header {
+.header-scroll {
   width: 100%;
-  font-size: 28rpx;
-  color: #595a5a;
-  text-align: center;
   height: 88rpx;
-  line-height: 88rpx;
-}
-
-/* footer部分  */
-
-.footer {
-  height: 938rpx;
-  background-color: #f1f5f8; 
-  padding-top: 16rpx;
+  border-bottom: 2rpx solid #ccc;
   display: flex;
   justify-content: space-between;
+  white-space: nowrap;
 }
 
-.partition {
-  width: 200rpx;
-  height: 100%;
-  border-top: 1px solid #fff;  
-}
-
-.partition-item {
-  font-size: 26rpx;
-  color: #333333;
-  line-height: 88rpx;
-  text-align: center;
-  border-bottom: 2rpx solid #fff;
-}
-
-.active-partition {
-  color: #222222;
-  border-left: 6rpx solid #38b2c0;
-  background-color: #fff;
-}
-
-.class {
-  background-color: #fff;
-  flex: 1;
-  padding-left: 24rpx;
-  padding-top: 20rpx;
-}
-
-.class-item {
-  width: 144rpx;
-  font-size: 20rpx;
-  line-height: 50rpx;
+.item {
+  font-size: 32rpx;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 20rpx;
   margin-right: 20rpx;
-  margin-bottom: 30rpx;
-  text-align: center;
+  margin-top: 14rpx;
+  border: 2rpx solid #999;
+  border-radius: 8rpx;
   display: inline-block;
-  border: 1rpx solid #999;
-  border-radius: 6rpx;
 }
-.active-calss{
+
+.active-item{
   color: #fff;
   background-color: #38b2c0;
-  border-color: #38b2c0;
+  border: 2rpx solid #38b2c0;  
 }

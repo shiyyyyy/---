@@ -27,12 +27,6 @@ page {
   flex-wrap: wrap;
 }
 
-.flex-item {
-  width: 49%;
-  text-align: center;
-  padding-left: 4rpx;
-}
-
 .select-text {
   width: 100%;
   font-size: 26rpx;
@@ -40,33 +34,44 @@ page {
   padding-left: 34rpx;
 }
 
-.go, .come {
-  font-size: 24rpx;
-  line-height: 52rpx;
+.date-box{
+  text-align: center;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
-.picker .img, .picker .img {
-  width: 24rpx;
-  height: 24rpx;
-  padding-left: 19rpx;
-  padding-right: 15rpx;
-  vertical-align: sub;
+.date-item{
+  width: 23%;
+  height: 60rpx;
+  font-size: 22rpx;
+  color: #999;
+  line-height: 30rpx;
+  border: 2rpx solid #f1f5f8;
+  border-radius: 8rpx;
+  padding-top: 10rpx;
+  margin-bottom: 10rpx;
+  position: relative;
 }
-
-.picker {
-  font-size: 20rpx;
-  line-height: 48rpx;
-  border: 2rpx solid #ccc;
-  border-radius: 6rpx;
-  padding-left: 23rpx;
-  display: inline-block;
+.date-money{
+  width: 100%;
+  color: #38b2c0;
+  padding-top: 40rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-
+.last-item{
+  font-size: 70rpx;
+  line-height: 5rpx;
+}
 /* 产品特色  */
 
 .bright {
   padding-top: 1rpx;
   padding-bottom: 16rpx;
+  margin-bottom: 88rpx;
   background-color: #fff;
 }
 
@@ -333,10 +338,12 @@ page {
   width: 100%;
   font-size: 28rpx;
   color: #fff;
-  line-height: 98rpx;
+  line-height: 88rpx;
   text-align: center;
-  padding-top: 10px;
   background-color: #f1f5f8;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
 }
@@ -358,6 +365,6 @@ page {
 }
 
 .footer-right {
-  background-color: #e24949;
+  background-color: #db2424;
   flex: 11;
 }

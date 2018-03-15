@@ -3,28 +3,41 @@
 Page({
 
   data: {
-    data:{}
+    res:{},
+    // 用户输入的数据
+    userInput: ''
   },
  
   onLoad: function (options) {
     // 调用缓存,获取联onLoad: function (option) {
     var that = this
     wx.request({
-      url: 'https://way.jd.com/jisuapi/get?channel=头条&num=10&start=0&appkey=52a4f6a9bd2387ce35a71cade52baf2a',
+      url: 'http://localhost/test.json',
       success: function (res) {
         console.log(res)
         that.setData({
-          data: res.data
+          res: res.data
         })
       }
     })
     console.log(this)
   },
+  // 输入 触发 input 事件
+  b_input_tap: function(e){
+    console.log(e)
+    this.setData({
+      userInput: e.detail.value
+    })
+  },
+  // 点击小键盘上的完成,触发
+  doneInput: function(e){
+    console.log(e) 
 
-  // 点击  
-  click: function (e) {
-    wx.switchTab({
-      url: '../index/index',
+  },
+  // 搜索 (点击搜索图标)
+  search: function(e){
+    wx.request({
+      url: '',
     })
   }
 })

@@ -1,5 +1,5 @@
 <!--pages/list/list.wxml-->
-<view class="list" wx:for="{{data}}" wx:key="{{index}}" bindtap='b_list_item_tap'>
+<view class="list" wx:for="{{data}}" wx:key="{{index}}" >
   <view class="left">
     <image class="img" src="{{item.img}}" mode="scaleToFill"></image>
   </view>

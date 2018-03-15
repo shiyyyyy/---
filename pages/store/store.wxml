@@ -1,0 +1,26 @@
+<view class="body">
+  <!-- 轮播图 -->
+  <view>
+    <component-swiper res="{{res}}"></component-swiper>
+  </view>
+
+  <view class="tel" bindtap='callPhone'>
+    联系电话：84683388
+  </view>
+
+  <view class="address" bindtap='clickAddress'>
+    <view class="address-text">地址: 北京市朝阳区新源里16号琨莎中心3座</view>
+    <view class="add-img-box" bindtap="clickAddress">
+      <image class="landmark" src="../../images/icon/address.png" />
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="callPhone" bindtap='callPhone'>
+      电话咨询
+    </view>
+  </view>
+
+
+
+</view>

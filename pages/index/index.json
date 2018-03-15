@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "component-main": "../components/common/main",
-    "component-list": "../components/list/list"
+    "component-main-cell-col": "../components/mainCellCol/mainCellCol"
   }
 }

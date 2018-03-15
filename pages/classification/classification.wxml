@@ -1,22 +1,11 @@
 <view class="classification">
-  <component-search></component-search>
-  <!-- 路线 和 签证  -->
-  <view class="route-and-visa">
-    <view class="route {{ currentStyle == 1 ? 'active-route' : '' }}" data-text='active-route' catchtap='c_route_tap'>旅行路线</view>
-    <view class="separated"></view>
-    <view class="visa {{ currentStyle == 2 ? 'active-visa' : '' }}" catchtap='c_visa_tap'>全球签证</view>
-  </view>
 
-  <view class="footer">
-    <view  class="partition" data-ind="{{index}}">
-      <view wx:for="{{partition}}" class="partition-item {{ index == key ? 'active-partition' : '' }}" catchtap="c_navBar_tap" data-key="{{index}}">
-        {{ item }}
+
+  <scroll-view class="header-scroll" scroll-x>
+      <view wx:for="{{res}}" class="item {{index == currentTwoMenu ? 'active-item':''}}" catchtap='tapTwoMenu' data-index="{{index}}">
+        {{item.name}}
       </view>
-    </view>
-    <view  class="class" wx:for="{{response}}" wx:if="{{ index == key}}">
-      <view wx:for="{{ item }}" class="class-item {{index === i ? 'active-calss' : ''}}"  data-i="{{index}}" catchtap="c_class_item_tap">
-        {{item}}
-      </view>
-    </view>
-  </view>
+  </scroll-view>
+
+  <component-list res="{{res}}"></component-list>
 </view>

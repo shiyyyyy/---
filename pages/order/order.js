@@ -5,126 +5,92 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 请求数据
-    response: [],
-    data: {},
-    travel:[],
-    copyTravel: [],
-    visa: [],
-    copyVisa:[],
-    // 旅行订单 签证订单显示隐藏
-    orderHidden: true,
-
-    // 订单 样式
-    currentOrder: true,
-    // 状态 样式
-    currentState: 0
+    // 订单列表
+    res:[],
+    // 用户信息
+    userAvatar: '',
+    userName: '',
+    // 状态 样式 0:all 1:待付款 2:待出发 3:已完成
+    currentState: 0   
   },
+  //  点击 订单模板(订单信息)
+  clickOrdInfo:function(e){
+    // 因为 需要把后下的订单在上面显示,所以一已经取反过了,现在把他在反回来
+    // 因为下个页面可能还是取反订单,所以不用再反回来了...
+    // var index = e.currentTarget.dataset.ind
+    // index = res.slice(-index)
 
-  // 点击 旅行订单
-  c_travel_tap: function(e) {
-    this.setData({
-      currentOrder: true,
-      orderHidden: true,
-      currentState: 0,
-      travel: this.data.copyTravel
+    var index = e.currentTarget.dataset.ind
+    console.log(index)
+    wx.navigateTo({
+      url: '../pay/payind=' + index,
     })
   },
-  // 点击签证订单
-  c_visa_tap:function(e) {
-    this.setData({
-      currentOrder: false,
-      orderHidden: false,
-      currentState: 0,
-      visa: this.data.copyVisa     
+  //  点击 查看详情按钮
+  checkDetails: function(e){
+    //  虽然这里已经给返回的订单取反了,但是在下个页面,订单还是取反的,所以没问题
+    var index = e.currentTarget.dataset.ind
+    wx.navigateTo({
+      url: '../orderDetails/olderDetails?ind=' + index,
     })
-
   },
-  //  点击 状态
-  c_state_tap:function(e) {
-    console.log(e)
-    // 状态 样式改变
-    var id = e.target.dataset.id
-    var name = this.data.orderHidden
-    console.log(name)
-    this.setData({
-      currentState: id
-    })
-    // 改变状态 改变数据
-    switch(id){
-      case "0":
-      if( name ) {
-        this.setData({
-          travel: this.data.copyTravel
+  pay: function(e){
+    var index = e.currentTarget.dataset.ind
+
+      var that = this
+      console.log(e)
+      console.log(this)
+      getApp().post('api/WxPay/pay', { order_id: that.data.res[index].id }, data => {
+        wx.requestPayment({
+          'timeStamp': data.timeStamp,
+          'nonceStr': data.nonceStr,
+          'package': data.package,
+          'signType': 'MD5',
+          'paySign': data.paySign,
+          'success': function (res) {
+            wx.showToast({
+              title: '支付成功',
+            })
+          },
+          'fail': function (res) {
+            wx.showModal({
+              title: '支付失败'
+            })
+          }
         })
-      } else {
-        this.setData({
-          visa: this.data.copyVisa
-        })
-      } 
-        break;
-      case "1":
-        this.changeList(id, name)
-        break;
-      case "2":
-        this.changeList(id, name)
-        break;
-      case "3":
-        this.changeList(id, name)
-        break;
-      default:
-        console.log("switch报错 order.JS")
-    }
+      })
+
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this
-    wx.request({
-      url: 'http://localhost/test.json',
+    wx.getUserInfo({
       success: function (res) {
-        console.log(res)
+        var userInfo = res.userInfo
+        var nickName = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+
         that.setData({
-          response: res.data[0]
+          userAvatar: avatarUrl,
+          userName: nickName
         })
       }
     })
 
-    wx.request({
-      url: 'http://localhost/infoList.json',
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          travel: res.data.travel,
-          copyTravel: res.data.travel,
-          visa: res.data.visa,
-          copyVisa: res.data.visa,
-        })
-      }
+    getApp().post('api/WxPay/order_list', {}, data=>{
+      console.log(data)
+      var res = data.reverse()
+      this.setData({
+        res:res
+      })
     })
     console.log(this)
   },
-  // 改变状态数组
-  changeList: function (state, name){    
-    var arr = name ? this.data.copyTravel.concat() : this.data.copyVisa.concat()
-    var newArr = []
-    for(var i = 0, len = arr.length; i < len; i++){
-      if (arr[i] == state ){
-        newArr.push(arr[i])
-      }
-    }
-    if( name ) {
-      this.setData({
-        travel: newArr
-      })
-    } else {
-      this.setData({
-        visa: newArr
-      })
-    }
-  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

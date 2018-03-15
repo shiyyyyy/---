@@ -1,0 +1,22 @@
+<!--pages/components/mainCellCol/mainCellCol.wxml-->
+
+<view class='main'>
+  <view class="main-image-box" bindtap='click'>
+    <image src="{{'https://ssl.tlink.cc/cj-back/' + item.pic}}" class="main-image" />
+  </view>
+  <!-- 价格 和 出发地 -->
+  <view class="main-money-address" >
+    <view class="money" hidden="{{!item.retail_price}}">￥{{item.retail_price * 1}}</view>
+    <view class="address" hidden="{{!item.dep_city_name}}">{{item.dep_city_name}}出发</view>
+  </view>
+  <!-- 标题 -->
+  <view class="main-title">
+    {{item.pd_name}}
+  </view>
+  <!-- 出发地/时间/晚数 -->
+  <view class="main-info" wx:if="{{item.dep_city_name && item.dep_date}}">
+    <text>出发时间：{{item.dep_date}}</text>
+    <text>{{item.days}}天{{item.nights}}晚</text>
+  </view>
+
+</view>

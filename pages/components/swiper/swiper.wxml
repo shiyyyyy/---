@@ -4,7 +4,7 @@
 <view bindtap='click' class="swiper">
   <swiper class="slide" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="circular">
     <!-- <block wx:for="{{res['产品详情'].product_modular['产品图片']}}"> -->
-    <block wx:for="{{imgUrls}}"> 
+    <block wx:for="{{res.pd_detail['产品图片']}}"> 
       <swiper-item>
       <!-- <wxs module="enCode">
         function enCode(url){
@@ -12,25 +12,18 @@
         }
         module.exports.enCode = enCode
       </wxs> -->
-        <!-- <image src="{{enCode.enCode('http://bytserp.com/zs-back/'+ item.path)}}" class="slide-image" mode="aspectFill" bindtap='c_main_item_tap'/> -->
-        <image src="{{item}}" class="slide-image" mode="aspectFill" bindtap='c_main_item_tap'/>
+        <!-- <image src="{{enCode.enCode('https://ssl.tlink.cc/cj-back/'+ item.path)}}" class="slide-image" mode="aspectFill" bindtap='c_main_item_tap'/> -->
+        <image src="{{'https://ssl.tlink.cc/cj-back/' + item.path}}" class="slide-image" mode="aspectFill" bindtap='c_main_item_tap'/>
       </swiper-item>
     </block>
   </swiper>
   <!-- 中间主题内容 费用和出发地 -->
    <view class="body">
       <!-- <text class="money">{{ "￥" + res.money}}</text> -->
-      <text class="money">￥13800</text>
-      <text class="transport">签送地：{{res['产品详情'].dep_city_name}}</text>
+      <text class="money">￥{{res.groups[0].retail_price * 1}}</text>
+      <text class="transport">出发地：北京{{res.groups[0].dep_city_name}}</text>
     </view>
-    <!-- 底下的简介和小标签  -->
-    <view class="footer">
-      <text class="text">{{res['产品详情'].pd_name}}</text>
-      <!-- 绑定链接的小标签  注意 navigator还没添加跳转方式-->
-      <view catchtap="no-bubbling" class="activity" wx:if="{{res['产品详情'].pd_nav_name}}">{{res['产品详情'].pd_nav_name}}</view>
-      <view catchtap="no-bubbling" class="activity countries" wx:if="{{res['产品详情'].pd_tag_name}}">{{res['产品详情'].pd_tag_name}}</view>
-      <view catchtap="no-bubbling" class="activity" wx:if="{{res['产品详情'].pd_subtag_name}}">{{res['产品详情'].pd_subtag_name}}</view>
-      <view catchtap="no-bubbling" class="activity promote" wx:if="{{response.activity.promote}}">{{response.activity.promote}}</view>
-    </view>
+    <view class="title">{{}}夏威夷之旅 夏天清凉 海滩温暖 阳光热烈 旅游度假首选之地 快来报名吧</view>
+    <view class="days">{{}}2天{{}}3晚</view>
 
 </view> 

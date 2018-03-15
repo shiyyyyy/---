@@ -10,7 +10,6 @@
 
     </component-swiper>
   </view>
-
   <!-- 套餐类型 -->
   <view class="package">
     <view class="package-title">套餐类型</view>

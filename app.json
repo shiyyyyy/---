@@ -1,24 +1,24 @@
 {
   "pages": [
-            "pages/depart/depart",
     "pages/index/index",
     "pages/visa/visa",
     "pages/visaPay/visaPay",
-    "pages/classification/classification",
     "pages/consulting/consulting",
-    "pages/order/order",
     "pages/search/search",
     "pages/login/login",
     "pages/tourism/tourism",
     "pages/tourDetails/tourDetails",
-    "pages/submit/submit",
+    "pages/orderSubmit/orderSubmit",
+    "pages/orderDetails/olderDetails",
+    "pages/store/store",
+    "pages/order/order",
+    "pages/classification/classification",
     "pages/pay/pay"
-
   ],
   "window": {
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "亚美运通",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "旅游小程序",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light"
   },
@@ -41,7 +41,7 @@
       },
       {
         "pagePath": "pages/order/order",
-        "text": "询单",
+        "text": "订单",
         "iconPath": "./images/tabBar/order-icon.jpg",
         "selectedIconPath": "./images/tabBar/selected-order-icon.jpg"
       }

@@ -1,46 +1,74 @@
 // pages/logs/index.js
+const util = require("../../utils/util.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    response: {},
-    // 联系人 信息
-    info: {}
+    res: {},
+    // 上个页面 depart 传过来的数据(放在缓存里)
+    order_res: '',
+    idn: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    wx.request({
-      url: 'http://localhost/test.json',
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          response: res.data[0]
-        })
-      }
+    var id = wx.getStorageSync("id")    
+    var url = 'api/B2C/product/' + id
+    getApp().post(url, {}, res => {
+      this.setData({
+        res: res
+      })
     })
-    console.log(this)
+
     // 调用缓存,获取联系人信息
     try {
-      var value = wx.getStorageSync('info')
-      if (value) {
-        this.setData({
-          info: value
-        })
-      }
+      var idn = wx.getStorageSync("idn")
+      console.log(idn)
+      var order_res = wx.getStorageSync('order_res')
+
+      this.setData({
+        idn: idn,
+        order_res: order_res
+      })
     } catch (e) {
       // Do something when catch error
     }
+    util.hideToast()
+    console.log(this)
+    console.log(order_res)
   },
   // 点击 支付 按钮
-  pay: function(e) {
+  pay: function (e) {
     console.log(e)
     console.log(this)
+    console.log(this.data.order_res.id)
+    getApp().post('api/WxPay/pay', { order_id: this.data.order_res.id }, data => {
+      wx.requestPayment({
+        'timeStamp': data.timeStamp,
+        'nonceStr': data.nonceStr,
+        'package': data.package,
+        'signType': 'MD5',
+        'paySign': data.paySign,
+        'success': function (res) {
+          wx.showToast({
+            title: '支付成功',
+          })
+          // 跳转到 订单
+          wx.switchTab({
+            url: '../order/order'
+          })
+        },
+        'fail': function (res) {
+          wx.showModal({
+            title: '支付失败'
+          })
+        }
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

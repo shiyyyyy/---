@@ -1,0 +1,114 @@
+<!--pages/orderSubmit/orderSubmit.wxml-->
+<view class="body">
+
+  <view class="calendar" bindtap='tap'>
+    <view class="calendar-panel" bindtap="changeMonth">
+      <view class="prevImg">
+        <image src="../../images/icon/next.png" data-name="prev" />
+      </view>
+      <view class="time">{{calendar.year}}年{{calendar.month}}月{{calendar.date}}日</view>
+      <view class="nextImg">
+        <image src="../../images/icon/next.png" data-name="next" />
+      </view>
+    </view>
+    <view class="calendar-header">
+      <view>日</view>
+      <view>一</view>
+      <view>二</view>
+      <view>三</view>
+      <view>四</view>
+      <view>五</view>
+      <view>六</view>
+    </view>
+
+    <wxs module="split">
+      function split(data) {
+        var newData = data.split(".")
+        return newData[0]
+      }
+      module.exports.split = split
+    </wxs>
+    <wxs module="timer">
+      function time(y, m, d) {
+        return y + "-" + m + "-" + d
+      }
+      module.exports.time = time
+    </wxs>
+    <view class="calendar-body">
+      <block wx:for="{{calendar.weeks}}" wx:for-item="weeks">
+        <view class="calender-body-date-week">
+          <block wx:for="{{weeks}}" wx:for-item="day">
+            <view class="date {{calendar.month == day.month? '' : 'other-month'}} {{day.date==select.date && day.month == select.month && day.year == select.year ?'avtive-date': ''}}">
+              {{day.date}}
+
+              <view wx:for="{{ res }}" wx:if="{{item.dep_date === timer.time(day.year, day.month, day.date) }}" class='date-money {{day.date==select.date && day.month == select.month && day.year == select.year? "active-money": ""}}' bindtap='selectDate' data-date="{{item.dep_date}}">
+                ￥{{ split.split(item.retail_price) }}
+              </view>
+            </view>
+
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 出团时间  -->
+  <view class="start" wx:if="{{select.month && select.date}}">
+    <view class="start-time">出团时间：{{select.month + '-' + select.date}}</view>
+  </view>
+
+  <!-- 选择人数 number  -->
+  <view class="number" bindtap='ctorNum'>
+    <view class="adult">
+      <view class="number-text">人数</view>
+      <view class="number-price">￥{{(res[idn].retail_price * num) || 0}}</view>
+      <view class="number-ctor">
+        <view class="subtract">
+          <image src="../../images/icon/jian.png" wx:if="{{ num <= 1}}"></image>
+          <image src="../../images/icon/jian1.png" wx:else data-name="subNum"></image>
+        </view>
+        <view class="num">{{num}}</view>
+        <view class="add">
+          <!-- <image src="../../images/icon/jia.png"></image> -->
+          <image src="../../images/icon/jia1.png" data-name="addNum"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 表单 -->
+  <view class="form">
+    <form bindsubmit="formSubmit">
+      <!-- 其他需求 -->
+      <view class="other">
+        <view class="other-text">其他需求</view>
+        <view class="text-box">
+          <textarea class="textarea" name="textarea" placeholder="请输入您的其它需求，等待客服与您二次确认" placeholder-style="placeholder" maxlength="500"> </textarea>
+        </view>
+      </view>
+
+      <!-- 联系人信息  -->
+      <view class="contact">
+        <view class="contact-text">联系人信息</view>
+        <view class="contact-box">
+          <view class="name">
+            <text space="emsp" class="left">姓 名</text>
+            <input placeholder='请输入联系人姓名' bindblur='name_input' name="name" />
+            <text class="will">(必填)</text>
+            <view class="hidden" hidden="{{name_hidden}}">(请输入正确姓名格式)</view>
+          </view>
+          <view class="tel">
+            <text space="emsp" class="left">电 话</text>
+            <input placeholder='请输入联系人电话' bindblur='tel_input' name="tel" />
+            <text class="will">(必填)</text>
+            <view class="hidden" hidden="{{tel_hidden}}">(请输入正确电话格式)</view>
+          </view>
+        </view>
+      </view>
+      <!-- footer submit  -->
+       <view class='footer'>
+          <button formType="submit" class="submit">提交</button>
+      </view> 
+    </form>
+  </view>
+</view>

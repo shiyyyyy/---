@@ -1,0 +1,82 @@
+<!--pages/orderDetails/olderDetails.wxml-->
+<!--pages/orderDetails/orderDetails.wxml-->
+<!-- 订单详情页 -->
+<view class="body">
+
+  <view class="header">{{res.pd_name}}</view>
+
+  <view class="order-info">
+
+    <view class="order-info-title">
+      <text space="emsp">订单信息</text>
+    </view>
+    <view class="order-info-main">
+      <!-- 订单编号 -->
+      <view class="order-num">
+        <text space="emsp">订单编号：  {{res.order_num}}</text>
+      </view>
+      <!-- 人数 -->
+      <view class="order-num">
+        <text space="emsp">出行人数：  {{res.num_of_people}}人</text>
+      </view>
+      <!-- 价格 -->
+      <view class="order-num">
+        <text space="emsp">商品价格：  ￥{{res.retail_price}}</text>
+      </view>
+      <!-- 总计 -->
+      <view class="order-amount">
+        <text space="emsp">订单总计：  ￥{{res.amount}}</text>
+      </view>
+      <!-- 出发城市 -->
+      <view class="order-dep_city_name">
+        <text space="emsp">出发城市：  {{res.dep_city_name}}</text>
+      </view>
+      <!-- 出发日期 -->
+      <view class="order-dep_date">
+        <text space="emsp">出发时间：  {{res.dep_date}}</text>
+      </view>
+      <!-- 回团日期 -->
+      <!-- <view class="order-num"><text space="emsp">{{res.num_of_people}}</text></view> -->
+    </view>
+  </view>
+
+  <!-- 联系人信息 -->
+  <view class="contact-info">
+    <view class="contact-info-title">联系人信息</view>
+
+    <view class="contact-info-main">
+      <!-- 联系人名字 -->
+      <view class="contact">
+        <text space="emsp">联系人：   {{res.contact}}</text>
+      </view>
+      <!-- 联系人电话 -->
+      <view class="mobile">
+        <text space="emsp">手机号：   {{res.mobile}}</text>
+      </view>
+      <!-- 联系人备注 -->
+      <view class="comment">
+        <text space="emsp">备注信息：</text>
+        <view class="comment-main">{{res.comment}}</view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 联系我们 -->
+  <view class="we">
+    <view class="we-title">联系我们</view>
+
+    <view class="we-main">
+      <view class="address">
+        <text space="emsp">地址：    北京市朝阳区新源里16号琨莎中心3座</text>
+      </view>
+      <view class="time">
+        <text space="emsp">营业时间：  09:00 - 21:00</text>
+      </view>
+      <view class="tel">
+        <text space="emsp">联系电话：  84683388</text>
+      </view>
+    </view>
+  </view>
+
+</view>

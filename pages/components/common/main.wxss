@@ -1,29 +1,30 @@
 /* pages/common/main.wxss */
 
 .main {
+  width: 100%;
+  box-sizing: border-box;
   background: #f1f5f8;
   padding-bottom: 24rpx;
   text-align: center;
-  padding-left: 10rpx;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+   padding-left: 8rpx; 
+
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: flex;
-  -webkit-flex-flow: row wrap;
-  -moz-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
+  /* justify-content: space-around; */
+  -webkit-flex-wrap: wrap;
+  -moz-flex-flow: wrap;
+  -ms-flex-flow: wrap;
+  flex-wrap: wrap; 
 }
 
 .main-item {
   background: #fff;
-  width: 348rpx;
-  flex: 1;
-  margin-right: 10rpx;
-  margin-top: 10rpx;
+  width: 364rpx;
+  /* display: inline-block; */
+   margin-right: 8rpx; 
+  margin-top: 8rpx;
 }
 
 .header {

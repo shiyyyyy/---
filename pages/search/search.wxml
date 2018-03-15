@@ -1,26 +1,45 @@
 <view class="body">
-
+  <!-- 搜索头部 input 和 img -->
   <view class="header">
     <view class="input-box">
-      <input class="search-input" placeholder="请输入关键字" focus="true" placeholder-style="input-placeholder" confirm-type="search" bindtap='b_input_tap' />
+      <input class="search-input" placeholder="请输入关键字" focus="true" placeholder-style="input-placeholder" confirm-type="search" bindinput='b_input_tap' bindconfirm="doneInput" />
     </view>
     <view class="img-box">
-      <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" />
+      <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" catchtap='search' />
     </view>
   </view>
 
+  <!-- 搜索历史 -->
+  <view class="search-history">
+    <view class="history-header">
+      <text class="history-header-left">搜索历史</text>
+      <text class="history-header-right">清空</text>
+    </view>
 
-  <view class="test" wx:for="{{data.result.result.list}}" bindtap="click">
-    <!-- <view wx:for="{{item.title}}"> -->
-    {{item.title}}
-    <!-- </view> -->
+    <view class="search-history-main">
+      <!-- <view class="history-item" wx:for="{{searchHistory}}">{{item}}</view> -->
+      <view class="history-item">北京</view>
+      <view class="history-item">上海</view>
+    </view>
   </view>
 
+  <!-- 无 搜索结果 -->
+  <view class="no-result">
+    对不起，没有您要搜索的结果
+  </view>
 
-
-
-
-
-
+  <!-- 有结果  -->
+  <view>
+    <view class="list" wx:for="{{res.recommend}}">
+      <view class="list-title">{{index}}</view>
+      <view class="list-main">
+        <block wx:for="{{item}}">
+          <navigator>
+            <component-main-cell-row item="{{item}}"></component-main-cell-row>
+          </navigator>
+        </block>
+      </view>
+    </view>
+  </view>
 
 </view>

@@ -1,50 +1,40 @@
 <view class="body">
-  <view class="header">
-    <!-- 旅行订单 和 签证订单  -->
-    <view class="order">
-      <view class="travel {{ currentOrder ? 'active-order':''}}" catchtap='c_travel_tap'>旅行订单</view>
-      <view class="separated"></view>
-      <view class="visa {{ currentOrder ? '':'active-order' }}" catchtap='c_visa_tap'>签证订单</view>
+  <!-- 头像 和 名字  -->
+  <view class="user-info" hidden='{{!userAvatar}}'>
+    <view class="user-avatar">
+      <image class="avatar-img" src="{{userAvatar}}" />
     </view>
-
-    <!-- 全部 待付款 待出发 已完成  -->
-    <view class="state" catchtap="c_state_tap">
-      <view data-id="0" class="all {{ currentState == 0 ? 'active-state':'' }}">全部</view>
-      <view data-id="1" class="payment {{ currentState == 1 ? 'active-state':'' }}">待付款</view>
-      <view data-id="2" class="out {{ currentState == 2 ? 'active-state':'' }}">待出发</view>
-      <view data-id="3" class="complete {{ currentState == 3 ? 'active-state':'' }}">已完成</view>
-    </view>
+    <view class="user-name">{{userName}}</view>
   </view>
+  <!-- 全部 待付款 待出发 已完成  -->
+  <!-- <view class="state" catchtap="c_state_tap">
+    <view data-id="0" class="all {{ currentState == 0 ? 'active-state':'' }}">全部</view>
+    <view data-id="1" class="payment {{ currentState == 1 ? 'active-state':'' }}">待付款</view>
+    <view data-id="2" class="out {{ currentState == 2 ? 'active-state':'' }}">待出发</view>
+    <view data-id="3" class="complete {{ currentState == 3 ? 'active-state':'' }}">已完成</view>
+  </view> -->
 
 
   <!-- 订单详情  列表 -->
-  <view class="info">
+  <view class="order-info">
     <!-- 旅行订单列表 -->
-    <view class="info-box" wx:for="{{travel}}" hidden="{{!orderHidden}}">
-      <view class="order-num">订单编号: 999999HHH333</view>
-      <view class="order-state order-state-1" hidden="{{item !== 1}}">待付款</view>
-      <view class="order-state order-state-2" hidden="{{item !== 2}}">待发出</view>
-      <view class="order-state order-state-3" hidden="{{item !== 3}}">已完成</view>
-      <component-ord-in response="{{response}}"></component-ord-in>
-      <view class="footer-box">
-        <view class="order-footer order-footer-state1" wx:if="{{item === 1}}">立即付款</view>
-        <view class="order-footer order-footer-state2" wx:else>查看详情</view>
+    <block wx:for="{{res}}">
+      <view class="info-state">
+        <view class="order-num">订单编号: {{ item.order_num }}</view>
+        <view class="order-state order-state-1" hidden="{{!(item.state === '0')}}">待支付</view>
+        <view class="order-state order-state-2" hidden="{{!(item.state === '1')}}">已支付</view>
+        <view class="order-state order-state-3" hidden="{{!(item.state === '2')}}">已完成</view>
       </view>
-    </view>
-
-    <!-- 签证订单列表 -->
-    <view class="info-box" wx:for="{{visa}}" hidden="{{orderHidden}}" data-name="visa">
-      <view class="order-num">订单编号: 999999HHH333</view>
-      <view class="order-state order-state-1" hidden="{{item !== 1}}">待付款</view>
-      <view class="order-state order-state-2" hidden="{{item !== 2}}">待发出</view>
-      <view class="order-state order-state-3" hidden="{{item !== 3}}">已完成</view>
-      <component-ord-in response="{{response}}"></component-ord-in>
-      <view class="footer-box">
-        <view class="order-footer order-footer-state1" wx:if="{{item === 1}}">立即付款</view>
-        <view class="order-footer order-footer-state2" wx:else>查看详情</view>
+      <view bindtap='clickOrdInfo' data-ind="{{index}}">
+        <component-ord-in item="{{item}}"></component-ord-in>
       </view>
-    </view>
+      <view class="footer-box">
+        <view class="order-footer order-footer-state2" data-ind="{{index}}" catchtap='checkDetails'>查看详情</view>
+        <view class="part" wx:if="{{item.state === '0'}}"></view>
+        <view class="order-footer order-footer-state1" wx:if="{{item.state === '0'}}" data-ind="{{index}}" catchtap='pay'>立即付款</view>
+      </view>
 
+    </block>
 
   </view>
 

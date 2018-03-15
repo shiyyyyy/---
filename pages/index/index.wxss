@@ -49,18 +49,19 @@
 
 .swiper {
   width: 100%;
+   height: 320rpx; 
 }
 
 .swiper .slide-image {
   width: 100%;
-  height: 100%;
+   height: 320rpx; 
 }
 
 /* 小分类  */
 
 .type {
   background-color: #fff;
-  margin: 32rpx 0;
+  margin: 16rpx 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -82,59 +83,69 @@
   line-height: 44rpx;
 }
 
-/* 签证  */
+/* content scroll  */
 
-.visa .visa-header {
-  width: 110%;
-  height: 88rpx;
-  margin-left: -5%;
-  line-height: 88rpx;
+.scroll{
+  margin-bottom: 16rpx;  
   background-color: #fff;
-  display: flex;
-  justify-content: space-between;
 }
-
-.visa .visa-header-text {
-  font-size: 26rpx;
-  padding-left: 6%;
-}
-
-.visa .visa-header-box {
-  font-size: 22rpx;
-  color: #999;
-  padding-right: 15rpx;
-}
-
-.visa .visa-header-box-img {
-  width: 22rpx;
-  height: 22rpx;
-  vertical-align: middle;
-}
-
-/* 可能喜欢  */
-
-.like-header {
-  width: 100%;
+.scorll-title{
   font-size: 28rpx;
-  color: #595a5a;
+  line-height: 88rpx;
   text-align: center;
-  height: 88rpx;
-  line-height: 88rpx;
+  border-bottom: 2rpx solid #f1f5f8;
 }
-
-/* 旅游圣地  */
-
-.tourism-header {
-  font-size: 28rpx;
-  line-height: 88rpx;
-  background-color: #fff;
+.scroll-main{
   padding-left: 24rpx;
   padding-right: 24rpx;
-  display: flex;
-  justify-content: space-between;
 }
 
-.tourism-header-box {
-  font-size: 22rpx;
-  color: #999;
+/* footer */
+.footer{
+  background-color: #fff;
+  margin-bottom: 16rpx;    
+}
+.footer-title{
+  font-size: 28rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-bottom: 2rpx solid #f1f5f8;
+}
+
+.footer-main{
+  padding-bottom: 20rpx;
+  margin-top: 24rpx; 
+  display: flex;
+}
+
+.footer-image-box{
+  width: 80rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+.footer-image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.footer-info{
+  padding-left: 24rpx;
+  border-left: 4rpx solid #f1f5f8;
+}
+.footer-info view{
+  font-size: 26rpx;
+  color: #666;
+  line-height: 40rpx;
+}
+.footer>view>view>.name{
+  font-size: 28rpx;
+  color: #000;
+}
+
+/* 标题左边的图片 */
+.title-left{
+  width: 50rpx;
+  height: 50rpx;
+  position: relative;
+  top: 18rpx;
 }

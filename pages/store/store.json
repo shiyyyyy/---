@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "component-swiper": "../components/swiper/swiper"
+  },
+  "enablePullDownRefresh": true
+}

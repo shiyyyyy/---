@@ -1,29 +1,68 @@
+page{
+  height: 100%;
+}
 .body {
   border-top: 1rpx solid rgba(255, 255, 255, 0);
   border-bottom: 1rpx solid rgba(255, 255, 255, 0);
   background-color: #f1f5f8;
+  height: 100%;
 }
 
-/* 订单信息  */
+/* 新 订单信息 */
+
 .order{
   font-size: 26rpx;
-  line-height: 67rpx;
   background-color: #fff;
-  padding-bottom: 25rpx;
-  margin-top: 24rpx;
+  padding: 24rpx;
   margin-bottom: 16rpx;
 }
-.order-info{
-  padding-left: 24rpx;
+.order-title{
+    
 }
-/* 定位 slot 的 text标签 */
+.order-details{
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
 
-.serial {
-  font-size: 24rpx;
-  line-height: 64rpx;
-  position: absolute;
-  right: 24rpx;
-  top: 26rpx; 
+/* 往返日期 */
+.back-froth{
+  font-size: 28rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+}
+.bf-date{
+  line-height: 72rpx;
+  border-bottom: 2rpx solid #f1f5f8;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+.bf-details{
+  width: 70%;
+  color: #666;
+  margin-left: 15%;
+  text-align: center;
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.forth, .back{
+  width: 30%;
+}
+.b-time, .f-time{
+  color: #999;
+}
+.bf-img-box{
+
+}
+
+.bf-img{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 13rpx;
 }
 
 /* 价格明细 */
@@ -76,7 +115,7 @@
 
 .contact {
   font-size: 24rpx;
-  color: #999;
+  color: #666;
   line-height: 72rpx;
   padding-left: 24rpx;
   padding-right: 24rpx;
@@ -92,12 +131,16 @@
 .contact-right {
   margin-left: 48rpx;
 }
+.name{
+  border-top: 2rpx solid #f1f5f8;  
+}
+.tel{
+  border-bottom: 2rpx solid #f1f5f8;
+}
 
 /* 其他需求  */
 
 .other {
-  padding-left: 24rpx;
-  padding-right: 24rpx;
   background-color: #fff;
   margin-bottom: 32rpx;
 }
@@ -105,35 +148,47 @@
 .other-title {
   font-size: 26rpx;
   line-height: 64rpx;
+  color: #000;
 }
 
 .other-content {
-  height: 236rpx;
-  font-size: 22rpx;
+  min-height: 236rpx;
+  font-size: 24rpx;
+  line-height: 48rpx;
   color: #666;
-  border-top: 1rpx solid #f1f5f8;
+  border-top: 2rpx solid #f1f5f8;
   text-indent: 2em;
   padding: 36rpx 0;
   overflow: auto;
 }
 
 /* 支付  */
-
 .pay {
+  width: 100%;
   font-size: 28rpx;
-  line-height: 98rpx;
-  background-color: #fff;
+  color: #fff;
+  line-height: 88rpx;
   text-align: center;
+  background-color: #f1f5f8;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
 }
 
 .amount {
-  flex: 1;
+  font-size: 34rpx;
+  color: #db2424;
+  background-color: #fff;
+  flex: 5;
+}
+.shop {
+  background-color: #ff9251;
+  flex: 7;
 }
 
 .payment {
-  color: #fefefe;
-  background-color: #e24949;
-  flex: 1;
+  background-color: #db2424;
+  flex: 9;
 }

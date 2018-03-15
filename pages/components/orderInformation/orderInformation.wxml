@@ -4,21 +4,17 @@
   <slot></slot>
   <view class="order" bindtap='b_list_item_tap'>
     <view class="left">
-      <image class="img" src="{{response.img}}" mode="scaleToFill"></image>
+      <image class="img" src="{{'https://ssl.tlink.cc/cj-back/' + item.pd_pic}}" mode="scaleToFill"></image>
     </view>
 
     <view class="right">
-      <view class="right-body">
-        <text class="money">{{ "￥" + response.money}}</text>
-        <text class="transport">{{response.transport}}</text>
+      <view class="right-title">
+        {{item.pd_name}}
       </view>
 
-      <view class="right-header">{{response.Introduction}}</view>
-
-      <view class="right-footer">
-        <text class="time">{{ response.time }}</text>
-        <text class="number"> 人数: {{ response.number }}</text>
-      </view>
+      <view class="time">出发日期：{{item.dep_date}}</view>
+      <view class="number"> 人数: {{ item.num_of_people }}</view>
+      <view class="money">总计：{{ item.amount }}</view>
     </view>
   </view>
 

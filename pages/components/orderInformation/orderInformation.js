@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    response:{
+    item:{
       type: Object,
       value: {}
     }

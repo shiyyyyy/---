@@ -5,10 +5,20 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    this.sid = wx.getStorageSync('sid')
+
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        this.post(
+          'api/WxPay/login',
+          { code: res.code },
+          data => {
+            wx.setStorageSync('sid', data.sid)
+            this.sid = data.sid
+          }
+        )
       }
     })
     // 获取用户信息
@@ -34,5 +44,36 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  // host: 'http://localhost:8080/cj-back/',
+  host: 'https://ssl.tlink.cc/cj-back/',
+  post: (url, data, cb) => {
+    data = data || {}
+    var app = getApp();
+    data.sid = app.sid;
+    url = app.host + url;
+    wx.request({
+      url: url,
+      data: data,
+      method: 'POST',
+      success: res => {
+        var data = res.data;
+        if (!data.success) {
+          wx.showModal({
+            title: '出错了',
+            content: data.message,
+          })
+        } else {
+          cb(data.data)
+        }
+      },
+      fail: res => {
+        wx.showModal({
+          title: '请求失败',
+          content: JSON.stringify(res),
+        })
+      },
+    })
   }
+
 })

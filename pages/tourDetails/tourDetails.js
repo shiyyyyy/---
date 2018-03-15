@@ -1,25 +1,22 @@
 //index.js
 //获取应用实例
-const util = require("../../utils/util.js");
+const util = require("../../utils/util.js")
 const app = getApp()
 
 Page({
   data: {
-    test:{
-      test: "我识字",
-      test1:{lalala: "22222"},
-      test2: "h呵呵呵呵\n你好啊>>>???"  
-    },
     // 请求返回值
     res: {},
     features: "",
     costCentains: "",
     notCentain: "",
-    instructions: "",
+    service: "",
     prompt: "",
     booking: "",
     shopping: "",
-    instructions: "",
+    ownExpense: "",
+    other: "",
+    accom: "",
     // 轮播图控件
     indicatorDots: true,
     autoplay: true,
@@ -27,38 +24,67 @@ Page({
     duration: 1000,
     current: true,
     circular: true,
-    // 时间相关
-    select_date: util.getDay(new Date),
-    setting_date: util.getDay(new Date),
-    current_tab_index: 0,
 
     // 图片/文字的展开 收起
     openImg: "",
     openText: "",
     // 展开隐藏的文本列
+    H_schedule: false,
+    //    上面是 行程详情,底下是需要单独分行的
     H_features: true,
     H_costCentains: true,
     H_notCentain: true,
-    H_instructions: true,
+    H_service: true,
     H_prompt: true,
     H_booking: true,
+    //    这里是网站上添加不了的
     H_shopping: true,
-    H_instructions: true,
-    H_schedule: false
+    H_ownExpense: true,
+    H_other: true,
+    H_accom: true,
+    //    这里是不需要分行的,不需要单独设置在data里
+    H_teamAttribute: true,
+
+    // 星期 数组
+    day: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+    dayArr: []
 
   },
-  // picker 时间选择事件
-  datechange: function (e) {
-    console.log(e);
+  // 时间格式
+  timeTraverse: function () {
+    var dayArr = []
+    var y = new Date().getFullYear()
+    var m = new Date().getMonth()
+    var d = new Date().getDate()
+    for (var i = 0; i < 7; i++) {
+      var newTime = new Date(y, m, d + i)
+      var year = newTime.getFullYear()
+      var month = newTime.getMonth() + 1 < 10 ? '0' + (newTime.getMonth() + 1) : "" + newTime.getMonth() + 1
+      var date = newTime.getDate() < 10 ? '0' + newTime.getDate() : "" + newTime.getDate()
+      var day = newTime.getDay()
+      dayArr.push({
+        year: year,
+        month: month,
+        date: date,
+        day: this.data.day[day]
+      })
+    }
     this.setData({
-      select_date: e.detail.value
+      dayArr: dayArr
     })
-    var date = this.data.select_date
-    this.setData({
-      setting_date: util.getDay(new Date(new Date(date).getTime() + 86400000))
-    })
+    console.log(this)
   },
 
+  // 选择日期
+  selectDate: function (e) {
+    console.log(e)
+    util.showLoading()
+    var target = e.currentTarget.dataset.date || ""
+    var idn = e.currentTarget.dataset.idn || 0
+    wx.navigateTo({
+      url: `../orderSubmit/orderSubmit?date=${target}&idn=${idn}`
+    })
+  },
 
   // 点击 展开全部 文本展开
   c_text_tap: function (e) {
@@ -96,9 +122,9 @@ Page({
           H_notCentain: !this.data.H_notCentain
         })
         break
-      case 'instructions':
+      case 'service':
         this.setData({
-          H_instructions: !this.data.H_instructions
+          H_service: !this.data.H_service
         })
         break
       case 'prompt':
@@ -116,9 +142,9 @@ Page({
           H_shopping: !this.data.H_shopping
         })
         break
-      case 'instructions':
+      case 'ownExpense':
         this.setData({
-          H_instructions: !this.data.H_instructions
+          H_ownExpense: !this.data.H_ownExpense
         })
         break
       case 'schedule':
@@ -126,39 +152,52 @@ Page({
           H_schedule: !this.data.H_schedule
         })
         break
+      case 'other':
+        this.setData({
+          H_other: !this.data.H_other
+        })
+        break
+      case 'accom':
+        this.setData({
+          H_accom: !this.data.H_accom
+        })
+        break
+        // 不需要放在 data 里面的
+      case 'teamAttribute':
+        this.setData({
+          H_teamAttribute: !this.data.H_teamAttribute
+        })
+        break
       default:
     }
     console.log(this)
   },
 
-  // 点击支付 跳转页面
-  c_pay_t: function (e) {
-    wx.navigateTo({
-      url: '../submit/submit',
-    })
-  },
 
   // 加载触发 发送请求
-  onLoad: function (event) {
+  onLoad: function (options) {
     var that = this;
-
+    wx.setStorageSync("id", options.id)
+    this.timeTraverse()
     // 请求轮播图返回对象
-    wx.request({
-      url: "https://ssl.tlink.cc/cj-back/api/B2C/product/1",
-      success: function (resp) {
-        that.setData({
-          res: resp.data.data,
-          features: resp.data.data['产品详情'].product_modular['产品特色'],
-          costCentains: resp.data.data['产品详情'].product_modular['费用包含'],
-          notCentain: resp.data.data['产品详情'].product_modular['费用不含'],
-          instructions: resp.data.data['产品详情'].product_modular['服务说明'],
-          prompt: resp.data.data['产品详情'].product_modular['温馨提示'],
-          booking: resp.data.data['产品详情'].product_modular['预定须知'],
-          shopping: resp.data.data['产品详情'].product_modular['购物场所'],
-          instructions: resp.data.data['产品详情'].product_modular['自费项目']
-        })
-        console.log(that.data.res)
-      }
+    var url = 'api/B2C/product/' + options.id
+    app.post(url, {}, res => {
+      this.setData({
+        res: res,
+        features: res.pd_detail['产品特色'],
+        costCentains: res.pd_detail['费用包含'],
+        notCentain: res.pd_detail['费用不含'],
+        service: res.pd_detail['服务说明'],
+        prompt: res.pd_detail['温馨提示'],
+        booking: res.pd_detail['预定须知'],
+
+        shopping: res.pd_detail['购物说明'] || '',
+        ownExpense: res.pd_detail['自费说明'] || '',
+        other: res.pd_detail['其他说明'] || '',
+        accom: res.pd_detail['住宿说明'] || ''
+      })
     })
+    console.log("tourDetails:this")
+    console.log(this)
   }
 })

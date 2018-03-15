@@ -1,92 +1,61 @@
 <view class="body">
+
   <view class="order">
-    <view class="order-info">咨询信息</view>
-    <component-ord-in response="{{response}}">
-      <text class="serial">询单编号: {{response.SerialNumber}}</text>
-    </component-ord-in>
+    <view class="order-title">{{res.pd_detail['产品名称']}} </view>
+    <view class="order-details">
+      <view class="order-time">{{res.groups[idn].dep_date}}</view>
+      <view class="order-num">订单编号: {{order_res.order_num}}</view>
+    </view>
   </view>
 
-
-  <!-- 价格明细  -->
-  <view class="price">
-    <view class="price-1">价格明细</view>
-    <view class="price-2 price-item">
-      <view class="left main-item">价格列表</view>
-      <view class="right main-item">金额</view>
-    </view>
-    <view class="price-3 price-item">
-      <view class="left main-item">旅游活动费</view>
-      <view class="right main-item">￥998</view>
-    </view>
-    <view class="price-4 price-item">
-      <view class="left main-item">签证费</view>
-      <view class="right main-item">1500</view>
-    </view>
-    <view class="price-5 price-item">
-      <view class="left main-item">机票费</view>
-      <view class="right main-item">￥2300</view>
-    </view>
-    <view class="price-6 price-item">
-      <view class="left main-item">附加服务费</view>
-      <view class="right main-item">￥200</view>
-    </view>
-    <view class="price-7 price-item">
-      <view class="left main-item">人均费用</view>
-      <view class="right main-item">￥3998</view>
+  <!-- 往返日期  -->
+  <view class="back-froth">
+    <view class="bf-date">往返日期</view>
+    <view class="bf-details">
+      <view class="forth">
+        <view class="f-title">出发日期</view>
+        <view class="f-time">{{res.groups[idn].dep_date}}</view>
+      </view>
+      <view class="bf-img-box">
+        <image class="bf-img" src="../../images/icon/bf.png" />
+      </view>
+      <view>
+        <view class="b-title">返回日期</view>
+        <view class="b-time">{{res.groups[idn].back_date}}</view>
+      </view>
     </view>
   </view>
 
   <!-- 联系人-成人 -->
   <view class="contact">
-    <view class="title">联系人</view>
+    <view class="title">联系人信息确认</view>
     <view class="name">
       <text space="emsp">姓 名</text>
-      <text class="contact-right">{{info.name}}</text>
+      <text class="contact-right">{{order_res.contact}}</text>
     </view>
     <view class="tel">
       <text space="emsp">电 话</text>
-      <text class="contact-right">{{info.tel}}</text>
+      <text class="contact-right">{{order_res.mobile}}</text>
     </view>
-    <!-- <view class="card">
-      <text space="emsp">身份证</text>
-      <text class="contact-right">{{info.card}}</text>
-    </view> -->
-    <view class="weixin">
-      <text space="emsp">微 信</text>
-      <text class="contact-right">{{info.weixin}}</text>
-    </view>
-  </view>
 
-  <!-- 联系人-儿童 -->
-  <!-- <view class="contact">
-    <view class="title">联系人-儿童</view>
-    <view class="name">
-      <text space="emsp">姓 名</text>
-      <text class="contact-right">张三</text>
+    <!-- 其他需求  -->
+    <view class="other">
+      <view class="other-title">其他需求确认</view>
+      <view class="other-content">{{info.textarea}}</view>
     </view>
-    <view class="tel">
-      <text space="emsp">电 话</text>
-      <text class="contact-right">13888888888</text>
-    </view>
-    <view class="card">
-      <text space="emsp">身份证</text>
-      <text class="contact-right">23232323232323232323</text>
-    </view>
-    <view class="weixin">
-      <text space="emsp">微 信</text>
-      <text class="contact-right">qewrsdafa</text>
-    </view>
-  </view> -->
 
-  <!-- 其他需求  -->
-  <view class="other">
-    <view class="other-title">其他需求</view>
-    <view class="other-content">{{info.textarea}}</view>
-  </view>
-
-  <!-- 底部支付  -->
-  <view class="pay">
-    <view class="amount">￥3998 </view>
-    <view class="payment" bindtap="pay">立即支付</view>
+    <wxs module="moneyFormat">
+      function moneyFormat(data) {
+        return Math.ceil(data)
+      }
+      module.exports.money = moneyFormat
+    </wxs>
+    <!-- 底部支付  -->
+    <view class="pay">
+      <!-- <view class="amount">￥{{ moneyFormat.money(res['产品团期'][idn].peer_price) * num}}</view> -->
+      <view class="amount">￥{{ order_res.amount || 0 }}</view>
+      <view class="shop">到店支付</view>
+      <view class="payment" bindtap="pay">在线支付</view>
+    </view>
   </view>
 </view>

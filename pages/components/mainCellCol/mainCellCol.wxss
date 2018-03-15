@@ -1,0 +1,51 @@
+/* pages/components/mainCellCol/mainCellCol.wxss */
+
+.main {
+  border-bottom: 2rpx solid #f1f5f8;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.main-image-box{
+  width: 100%;
+  height: 320rpx;
+  margin-bottom: 10rpx;
+}
+.main-image{
+  width: 100%;
+  height: 320rpx;
+}
+.main-money-address{
+  /* padding-left: 24rpx;
+  padding-right: 24rpx; */
+  display: flex;
+  justify-content: space-between;
+}
+.money{
+  font-size: 28rpx;
+  line-height: 72rpx;
+  color: red;
+}
+.address{
+  font-size: 24rpx;
+  line-height: 72rpx;
+  color: #999;
+}
+
+.main-title{
+  width: 570rpx;
+  font-size: 28rpx;
+  line-height: 34rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+}
+
+.main-info{
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+}

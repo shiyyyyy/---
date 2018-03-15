@@ -1,1 +1,7 @@
-{}
+{
+  "navigationBarBackgroundColor": "#000000",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "欢迎到店咨询",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}
