@@ -4,23 +4,19 @@ Page({
    * 页面的初始数据
    */
   data: { 
-    res: {}
+    res: {},
+    // 图片地址 前缀
+    host: getApp().host
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-
-    wx.request({
-      url: 'https://ssl.tlink.cc/cj-back/api/B2C/product/1',
-      success: function(res){
-        that.setData({
-          res: res.data.data
-        })
-      }
+    this.setData({
+      res: options
     })
+    console.log(options)
   },
   // 点击 地址
   clickAddress: function(){

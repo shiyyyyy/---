@@ -1,29 +1,29 @@
 <!--pages/components/swiper/swiper.wxml-->
 
 <!-- 头部图片部分  -->
-<view bindtap='click' class="swiper">
+<view class="swiper">
   <swiper class="slide" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="circular">
-    <!-- <block wx:for="{{res['产品详情'].product_modular['产品图片']}}"> -->
-    <block wx:for="{{res.pd_detail['产品图片']}}"> 
+    <block wx:for="{{res.pd_detail['产品图片']}}">
       <swiper-item>
-      <!-- <wxs module="enCode">
-        function enCode(url){
-          return encodeURI(url)
-        }
-        module.exports.enCode = enCode
-      </wxs> -->
-        <!-- <image src="{{enCode.enCode('https://ssl.tlink.cc/cj-back/'+ item.path)}}" class="slide-image" mode="aspectFill" bindtap='c_main_item_tap'/> -->
-        <image src="{{'https://ssl.tlink.cc/cj-back/' + item.path}}" class="slide-image" mode="aspectFill" bindtap='c_main_item_tap'/>
+        <image src="{{host + item.path}}" class="slide-image" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
   <!-- 中间主题内容 费用和出发地 -->
-   <view class="body">
-      <!-- <text class="money">{{ "￥" + res.money}}</text> -->
-      <text class="money">￥{{res.groups[0].retail_price * 1}}</text>
-      <text class="transport">出发地：北京{{res.groups[0].dep_city_name}}</text>
-    </view>
-    <view class="title">{{}}夏威夷之旅 夏天清凉 海滩温暖 阳光热烈 旅游度假首选之地 快来报名吧</view>
-    <view class="days">{{}}2天{{}}3晚</view>
+  <view class="body">
+    <text class="money">￥{{res.groups[0].retail_price * 1}}</text>
+    <text class="transport">出发地：{{res.pd_detail['出发地']}}</text>
+  </view>
 
-</view> 
+  <view class="main-box">
+    <view class="main-info" >
+      <view class="title">{{res.pd_detail['产品名称']}}</view>
+      <view class="days">{{res.pd_detail['天数']}}天{{res.pd_detail['晚数']}}晚</view>
+    </view>
+    <view class="forwarding">
+      <slot></slot>
+    </view>
+  </view>
+
+
+</view>

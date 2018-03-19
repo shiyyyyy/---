@@ -1,7 +1,14 @@
 <view class="body">
-  <!-- 轮播图 -->
-  <view>
-    <component-swiper res="{{res}}"></component-swiper>
+  <!-- 图片 / 标题 -->
+  <view class="img-box">
+    <image src="{{host + res.productImgUrl0}}" class="img" />
+  </view>
+  <view class="title">
+    {{ res.productTitle }}
+  </view>
+
+  <view class="order-num" wx:if="{{res.orderNum}}">
+    订单编号：{{res.orderNum}}
   </view>
 
   <view class="tel" bindtap='callPhone'>

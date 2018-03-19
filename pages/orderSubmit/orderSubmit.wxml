@@ -79,8 +79,8 @@
   <!-- 表单 -->
   <view class="form">
     <form bindsubmit="formSubmit">
-      <!-- 其他需求 -->
-      <view class="other">
+      <!-- 其他需求  这里的hidden是不让这个加载的太快,会先显示这个-->
+      <view class="other" hidden='{{!calendar.weeks && !res[0].dep_date}}'>
         <view class="other-text">其他需求</view>
         <view class="text-box">
           <textarea class="textarea" name="textarea" placeholder="请输入您的其它需求，等待客服与您二次确认" placeholder-style="placeholder" maxlength="500"> </textarea>
@@ -105,10 +105,12 @@
           </view>
         </view>
       </view>
+
+
       <!-- footer submit  -->
-       <view class='footer'>
-          <button formType="submit" class="submit">提交</button>
-      </view> 
+      <view class='footer'>
+        <button formType="submit" class="submit">提交</button>
+      </view>
     </form>
   </view>
 </view>

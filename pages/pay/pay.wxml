@@ -1,10 +1,10 @@
 <view class="body">
 
   <view class="order">
-    <view class="order-title">{{res.pd_detail['产品名称']}} </view>
+    <view class="order-title">{{res.pd_name}} </view>
     <view class="order-details">
-      <view class="order-time">{{res.groups[idn].dep_date}}</view>
-      <view class="order-num">订单编号: {{order_res.order_num}}</view>
+      <view class="order-time">{{res.dep_date}}</view>
+      <view class="order-num">订单编号: {{res.order_num}}</view>
     </view>
   </view>
 
@@ -14,14 +14,14 @@
     <view class="bf-details">
       <view class="forth">
         <view class="f-title">出发日期</view>
-        <view class="f-time">{{res.groups[idn].dep_date}}</view>
+        <view class="f-time">{{res.dep_date}}</view>
       </view>
       <view class="bf-img-box">
         <image class="bf-img" src="../../images/icon/bf.png" />
       </view>
       <view>
         <view class="b-title">返回日期</view>
-        <view class="b-time">{{res.groups[idn].back_date}}</view>
+        <view class="b-time">{{res.back_date}}</view>
       </view>
     </view>
   </view>
@@ -31,17 +31,17 @@
     <view class="title">联系人信息确认</view>
     <view class="name">
       <text space="emsp">姓 名</text>
-      <text class="contact-right">{{order_res.contact}}</text>
+      <text class="contact-right">{{res.contact}}</text>
     </view>
     <view class="tel">
       <text space="emsp">电 话</text>
-      <text class="contact-right">{{order_res.mobile}}</text>
+      <text class="contact-right">{{res.mobile}}</text>
     </view>
 
     <!-- 其他需求  -->
     <view class="other">
       <view class="other-title">其他需求确认</view>
-      <view class="other-content">{{info.textarea}}</view>
+      <view class="other-content">{{res.comment}}</view>
     </view>
 
     <wxs module="moneyFormat">
@@ -53,8 +53,8 @@
     <!-- 底部支付  -->
     <view class="pay">
       <!-- <view class="amount">￥{{ moneyFormat.money(res['产品团期'][idn].peer_price) * num}}</view> -->
-      <view class="amount">￥{{ order_res.amount || 0 }}</view>
-      <view class="shop">到店支付</view>
+      <view class="amount">￥{{ res.amount * 1 || 0 }}</view>
+      <view class="shop" catchtap="arriveStore">到店支付</view>
       <view class="payment" bindtap="pay">在线支付</view>
     </view>
   </view>

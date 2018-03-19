@@ -2,7 +2,15 @@
 <view class="body">
 
   <view>
-    <component-swiper res="{{res}}"></component-swiper>
+    <component-swiper res="{{res}}">
+      <view class="forwarding">
+        <button class="forwarding-btn" open-type='share' plain='true'></button>
+        <view class="forwarding-box">
+          <image class="forwarding-img" src="../../images/icon/forwarding.png" />
+          <view class="forwarding-text">分享</view>
+        </view>
+      </view>
+    </component-swiper>
   </view>
 
   <wxs module="br">
@@ -19,7 +27,7 @@
       <view class="select-text">选择日期</view>
 
       <wxs module="timer">
-        function time(y,m,d){
+        function time(y, m, d) {
           console.log(y + "-" + m + "-" + d)
           return y + "-" + m + "-" + d
         }
@@ -27,7 +35,7 @@
       </wxs>
 
       <wxs module="moneyFormat">
-        function moneyFormat(data){
+        function moneyFormat(data) {
           return Math.ceil(data)
         }
         module.exports.money = moneyFormat
@@ -41,7 +49,7 @@
           </view>
         </view>
         <view class="date-item last-item" bindtap='selectDate'>
-          ...  
+          ...
         </view>
       </view>
     </view>
@@ -52,10 +60,10 @@
       <!-- 团队属性 -->
       <view class="item-box" bindtap="b_centains_t" data-name="teamAttribute">
         团队属性
-         <image class="click-an-img {{ H_teamAttribute ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" /> 
+        <image class="click-an-img {{ H_teamAttribute ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
       <view class="text-item" hidden="{{H_teamAttribute}}">
-         <view wx:for="{{res.pd_detail['产品团队属性']}}"> 
+        <view wx:for="{{res.pd_detail['产品团队属性']}}">
           <view>往返交通：{{item.traffic}}</view>
           <view>住宿标准：{{item.accommodation}}</view>
           <view>用餐标准：{{item.dining_standards}}</view>
@@ -88,12 +96,12 @@
           <view class="left-box">
             <image class="left-img" src="../../images/icon/play.png"></image>
           </view>
-          <view class="{{ openText === index? 'active-description-text' : 'description-text'}}" data-index="{{index}}">
+          <text class="{{ openText === index? 'active-description-text' : 'description-text'}}" data-index="{{index}}">
             {{item.description}}
-            <view class="click-box" data-index="{{index}}" catchtap="c_text_tap">
-              {{ openText === index ? "收起全部" : "展开全部" }}
-              <image class="click-an-img {{ openText === index ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
-            </view>
+          </text>
+          <view class="click-box" data-index="{{index}}" catchtap="c_text_tap">
+            {{ openText === index ? "收起全部" : "展开全部" }}
+            <image class="click-an-img {{ openText === index ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
           </view>
         </view>
 
@@ -185,12 +193,12 @@
       </view>
       <view class="text-item" wx:for="{{ br.br(ownExpense) }}" hidden="{{H_ownExpense}}">{{ item }}</view> -->
 
-    <!-- 其他说明 -->
-       <view class="item-box" bindtap="b_centains_t" data-name="other" hidden='{{!other}}'>
+      <!-- 其他说明 -->
+      <view class="item-box" bindtap="b_centains_t" data-name="other" hidden='{{!other}}'>
         其他说明
         <image class="click-an-img {{ H_other ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(other) }}" hidden="{{H_other}}">{{ item }}</view> 
+      <view class="text-item" wx:for="{{ br.br(other) }}" hidden="{{H_other}}">{{ item }}</view>
 
 
     </view>
@@ -201,10 +209,11 @@
   <!-- 底部 支付  -->
   <!-- <component-footer-pay></component-footer-pay> -->
   <view class="footer">
-    <view class="footer-left">
+    <view class="footer-left" bindtap='customerService'>
       <image class="message-img" src="../../images/icon/message.png"></image>
+      <button class="contact-button" open-type="contact" size='mini'>在线咨询</button>
     </view>
-    <view class="footer-center">进店咨询</view>
+    <view class="footer-center" catchtap="enterStore">进店咨询</view>
     <view class="footer-right" bindtap='selectDate'>立即预定</view>
   </view>
 

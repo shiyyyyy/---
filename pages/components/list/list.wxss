@@ -1,18 +1,19 @@
 /* pages/list/list.wxss */
 
 .list {
-  height: 248rpx;
+  /* height: 248rpx; */
   box-sizing: border-box;
-  padding: 25rpx 24rpx;
+  padding: 25rpx 24rpx 0rpx 24rpx;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #f1f5f8;
+  border-bottom: 1rpx solid #ccc;
   background-color: #fff;
 }
 
-.left {
-  margin-right: 32rpx;
+.img-box {
+  margin-right: 24rpx;
   height: 198rpx;
+  margin-bottom: 20rpx;
 }
 
 .img {
@@ -22,50 +23,46 @@
 
 .right {
   font-size: 0;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  flex: 1;
 }
 
-.right-header {
-  font-size: 26rpx;
-  color: #696969;
-  line-height: 28rpx;
-  overflow: hidden;
+.title {
+  font-size: 28rpx;
+  line-height: 42rpx;
+  margin-bottom: 10rpx;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
-.body {
-  line-height: 30rpx;
+.pro-info {
+  line-height: 48rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  justify-content: space-between;
 }
 
 .money {
-  font-size: 26rpx;
-  text-align: left;
-  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #db2424;
 }
 
-.transport {
-  font-size: 20rpx;
-  color: #c2c2c2;
-  text-align: right;
+.origin {
+  font-size: 24rpx;
+  color: #999;
 }
 
-.activity {
-  font-size: 20rpx;
-  color: #0a87ae;
-  border: 1px solid #0a87ae;
-  border-radius: 4px;
-  padding: 3rpx 6rpx;
-  margin-right: 6rpx;
+.lv2 {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 40rpx;
+  border: 2rpx solid #999;
+  border-radius: 8rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-bottom: 10rpx;
   display: inline-block;
-}
-
-.countries {
-  color: #d4881d;
-  border: 1px solid #d4881d;
-}
-
-.promote {
-  color: #c0d097;
-  border: 1px solid #c0d097;
 }

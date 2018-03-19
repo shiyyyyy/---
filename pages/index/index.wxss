@@ -119,13 +119,13 @@
 }
 
 .footer-image-box{
-  width: 80rpx;
+  width: 100rpx;
   margin-left: 24rpx;
   margin-right: 24rpx;
 }
 .footer-image{
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 
 .footer-info{

@@ -5,6 +5,8 @@ const app = getApp()
 
 Page({
   data: {
+    // 当前页面商品 id
+    id: '',
     // 请求返回值
     res: {},
     features: "",
@@ -74,13 +76,27 @@ Page({
     })
     console.log(this)
   },
+  // 点击 进店咨询
+  enterStore: function (e) {
+    var productImgUrl0 = this.data.res.pd_detail['产品图片'][0].path
+    var productTitle = this.data.res.pd_detail['产品名称']
+    wx.navigateTo({
+      url: `../store/store?productImgUrl0=${productImgUrl0}&productTitle=${productTitle}`,
+    })
+  },
 
-  // 选择日期
+  // 选择日期 / 点击立即预定
   selectDate: function (e) {
     console.log(e)
     util.showLoading()
     var target = e.currentTarget.dataset.date || ""
-    var idn = e.currentTarget.dataset.idn || 0
+    var dateArr = this.data.res.groups
+    var idn = ''
+    for(var i = 0, len = dateArr.length; i < len; i++){
+      if(dateArr[i].dep_date === target){
+        idn = i
+      }
+    }
     wx.navigateTo({
       url: `../orderSubmit/orderSubmit?date=${target}&idn=${idn}`
     })
@@ -99,7 +115,6 @@ Page({
         openText: e.currentTarget.dataset.index
       })
     }
-    console.log((this.data.res['产品详情'].product_modular['产品特色']))
   },
 
   // 展开隐藏 费用包含
@@ -162,7 +177,7 @@ Page({
           H_accom: !this.data.H_accom
         })
         break
-        // 不需要放在 data 里面的
+      // 不需要放在 data 里面的
       case 'teamAttribute':
         this.setData({
           H_teamAttribute: !this.data.H_teamAttribute
@@ -173,14 +188,42 @@ Page({
     console.log(this)
   },
 
-
+  // 转发商品页面 点击分享
+  onShareAppMessage: function (res) {
+    var that = this
+    console.log("分享按钮")
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+      console.log("button")
+    }
+    return {
+      title: '开来旅行吧',
+      path: '/pages/tourDetails/tourDetails?id=' + that.data.id,
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功")
+        console.log('/pages/tourDetails/tourDetails?id=' + that.data.id)
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败")
+      }
+    }
+  },
   // 加载触发 发送请求
   onLoad: function (options) {
+    util.showLoading()    
     var that = this;
+
     wx.setStorageSync("id", options.id)
+    this.setData({
+      id: options.id
+    })
     this.timeTraverse()
     // 请求轮播图返回对象
     var url = 'api/B2C/product/' + options.id
+    console.log(url)
     app.post(url, {}, res => {
       this.setData({
         res: res,
@@ -196,8 +239,25 @@ Page({
         other: res.pd_detail['其他说明'] || '',
         accom: res.pd_detail['住宿说明'] || ''
       })
+      util.hideToast()
     })
     console.log("tourDetails:this")
     console.log(this)
+
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  }, onShow(e) {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+  // onLounch
+  onLaunch: function (ops) {
+    if (ops.scene == 1044) {
+      console.log("onLaunch")      
+      console.log(ops.shareTicket)
+    }
   }
+
 })

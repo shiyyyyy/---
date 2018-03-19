@@ -17,28 +17,18 @@ Component({
     interval: 4000,
     duration: 500,
     circular: true,
-    imgUrls: [
-      '../../../images/banner/banner1.jpg',
-      '../../../images/banner/banner2.jpg',
-      '../../../images/banner/banner3.jpg',
-      '../../../images/banner/banner4.jpg'
-    ],
+    // 图片地址 前缀
+    host: getApp().host
   },
 
   /* 组件的方法列表 */
   methods: {
-    c_main_item_tap: function (event) {
 
-    },
-    click: function (e){
-      console.log(this.data.res['产品详情'].product_modular['产品图片'])
-      console.log(this)
-    }
   },
   onLoad: function (event) {
-   wx.request({
-     url: '',
-   })
+    wx.request({
+      url: '',
+    })
   }
 })
 

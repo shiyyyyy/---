@@ -1,11 +1,14 @@
 <view class="classification">
 
-
   <scroll-view class="header-scroll" scroll-x>
-      <view wx:for="{{res}}" class="item {{index == currentTwoMenu ? 'active-item':''}}" catchtap='tapTwoMenu' data-index="{{index}}">
-        {{item.name}}
-      </view>
+    <view wx:for="{{twoList}}" class="item {{index === currentTwoMenu ? 'active-item':''}}" style="border:{{ (index === twoList.length - 1) ? 'none':'' }}" catchtap='tapTwoMenu' data-index="{{index}}" data-pdName='{{item}}'>
+      {{item}}
+    </view>
   </scroll-view>
 
-  <component-list res="{{res}}"></component-list>
+  <view class="product-list">
+    <component-list res="{{proList}}"></component-list>
+  </view>
+
+
 </view>

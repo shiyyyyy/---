@@ -14,7 +14,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    // 图片地址 前缀
+    host: getApp().host
   },
 
   /**

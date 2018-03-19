@@ -2,7 +2,7 @@
 
 <view class='main'>
   <view class="main-image-box" bindtap='click'>
-    <image src="{{'https://ssl.tlink.cc/cj-back/' + item.pic}}" class="main-image" />
+    <image src="{{host + item.pd_pic}}" class="main-image" />
   </view>
   <!-- 价格 和 出发地 -->
   <view class="main-money-address" >

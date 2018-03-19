@@ -46,7 +46,7 @@ App({
     userInfo: null
   },
   // host: 'http://localhost:8080/cj-back/',
-  host: 'https://ssl.tlink.cc/cj-back/',
+  host: 'https://nyfq.tlink.cc/cj-back/',
   post: (url, data, cb) => {
     data = data || {}
     var app = getApp();

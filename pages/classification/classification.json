@@ -1,11 +1,10 @@
 {
-"usingComponents": {
-  "component-list": "../components/list/list"
-},
+  "usingComponents": {
+    "component-list": "../components/list/list"
+  },
   "navigationBarBackgroundColor": "#000000",
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "笨象旅途",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
-
 }

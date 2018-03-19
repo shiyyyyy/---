@@ -4,6 +4,27 @@
   background-color: #f1f5f8;
 }
 
+.img-box{
+  width: 100%;
+  height: 400rpx;
+  background-color: #fff;
+}
+.img{
+  width: 100%;
+  height: 400rpx;
+}
+.title{
+  line-height: 48rpx;
+  background-color: #fff;  
+  padding: 20rpx 24rpx;
+}
+.order-num{
+  background-color: #fff;
+  margin-top: 16rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+
 .tel{
   background-color: #fff;
   margin-top: 16rpx;

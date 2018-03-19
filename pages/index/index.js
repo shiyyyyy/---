@@ -6,6 +6,8 @@ const util = require("../../utils/util.js")
 Page({
   data: {
     res: {},
+    // 图片地址 前缀
+    host: getApp().host,
     // 轮播图控件
     indicatorDots: true,
     autoplay: true,
@@ -17,14 +19,7 @@ Page({
 
   // 加载触发 发送请求
   onLoad: function (option) {
-    util.showLoading()
-    var url = 'api/B2C/home'
-    app.post(url, {}, res=>{
-      this.setData({
-        res: res
-      })
-    })
-    util.hideToast()
+    this.loadRefreshFn()
     console.log("index:this")
     console.log(this)
   },
@@ -42,7 +37,11 @@ Page({
   // 绑定小分类点击事件
   tapType: function(e) {
     console.log(e);
-    console.log("点击了分类小图标")
+    var target = e.target.dataset.iconid
+    console.log("点击了分类小图标id:" + target)
+    wx.navigateTo({
+      url: '../classification/classification?iconid=' + target,
+    })
   },
   // 点击 more 显示全部签证服务
   c_more_tap: function() {
@@ -59,5 +58,22 @@ Page({
     wx.switchTab({
       url: '../consulting/consulting'
     })
+  },
+
+  // 下拉刷新事件
+  onPullDownRefresh: function(){
+    this.loadRefreshFn(wx.stopPullDownRefresh())
+  },
+  // 加载 或者刷新页面调用的函数
+  loadRefreshFn: function(fn){
+    util.showLoading()
+    var url = 'api/B2C/home'
+    app.post(url, {}, res => {
+      this.setData({
+        res: res
+      })
+    })
+    util.hideToast()
+    if(fn) fn()
   }
 })

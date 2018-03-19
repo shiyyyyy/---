@@ -104,6 +104,7 @@
 
 .other-month {
   color: #ccc;
+  z-index: 1;
 }
 
 /* active Day  */
@@ -193,7 +194,6 @@
 .other {
   background-color: #fff;
   border-bottom: 1rpx solid #fff;
-  margin-bottom: 18rpx;
 }
 
 .other-text {
@@ -228,6 +228,7 @@
 .contact {
   background-color: #fff;
   border-bottom: 1rpx solid #fff;
+  margin-bottom: 18rpx;
   padding-bottom: 100rpx;
 }
 
@@ -284,6 +285,7 @@
   background-color: #db2424;
   margin-top: 10rpx; 
   margin-bottom: 10rpx;
+  z-index: 200;
 }
 
 .hidden{
@@ -292,23 +294,3 @@
   line-height: 32rpx;
   text-align: center;
 } 
-
-/* 底部 footer */
-
-/* .footer {
-  width: 100%;
-  box-sizing: border-box;
-  border-top: 2rpx solid #eee;
-  padding: 10rpx 24rpx;
-  position: fixed;
-  bottom: 0;
-}
-
-.footer .confirm {
-  font-size: 28rpx;
-  color: #fff;
-  line-height: 72rpx;
-  text-align: center;
-  background-color: #db2424;
-  border-radius: 8rpx;
-} */

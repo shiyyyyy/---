@@ -3,8 +3,9 @@
     "component-ord-in": "../components/orderInformation/orderInformation"
   },
   "navigationBarBackgroundColor": "#000000",
-  "navigationBarTextStyle": "white",
   "navigationBarTitleText": "我的订单",
   "backgroundColor": "#eeeeee",
-  "backgroundTextStyle": "light"
+  "backgroundTextStyle": "light",
+  "navigationBarTextStyle": "dark",
+  "enablePullDownRefresh": true
 }

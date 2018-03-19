@@ -7,7 +7,7 @@ Page({
     // 返回的数据的产品团期下的开团时间
     moneyCalendar: [],
     // 点击的那天是哪年哪月哪天
-    select:{},
+    select: {},
     // 选择预订的人数 & 单房差数量 & 成人价
     num: 1,
     // 团期列表的当前下标
@@ -56,17 +56,18 @@ Page({
   },
 
   // 提交订单(表单)事件
-  formSubmit:function(e){
-    if( !(this.data.select.date) ){
-        wx.showToast({
-          title: '请选择出发日期',
-          icon: 'none'          
-        })
-        return
+  formSubmit: function (e) {
+    if (!(this.data.select.date)) {
+      wx.showToast({
+        title: '请选择出发日期',
+        icon: 'none'
+      })
+      return
     }
     var value = e.detail.value
+    console.log(value)
     // 如果没填写联系人信息,不行
-    if (!(value.name && value.tel) ) {
+    if (!(value.name && value.tel)) {
       // 弹出框 提示用户输入 姓名/电话
       wx.showToast({
         title: '请输入联系人信息',
@@ -77,33 +78,52 @@ Page({
 
     util.showLoading()
     // // 联系人信息 传递到 pay 页面
-
     var gp_id = this.data.res[this.data.idn].id
     var num_of_people = this.data.num
-    var comment = value.other || ''
+    var pd_name = this.data.resp['产品名称']
+    var dep_date = this.data.res[this.data.idn].dep_date
+    var back_date = this.data.res[this.data.idn].back_date
+    var orderImgUrl0 = this.data.resp['产品图片'][0].path
+    var comment = value.textarea || ''
     var contact = value.name || ''
     var mobile = value.tel || ''
+    
 
     wx.setStorageSync("idn", this.data.idn)
     // wx.setStorageSync("info", value)
     // wx.setStorageSync("num", num_of_people)
 
-    getApp().post('api/WxPay/order',{
+    getApp().post('api/WxPay/order', {
       'gp_id': gp_id,  // 团的id
       'num_of_people': num_of_people, // 人数
       'comment': comment, // 其他需求
       'contact': contact, // 联系人姓名
-      'mobile': mobile // 电话
-    },data=>{
+      'mobile': mobile, // 电话
+      'pd_name': pd_name,
+      'dep_date': dep_date,
+      'back_date': back_date,
+      'orderImgUrl0': orderImgUrl0
+    }, data => {
       // ['id','order_num','retail_price','amount']
       // 团id    订单人数    担任金额    总金额
-      wx.setStorageSync("order_res", data)
-      wx.redirectTo({
-        url: "../pay/pay?"
+      console.log(data)
+      var pd_name = data.pd_name
+      var dep_city_name = data.dep_city_name
+      var dep_date = data.dep_date
+      var back_date = data.back_date
+      var amount = data.amount
+      var comment = data.comment
+      var contact = data.contact
+      var order_num = data.order_num
+      var mobile = data.mobile
+      var orderImgUrl0 = data.orderImgUrl0
+      var id = data.id
+      wx.navigateTo({
+        url: `../pay/pay?pd_name=${pd_name}&dep_city_name=${dep_city_name}&dep_date=${dep_date}&back_date=${back_date}&amount=${amount}&comment=${comment}&contact=${contact}&order_num=${order_num}&mobile=${mobile}&orderImgUrl0=${orderImgUrl0}&id=${id}`
       })
     })
   },
-  
+
   //  姓名 input 输入验证 失焦事件
   name_input: function (e) {
     var rex = /^([a-zA-Z0-9\u4e00-\u9fa5\·]{1,10})$/
@@ -159,6 +179,7 @@ Page({
         })
       }
       console.log(this)
+      console.log(this.data.resp['产品图片'][0].path)
     })
 
     // 页面初始化 options为页面跳转所带来的参数
@@ -184,7 +205,7 @@ Page({
 
     this.calendarDrawing(year, month, date)
 
-    util.hideToast()
+
   },
   onReady: function () {
     // 页面渲染完成
@@ -236,6 +257,8 @@ Page({
         month = 1
         year = year - 0 + 1
       }
+    } else{
+      return
     }
     year = year + ''
     month = month < 10 ? '0' + month : month + ''
@@ -349,5 +372,6 @@ Page({
       "calendar.date": date,
       "calendar.weeks": weeks
     })
+    util.hideToast()
   }
 })
