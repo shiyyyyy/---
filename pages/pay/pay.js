@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    util.showLoading()
     console.log(options)
     var res = {
       pd_name: options.pd_name,
@@ -27,12 +28,13 @@ Page({
       order_num: options.order_num,
       mobile: options.mobile,
       orderImgUrl0: options.orderImgUrl0,
-      id: options.id
+      id: options.id,
+      order: options.order
     }
     this.setData({
       res: res
     })
-
+    util.hideToast()
     console.log(this)
   },
   // 点击 到店支付
@@ -98,7 +100,16 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    util.showLoading()
+    console.log("onUnload")
+    if(this.data.res.order === "order"){
+      util.hideToast()
+      return 
+    }
+    wx.navigateBack({
+      delta: 1
+    })
+    util.hideToast()
   },
 
   /**

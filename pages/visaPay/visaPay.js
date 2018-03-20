@@ -24,22 +24,7 @@ Page({
   onLoad: function (event) {
     console.log(event)
     var that = this;
-    wx.request({
-      url: "https://ssl.tlink.cc/cj-back/api/B2C/product/1",
-      success: function (res) {
-        that.setData({
-          res: res.data.data
-        })
-      }
-    })
-    wx.request({
-      url: "http://localhost/visa.json",
-      success: function (res) {
-        that.setData({
-          visa: res.data
-        })
-      }
-    })
+    
   },
   // 点击查看 套餐详情 改变展开图标样式
   c_item_tap: function (e) {

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "component-main-cell-row": "../components/mainCellRow/mainCellRow"
+    "component-list": "../components/list/list"
   },
   "navigationBarBackgroundColor": "#000000",
   "navigationBarTextStyle": "white",

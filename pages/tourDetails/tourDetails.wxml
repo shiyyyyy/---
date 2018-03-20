@@ -211,7 +211,7 @@
   <view class="footer">
     <view class="footer-left" bindtap='customerService'>
       <image class="message-img" src="../../images/icon/message.png"></image>
-      <button class="contact-button" open-type="contact" size='mini'>在线咨询</button>
+      <button class="contact-button" open-type="contact" size='mini' show-message-card="true">在线咨询</button>
     </view>
     <view class="footer-center" catchtap="enterStore">进店咨询</view>
     <view class="footer-right" bindtap='selectDate'>立即预定</view>

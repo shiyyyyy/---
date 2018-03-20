@@ -15,7 +15,7 @@
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" circular="circular">
     <block wx:for="{{res.slide}}" wx:key="{{index}}">
-      <swiper-item catchtap="c_swiper_tag" data-index="{{index}}">
+      <swiper-item catchtap="c_swiper_tag" data-pd_id="{{item.pd_id}}">
         <image src="{{host + item.pd_pic}}" class="slide-image" />
       </swiper-item>
     </block>

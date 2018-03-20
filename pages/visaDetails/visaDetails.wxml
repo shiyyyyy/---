@@ -1,0 +1,40 @@
+<view class="body">
+  <!-- 顶部 轮播图 和 信息 -->
+  <view class="swiper-box">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="swiper-title">
+      日本个人旅游签证
+      <text class="swiper-address">上海送签</text>
+    </view>
+
+    <view class="swiper-money">￥247 ~ 647</view>
+
+    <view class="swiper-share">
+      <image src="../../images/icon/forwarding.png" class='share-img'></image>
+      <view>分享</view>
+      <button class="share-btn" open-type="share"></button>
+    </view>
+  </view>
+
+  <!-- 专业办签 -->
+  <view class="store">
+    <view class="store-info">
+      <image class="store-img" src="../../images/icon/ok.png" /> 专业办签，高效出签
+    </view>
+
+    <view class="store-tel">咨询电话：</view>
+    <view class="store-time">咨询时间：09:00 - 18:00</view>
+  </view>
+
+
+
+
+  <view>
+  </view>
+</view>

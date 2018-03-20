@@ -2,7 +2,7 @@
 <view class="body">
 
   <slot></slot>
-  <view class="order" bindtap='b_list_item_tap'>
+  <view class="order">
     <view class="left">
       <image class="img" src="{{host + item.pd_pic}}" mode="scaleToFill"></image>
     </view>

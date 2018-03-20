@@ -17,10 +17,20 @@ Page({
 
   //  点击 订单模板(订单信息)
   clickOrdInfo: function (e) {
-    // 因为 需要把后下的订单在上面显示,所以一已经取反过了,现在把他在反回来
+
+    // 因为 需要把后下的订单在上面显示,所以已经取反过了(没事,取反并不耽误下标的正确性)
     var index = e.currentTarget.dataset.ind
     var data = this.data.res[index]
+    // 如果已经付完款了 就返回查看详情页面,否则,支付页面
+    if(data.state === '1'){
+      util.showLoading()
+      wx.navigateTo({
+        url: '../orderDetails/olderDetails?ind=' + index,
+      })
+      return 
+    }
     console.log(data)
+    console.log(index)
     var pd_name = data.pd_name
     var dep_city_name = data.dep_city_name
     var dep_date = data.dep_date
@@ -32,12 +42,16 @@ Page({
     var mobile = data.mobile
     var orderImgUrl0 = data.pd_pic
     var id = data.id
+    // 判断是由 order 传进去的
+    var order = "order"
+
     wx.navigateTo({
-      url: `../pay/pay?pd_name=${pd_name}&dep_city_name=${dep_city_name}&dep_date=${dep_date}&back_date=${back_date}&amount=${amount}&comment=${comment}&contact=${contact}&order_num=${order_num}&mobile=${mobile}&orderImgUrl0=${orderImgUrl0}&id=${id}`
+      url: `../pay/pay?pd_name=${pd_name}&dep_city_name=${dep_city_name}&dep_date=${dep_date}&back_date=${back_date}&amount=${amount}&comment=${comment}&contact=${contact}&order_num=${order_num}&mobile=${mobile}&orderImgUrl0=${orderImgUrl0}&id=${id}&order=${order}`
     })
   },
   //  点击 查看详情按钮
   checkDetails: function (e) {
+    util.showLoading()
     //  虽然这里已经给返回的订单取反了,但是在下个页面,订单还是取反的,所以没问题
     var index = e.currentTarget.dataset.ind
     wx.navigateTo({
@@ -60,9 +74,8 @@ Page({
             title: '支付成功',
           })
 
-          util.showLoading()
           // 付款成功之后刷新
-          that.onPullDownRefresh()
+          that.refreshPage()
         },
         'fail': function (res) {
           wx.showModal({
@@ -135,6 +148,7 @@ Page({
 
   },
   refreshPage: function () {
+    util.showLoading()
     var that = this
     wx.getUserInfo({
       success: function (res) {
@@ -156,6 +170,7 @@ Page({
         res: res
       })
       wx.stopPullDownRefresh()
+      util.hideToast()      
     })
   }
 })

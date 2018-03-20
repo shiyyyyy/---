@@ -1,6 +1,6 @@
 <!--pages/components/mainCellRow/mainCellRow.wxml-->
 <view class="body">
-  <block wx:for="{{res}}">
+  <!-- <block wx:for="{{item}}"> -->
     <view class="main" bindtap="clickProduct">
       <view class="img-box">
         <image class="img" src="{{host + item.pd_pic}}" mode="scaleToFill" />
@@ -8,5 +8,5 @@
       <view class="title" >{{item.pd_name}}</view>
       <view class="live2" >{{item.icon_lv2}}</view>
     </view>
-  </block>
+  <!-- </block> -->
 </view>

@@ -144,7 +144,7 @@ Page({
   },
   // 电话 验证 
   tel_input: function (e) {
-    var rex = /(^(\d{3,4}-)?\d{7,8})$|(13[0-9]{9})/
+    var rex = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/
     var tel = e.detail.value
     console.log("tel_input失焦-判断输入是否符合")
     if (rex.test(tel)) {

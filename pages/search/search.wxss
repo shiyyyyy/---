@@ -48,7 +48,6 @@ page{
   background-color: #fff;
   padding-left: 24rpx;
   padding-right: 24rpx;
-  padding-bottom: 24rpx;
   margin-bottom: 16rpx;
   border-bottom: 2rpx solid #eee;  
 }
@@ -71,13 +70,14 @@ page{
 }
 .history-item{
   font-size: 26rpx;
-  line-height: 72rpx;
+  line-height: 62rpx;
   color: #666;
   background-color: #f1f5f8;
   border-radius: 8rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
   margin-right: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 /* 没有搜索结果 */

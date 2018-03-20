@@ -11,6 +11,7 @@
       <view class="origin">{{item.dep_city_name}}出发</view>
     </view>
 
-    <view class="lv2">{{item.icon_lv2}}</view>
+    <view class="lv2" wx:if="{{item.icon_lv2}}">{{item.icon_lv2}}</view>
+    <view class="dep-date" wx:else>{{item.dep_date}}</view>
   </view>
 </view>

@@ -1,0 +1,90 @@
+.body{
+  background-color: #f1f5f8;
+}
+
+/* 顶部轮播图 */
+.swiper-box {
+  background-color: #fff;
+  position: relative;
+  padding-bottom: 30rpx;
+}
+
+.swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.swiper-title {
+  font-size: 28rpx;
+  line-height: 72rpx;
+  padding-left: 24rpx;
+}
+
+.swiper-address {
+  font-size: 24rpx;
+  color: #fff;
+  padding: 5rpx 10rpx;
+  background-color: #db2424;
+  border-radius: 6rpx;
+}
+
+.swiper-money {
+  font-size: 32rpx;
+  color: #db2424;
+  padding-left: 24rpx;
+}
+
+.swiper-share {
+  font-size: 24rpx;
+  text-align: center;
+  position: absolute;
+  right: 35rpx;
+  bottom: 50rpx;
+}
+
+.share-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.share-btn {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 专业办签 */
+
+.store {
+  font-size: 26rpx;
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+
+.store-info {
+  font-size: 28rpx;
+  line-height: 72rpx;
+  margin-bottom: 16rpx;
+  border-bottom: 2rpx solid #f1f5f8;
+  padding-left: 24rpx;
+}
+
+.store-img {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+
+.store-tel, .store-time {
+  line-height: 52rpx;
+  color: #666;
+  padding-left: 24rpx;
+}

@@ -33,7 +33,7 @@
     </view>
 
     <view class="right">
-      <button open-type="contact" size='mini'>在线咨询</button>
+      <button open-type="contact" size='mini' show-message-card="true" session-from="/pages/consulting/consolting" send-message-title="咨询页面" send-message-path="/pages/consulting/consolting" >在线咨询</button>
     </view>
   </view>
 

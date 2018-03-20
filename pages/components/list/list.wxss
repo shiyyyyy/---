@@ -66,3 +66,9 @@
   margin-bottom: 10rpx;
   display: inline-block;
 }
+
+.dep-date{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 40rpx;
+}

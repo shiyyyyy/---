@@ -98,7 +98,7 @@
             <view class="hidden" hidden="{{name_hidden}}">(请输入正确姓名格式)</view>
           </view>
           <view class="tel">
-            <text space="emsp" class="left">电 话</text>
+            <text space="emsp" class="left">手 机</text>
             <input placeholder='请输入联系人电话' bindblur='tel_input' name="tel" />
             <text class="will">(必填)</text>
             <view class="hidden" hidden="{{tel_hidden}}">(请输入正确电话格式)</view>

@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/visa/visa",
+        "pages/index/index",
+        
+    "pages/visaDetails/visaDetails",
     "pages/visaPay/visaPay",
     "pages/consulting/consulting",
     "pages/search/search",

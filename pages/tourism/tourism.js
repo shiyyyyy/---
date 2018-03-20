@@ -18,24 +18,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.request({
-      url: 'http://localhost/test.json',
-      data: {},
-      method: 'GET',
-      success: function (res) {
-        // success
-        that.setData({
-          response: res.data
-        })
-        console.log(that.data.response)
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
+   
   },
 
   /**

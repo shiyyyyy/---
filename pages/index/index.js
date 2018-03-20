@@ -30,9 +30,13 @@ Page({
     })
   },
   // 轮播图点击事件
-  c_swiper_tag: function (event) {
-    console.log(event);
+  c_swiper_tag: function (e) {
+    console.log(e);
     console.log("点击了轮播图片")
+    var id = e.currentTarget.dataset.pd_id
+    wx.navigateTo({
+      url: '../tourDetails/tourDetails?id=' + id,
+    })
   },
   // 绑定小分类点击事件
   tapType: function(e) {
@@ -43,16 +47,7 @@ Page({
       url: '../classification/classification?iconid=' + target,
     })
   },
-  // 点击 more 显示全部签证服务
-  c_more_tap: function() {
-    console.log(event);
-    console.log("更多签证服务")
-  },
-  // 点击 签证服务主体内容 
-  b_visa_item_tap: function() {
-    console.log(event);
-    console.log("进入具体点击页面")
-  },
+
   // 点击底下的 footer 跳转到咨询页面
   jumpConsult: function(){
     wx.switchTab({
