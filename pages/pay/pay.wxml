@@ -9,7 +9,7 @@
   </view>
 
   <!-- 往返日期  -->
-  <view class="back-froth">
+  <view class="back-froth" wx:if="{{res.pdType === '1' || res.pdType === '6'}}">
     <view class="bf-date">往返日期</view>
     <view class="bf-details">
       <view class="forth">
@@ -19,7 +19,7 @@
       <view class="bf-img-box">
         <image class="bf-img" src="../../images/icon/bf.png" />
       </view>
-      <view>
+      <view class="back">
         <view class="b-title">返回日期</view>
         <view class="b-time">{{res.back_date}}</view>
       </view>
@@ -36,6 +36,10 @@
     <view class="tel">
       <text space="emsp">电 话</text>
       <text class="contact-right">{{res.mobile}}</text>
+    </view>
+     <view class="address" wx:if="{{res.pdType === '2'}}">
+      <text space="emsp">地 址</text>
+      <view class="mailingAddress">{{res.mailing}}</view>
     </view>
 
     <!-- 其他需求  -->

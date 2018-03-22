@@ -26,9 +26,7 @@ Component({
 
   },
   onLoad: function (event) {
-    wx.request({
-      url: '',
-    })
+
   }
 })
 

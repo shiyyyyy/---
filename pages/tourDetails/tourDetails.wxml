@@ -1,5 +1,5 @@
 <!--pages/order/order.wxml-->
-<view class="body">
+<view class="package">
 
   <view>
     <component-swiper res="{{res}}">
@@ -13,14 +13,6 @@
     </component-swiper>
   </view>
 
-  <wxs module="br">
-    function br(str) {
-      if (str === "") return
-      var arr = str.split("\n")
-      return arr
-    }
-    module.exports.br = br
-  </wxs>
   <!-- 选择时间和亮点介绍 -->
   <view class="main">
     <view class="select-date">
@@ -58,16 +50,16 @@
     <view class="bright">
 
       <!-- 团队属性 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="teamAttribute">
+      <view class="item-box" bindtap="b_centains_t" data-title="teamAttribute">
         团队属性
-        <image class="click-an-img {{ H_teamAttribute ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ teamAttribute ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" hidden="{{H_teamAttribute}}">
+      <view class="text-item" hidden="{{!teamAttribute}}">
         <view wx:for="{{res.pd_detail['产品团队属性']}}">
           <view>往返交通：{{item.traffic}}</view>
           <view>住宿标准：{{item.accommodation}}</view>
           <view>用餐标准：{{item.dining_standards}}</view>
-          <view>购物情况：{{item.shopping === '1' ? "是" : "否"}}</view>
+          <view>购物情况：{{item.shopping === 1 ? "是" : "否"}}</view>
           <view>自费情况：{{item.own_expense === '1' ? "是" : "否"}}</view>
         </view>
       </view>
@@ -76,12 +68,12 @@
       <view></view>
 
       <!-- 行程详情 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="schedule">
+      <view class="item-box" bindtap="b_centains_t" data-title="schedule">
         行程详情
-        <image class="click-an-img {{ H_schedule ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ schedule ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
       <!-- 循环details (res.data)  item=D1-D4 -->
-      <view class="for1" wx:for="{{res.pd_detail['行程详情']}}" hidden="{{H_schedule}}">
+      <view class="for1" wx:for="{{res.pd_detail['行程详情']}}" hidden="{{!schedule}}">
         <!-- item=Dn 下面的对象 -->
         <!-- <view class="for2" wx:for="{{item}}" wx:for-item="for2item"> -->
         <!--item=titlen 下面的对象  -->
@@ -92,7 +84,7 @@
           </view>
         </view>
 
-        <view class="description">
+        <view class="description" wx:if="{{item.description}}">
           <view class="left-box">
             <image class="left-img" src="../../images/icon/play.png"></image>
           </view>
@@ -129,82 +121,67 @@
         </view>
       </view>
 
-
-      <!-- <view wx:for="{{ br.br(res.pd_detail['产品特色']) }}"> {{ item }}</view> 测试 可用    -->
-      <view class="item-box" bindtap="b_centains_t" data-name="features">
+      <!-- 产品特色 -->
+      <view class="item-box" bindtap="b_centains_t" data-title="features" wx:if="{{res.pd_detail['产品特色']}}">
         产品特色
-        <image class="click-an-img {{ H_features ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ features ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{br.br(features)}}" hidden="{{H_features}}">{{ item }} {{}}</view>
+      <text class="text-item" wx:if="{{features}}">{{ res.pd_detail['产品特色'] }}</text>
 
       <!-- 费用包含 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="costCentains">
+      <view class="item-box" bindtap="b_centains_t" data-title="costCentains" wx:if="{{res.pd_detail['费用包含']}}"> 
         费用包含
-        <image class="click-an-img {{ H_costCentains ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ costCentains ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{br.br(costCentains)}}" hidden="{{H_costCentains}}">{{ item }}</view>
+      <text class="text-item" wx:if="{{costCentains}}">{{ res.pd_detail['费用包含'] }}</text>
 
       <!-- 费用不含 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="notCentain">
+      <view class="item-box" bindtap="b_centains_t" data-title="notCentain" wx:if="{{ res.pd_detail['费用不含'] }}">
         费用不含
-        <image class="click-an-img {{ H_notCentain ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ notCentain ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(notCentain) }}" hidden="{{H_notCentain}}">{{ item }}</view>
+      <text class="text-item" wx:if="{{notCentain}}">{{ res.pd_detail['费用不含'] }}</text>
 
       <!-- 服务说明  -->
-      <view class="item-box" bindtap="b_centains_t" data-name="service">
+      <view class="item-box" bindtap="b_centains_t" data-title="service" wx:if="{{ res.pd_detail['服务说明'] }}">
         服务说明
-        <image class="click-an-img {{ H_service ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ service ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(service) }}" hidden="{{H_service}}">{{ item }}</view>
+      <text class="text-item" wx:if="{{service}}">{{ res.pd_detail['服务说明'] }}</text>
 
       <!-- 温馨提示 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="prompt">
+      <view class="item-box" bindtap="b_centains_t" data-title="prompt" wx:if="{{ res.pd_detail['温馨提示'] }}">
         温馨提示
-        <image class="click-an-img {{ H_prompt ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ prompt ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(prompt) }}" hidden="{{H_prompt}}">{{ item }}</view>
+      <text class="text-item" wx:if="{{prompt}}">{{ res.pd_detail['温馨提示'] }}</text>
 
       <!-- 预定须知 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="booking">
+      <view class="item-box" bindtap="b_centains_t" data-title="booking" wx:if="{{ res.pd_detail['预定须知'] }}">
         预定须知
-        <image class="click-an-img {{ H_booking ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ booking ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(booking) }}" hidden="{{H_booking}}">{{ item }}</view>
+      <text class="text-item" wx:if="{{booking}}">{{ res.pd_detail['预定须知'] }}</text>
 
-      <!-- 购物说明 -->
-      <!-- <view class="item-box" bindtap="b_centains_t" data-name="shopping" hidden='{{!shopping}}'>
-        购物说明
-        <image class="click-an-img {{ H_shopping ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
-      </view>
-      <view class="text-item" wx:for="{{ br.br(shopping) }}" hidden="{{H_shopping}}">{{ item }}</view> -->
+
 
       <!-- 住宿说明 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="accom" hidden='{{!accom}}'>
+      <view class="item-box" bindtap="b_centains_t" data-title="accom" wx:if="{{ res.pd_detail['住宿说明'] }}">
         住宿说明
-        <image class="click-an-img {{ H_accom ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ accom ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(accom) }}" hidden="{{H_accom}}">{{ item }}</view>
+      <text class="text-item" wx:if="{{accom}}">{{ res.pd_detail['住宿说明'] }}</text>
 
-      <!-- 自费说明 -->
-      <!-- <view class="item-box" bindtap="b_centains_t" data-name="ownExpense" hidden='{{!ownExpense}}'>
-        自费说明
-        <image class="click-an-img {{ H_ownExpense ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
-      </view>
-      <view class="text-item" wx:for="{{ br.br(ownExpense) }}" hidden="{{H_ownExpense}}">{{ item }}</view> -->
 
       <!-- 其他说明 -->
-      <view class="item-box" bindtap="b_centains_t" data-name="other" hidden='{{!other}}'>
+      <view class="item-box" bindtap="b_centains_t" data-title="other" wx:if="{{ res.pd_detail['其他说明'] }}">
         其他说明
-        <image class="click-an-img {{ H_other ? '': 'active-an-img'}}" src="../../images/icon/an-down.png" />
+        <image class="click-an-img {{ other ? 'active-an-img' : ''}}" src="../../images/icon/an-down.png" />
       </view>
-      <view class="text-item" wx:for="{{ br.br(other) }}" hidden="{{H_other}}">{{ item }}</view>
-
+      <text class="text-item" wx:if="{{other}}">{{ res.pd_detail['其他说明'] }}</text>
 
     </view>
-
   </view>
-
 
   <!-- 底部 支付  -->
   <!-- <component-footer-pay></component-footer-pay> -->
@@ -216,6 +193,5 @@
     <view class="footer-center" catchtap="enterStore">进店咨询</view>
     <view class="footer-right" bindtap='selectDate'>立即预定</view>
   </view>
-
 
 </view>

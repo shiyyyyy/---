@@ -1,8 +1,9 @@
 {
   "pages": [
-        "pages/index/index",
-        
+    "pages/index/index",
+    "pages/airTicketsDetails/airTicketsDetails",
     "pages/visaDetails/visaDetails",
+    "pages/ticketsDetails/ticketsDetails",
     "pages/visaPay/visaPay",
     "pages/consulting/consulting",
     "pages/search/search",

@@ -55,6 +55,17 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+  // 预览图片
+  // previewImg(e){
+  //   var urls = this.data.imgUrls
+  //   var currentUrl = e.currentTarget.dataset.url
+  //   wx.previewImage({
+  //     current: currentUrl, // 当前显示图片的http链接
+  //     urls: urls // 需要预览的图片http链接列表
+  //   })
+  // },
+
   // 店家电话咨询按钮
   callPhone: function () {
     wx.makePhoneCall({

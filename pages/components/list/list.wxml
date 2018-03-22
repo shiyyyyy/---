@@ -1,5 +1,5 @@
 <!--pages/list/list.wxml-->
-<view class="list" wx:for="{{res}}" wx:key="{{index}}" bindtap='clickList' data-id="{{item.id}}">
+<view class="list" wx:for="{{res}}" wx:key="{{index}}" bindtap='clickList' data-id="{{item.id}}" data-pdType="{{item.pd_template_type}}">
   <view class="img-box">
     <image class="img" src="{{ host + item.pd_pic}}" mode="scaleToFill"></image>
   </view>
@@ -8,7 +8,7 @@
 
     <view class="pro-info">
       <view class="money"> {{'￥' + item.retail_price * 1}}</view>
-      <view class="origin">{{item.dep_city_name}}出发</view>
+      <view class="origin" wx:if="{{item.dep_city_name}}">{{item.dep_city_name}}出发</view>
     </view>
 
     <view class="lv2" wx:if="{{item.icon_lv2}}">{{item.icon_lv2}}</view>

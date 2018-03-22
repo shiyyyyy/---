@@ -64,7 +64,7 @@
   top: 0;
 }
 
-/* 选择日期 */
+/* 日期 选择 */
 /* 选择日期  */
 
 .select-date {
@@ -117,33 +117,6 @@
   line-height: 5rpx;
 }
 
-/* 专业办签 */
-
-.visa-store {
-  font-size: 26rpx;
-  background-color: #fff;
-  margin-top: 16rpx;
-}
-
-.visa-store-info {
-  font-size: 28rpx;
-  line-height: 72rpx;
-  margin-bottom: 16rpx;
-  border-bottom: 2rpx solid #f1f5f8;
-  padding-left: 24rpx;
-}
-
-.visa-store-img {
-  width: 40rpx;
-  height: 40rpx;
-  vertical-align: middle;
-}
-
-.visa-store-tel, .visa-store-time {
-  line-height: 52rpx;
-  color: #666;
-  padding-left: 24rpx;
-}
 
 /* 商品详情 */
 

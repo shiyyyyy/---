@@ -25,9 +25,45 @@ Component({
       console.log(e)
       console.log(this)
       var id = e.currentTarget.dataset.id
-      wx.navigateTo({
-        url: '../tourDetails/tourDetails?id=' + id,
-      })
+      var pdType = e.currentTarget.dataset.pdtype
+      this.estimateRoute(pdType, id)
+    },
+
+    // 判断跳转页面
+    estimateRoute(pdType, pd_id) {
+      // ['错误','跟团','签证','机票','酒店','门票','当地游']
+      switch (pdType) {
+        case '1':
+          wx.navigateTo({
+            url: `../tourDetails/tourDetails?id=${pd_id}&pdType=${pdType}`,
+          })
+          break;
+        case '2':
+          wx.navigateTo({
+            url: `../ticketsDetails/ticketsDetails?id=${pd_id}&pdType=${pdType}`,
+          })
+          break;
+        case '3':
+          wx.navigateTo({
+            url: `../ticketsDetails/ticketsDetails?id=${pd_id}&pdType=${pdType}`,
+          })
+          break;
+        case '4':
+          wx.navigateTo({
+            url: `../ticketsDetails/ticketsDetails?id=${pd_id}&pdType=${pdType}`,
+          })
+          break;
+        case '5':
+          wx.navigateTo({
+            url: `../ticketsDetails/ticketsDetails?id=${pd_id}&pdType=${pdType}`,
+          })
+          break;
+        case '6':
+          wx.navigateTo({
+            url: `../tourDetails/tourDetails?id=${pd_id}&pdType=${pdType}`,
+          })
+          break;
+      }
     }
   }
 })

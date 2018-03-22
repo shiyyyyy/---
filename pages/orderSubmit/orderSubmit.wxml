@@ -1,13 +1,14 @@
 <!--pages/orderSubmit/orderSubmit.wxml-->
 <view class="body">
 
-  <view class="calendar" bindtap='tap'>
+  <!-- 日历 是跟团游才会显示的 -->
+  <view class="calendar" bindtap='tap' wx:if="{{pdType === '1' || pdType === '3' || pdType === '4' || pdType === '6'}}">
     <view class="calendar-panel" bindtap="changeMonth">
-      <view class="prevImg">
+      <view class="prevImg" data-name="prev">
         <image src="../../images/icon/next.png" data-name="prev" />
       </view>
       <view class="time">{{calendar.year}}年{{calendar.month}}月{{calendar.date}}日</view>
-      <view class="nextImg">
+      <view class="nextImg" data-name="next">
         <image src="../../images/icon/next.png" data-name="next" />
       </view>
     </view>
@@ -54,14 +55,20 @@
 
   <!-- 出团时间  -->
   <view class="start" wx:if="{{select.month && select.date}}">
-    <view class="start-time">出团时间：{{select.month + '-' + select.date}}</view>
+    <view class="start-time" wx:if="{{pdType === '1' || pdType === '6'}}">出团日期：{{select.month + '-' + select.date}}</view>
+    <view class="start-time" wx:if="{{pdType === '3'}}">出发日期：{{select.month + '-' + select.date}}</view>
+    <view class="start-time" wx:if="{{pdType === '4'}}">入住日期：{{select.month + '-' + select.date}}</view>
+    
   </view>
 
   <!-- 选择人数 number  -->
   <view class="number" bindtap='ctorNum'>
     <view class="adult">
-      <view class="number-text">人数</view>
-      <view class="number-price">￥{{(res[idn].retail_price * num) || 0}}</view>
+      <view class="number-text" wx:if="{{pdType === '4'}}">晚数</view>      
+      <view class="number-text" wx:else>人数</view>
+      <view class="number-price" wx:if="{{pdType === '1' || pdType === '3' || pdType === '4' || pdType === '6'}}">￥{{(res[idn].retail_price * num) || 0}}</view>
+      <view class="number-price" wx:elif="{{pdType === '2' || pdType === '5'}}">￥{{(res[0].retail_price * num) || 0}}</view>
+
       <view class="number-ctor">
         <view class="subtract">
           <image src="../../images/icon/jian.png" wx:if="{{ num <= 1}}"></image>
@@ -83,7 +90,7 @@
       <view class="other" hidden='{{!calendar.weeks && !res[0].dep_date}}'>
         <view class="other-text">其他需求</view>
         <view class="text-box">
-          <textarea class="textarea" name="textarea" placeholder="请输入您的其它需求，等待客服与您二次确认" placeholder-style="placeholder" maxlength="500"> </textarea>
+          <textarea class="textarea" name="otherNeed" placeholder="请输入您的其它需求，等待客服与您二次确认" placeholder-style="placeholder" maxlength="500"> </textarea>
         </view>
       </view>
 
@@ -95,17 +102,24 @@
             <text space="emsp" class="left">姓 名</text>
             <input placeholder='请输入联系人姓名' bindblur='name_input' name="name" />
             <text class="will">(必填)</text>
-            <view class="hidden" hidden="{{name_hidden}}">(请输入正确姓名格式)</view>
+
           </view>
           <view class="tel">
             <text space="emsp" class="left">手 机</text>
             <input placeholder='请输入联系人电话' bindblur='tel_input' name="tel" />
             <text class="will">(必填)</text>
-            <view class="hidden" hidden="{{tel_hidden}}">(请输入正确电话格式)</view>
+
+          </view>
+
+          <!-- 客户的地址信息 -->
+          <view class="userAddress" wx:if="{{pdType === '2'}}">
+            <text space="emsp" class="left">地 址</text>
+            <view class="address-box">
+              <textarea class="add-textarea" name="mailing" placeholder="请输入您的其它需求，等待客服与您二次确认" placeholder-style="placeholder" maxlength="500"></textarea>
+            </view>
           </view>
         </view>
       </view>
-
 
       <!-- footer submit  -->
       <view class='footer'>
@@ -113,4 +127,6 @@
       </view>
     </form>
   </view>
+
+  <!-- 邮寄地址 -->
 </view>

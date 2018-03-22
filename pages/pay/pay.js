@@ -18,6 +18,7 @@ Page({
     util.showLoading()
     console.log(options)
     var res = {
+      pdType: options.pdType,
       pd_name: options.pd_name,
       dep_city_name: options.dep_city_name,
       dep_date: options.dep_date,
@@ -27,6 +28,7 @@ Page({
       contact: options.contact,
       order_num: options.order_num,
       mobile: options.mobile,
+      mailing: options.mailing,
       orderImgUrl0: options.orderImgUrl0,
       id: options.id,
       order: options.order

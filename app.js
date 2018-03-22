@@ -45,6 +45,7 @@ App({
   globalData: {
     userInfo: null
   },
+  // host: 'https://ssl.tlink.cc/cj-back/',
   host: 'https://nyfq.tlink.cc/cj-back/',
   post: (url, data, cb) => {
     data = data || {}

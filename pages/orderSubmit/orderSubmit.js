@@ -25,104 +25,14 @@ Page({
       // 渲染的数组
       "weeks": []
     },
-    // 控制 hidden 显示隐藏(联系人信息)
-    name_hidden: true,
-    tel_hidden: true
+    // 判断输入信息是否通过
+    name_hidden: false,
+    tel_hidden: false
   },
 
-  // 改变 人数 
-  ctorNum: function (e) {
-    console.log(e)
-    var target = e.target.dataset.name
-
-    switch (target) {
-      case 'subNum':
-        if (this.data.num > 1) {
-          console.log("num - 1")
-          this.setData({
-            num: this.data.num - 1
-          })
-        }
-        break;
-      case 'addNum':
-        console.log("num + 1")
-        this.setData({
-          num: this.data.num + 1
-        })
-        break;
-      default:
-        console.log("都不对,默认default")
-    }
-  },
-
-  // 提交订单(表单)事件
-  formSubmit: function (e) {
-    if (!(this.data.select.date)) {
-      wx.showToast({
-        title: '请选择出发日期',
-        icon: 'none'
-      })
-      return
-    }
-    var value = e.detail.value
-    console.log(value)
-    // 如果没填写联系人信息,不行
-    if (!(value.name && value.tel)) {
-      // 弹出框 提示用户输入 姓名/电话
-      wx.showToast({
-        title: '请输入联系人信息',
-        icon: 'none'
-      })
-      return
-    }
-
-    util.showLoading()
-    // // 联系人信息 传递到 pay 页面
-    var gp_id = this.data.res[this.data.idn].id
-    var num_of_people = this.data.num
-    var pd_name = this.data.resp['产品名称']
-    var dep_date = this.data.res[this.data.idn].dep_date
-    var back_date = this.data.res[this.data.idn].back_date
-    var orderImgUrl0 = this.data.resp['产品图片'][0].path
-    var comment = value.textarea || ''
-    var contact = value.name || ''
-    var mobile = value.tel || ''
-    
-
-    wx.setStorageSync("idn", this.data.idn)
-    // wx.setStorageSync("info", value)
-    // wx.setStorageSync("num", num_of_people)
-
-    getApp().post('api/WxPay/order', {
-      'gp_id': gp_id,  // 团的id
-      'num_of_people': num_of_people, // 人数
-      'comment': comment, // 其他需求
-      'contact': contact, // 联系人姓名
-      'mobile': mobile, // 电话
-      'pd_name': pd_name,
-      'dep_date': dep_date,
-      'back_date': back_date,
-      'orderImgUrl0': orderImgUrl0
-    }, data => {
-      // ['id','order_num','retail_price','amount']
-      // 团id    订单人数    担任金额    总金额
-      console.log(data)
-      var pd_name = data.pd_name
-      var dep_city_name = data.dep_city_name
-      var dep_date = data.dep_date
-      var back_date = data.back_date
-      var amount = data.amount
-      var comment = data.comment
-      var contact = data.contact
-      var order_num = data.order_num
-      var mobile = data.mobile
-      var orderImgUrl0 = data.orderImgUrl0
-      var id = data.id
-      wx.navigateTo({
-        url: `../pay/pay?pd_name=${pd_name}&dep_city_name=${dep_city_name}&dep_date=${dep_date}&back_date=${back_date}&amount=${amount}&comment=${comment}&contact=${contact}&order_num=${order_num}&mobile=${mobile}&orderImgUrl0=${orderImgUrl0}&id=${id}`
-      })
-    })
-  },
+  // 
+  // 通用 JS
+  // 
 
   //  姓名 input 输入验证 失焦事件
   name_input: function (e) {
@@ -160,7 +70,13 @@ Page({
   },
 
 
+
+
   onLoad: function (options) {
+    this.setData({
+      pdType: options.pdType
+    })
+    console.log(wx.getStorageSync("id"))
     var id = wx.getStorageSync("id")
     var url = 'api/B2C/product/' + id
     getApp().post(url, {}, res => {
@@ -202,8 +118,8 @@ Page({
       var time = `${year}-${month}-${date}`
       console.log(time)
     }
-
     this.calendarDrawing(year, month, date)
+
 
 
   },
@@ -219,6 +135,117 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+
+  // 改变 人数 
+  ctorNum: function (e) {
+    console.log(e)
+    var target = e.target.dataset.name
+
+    switch (target) {
+      case 'subNum':
+        if (this.data.num > 1) {
+          console.log("num - 1")
+          this.setData({
+            num: this.data.num - 1
+          })
+        }
+        break;
+      case 'addNum':
+        console.log("num + 1")
+        this.setData({
+          num: this.data.num + 1
+        })
+        break;
+      default:
+        console.log("都不对,默认default")
+    }
+  },
+
+  // 提交订单(表单)事件
+  formSubmit: function (e) {
+    var value = e.detail.value
+    var pdType = this.data.pdType
+    // 判断 type 不同 type 虽然跳转页面一样但是填写的东西不同
+    if (pdType === '1' || pdType === '3' || pdType === '4' || pdType === '6') {
+      if (!(this.data.select.date)) {
+        wx.showToast({
+          title: '请选择出发日期',
+          icon: 'none'
+        })
+        return
+      }
+    }
+    
+    // 如果没填写联系人信息,不行
+    if (!(this.data.name_hidden && this.data.tel_hidden)) {
+      // 弹出框 提示用户输入 姓名/电话
+      wx.showToast({
+        title: '请输入正确手机号码',
+        icon: 'none'
+      })
+      return
+    }
+
+
+    console.log(value)
+    // // 联系人信息 传递到 pay 页面
+    var idn = this.data.idn
+    var pdType = this.data.pdType
+    if (pdType === '2' || pdType === '5') idn = 0
+    var gp_id = this.data.res[idn].id
+    var num_of_people = this.data.num
+    var pd_name = this.data.resp['产品名称']
+    var dep_date = this.data.res[idn].dep_date
+    var back_date = this.data.res[idn].back_date
+    var orderImgUrl0 = this.data.resp['产品图片'][0].path
+    var comment = value.otherNeed || ''
+    var contact = value.name || ''
+    var mobile = value.tel || ''
+    var mailing = value.mailing || ''
+
+
+    wx.setStorageSync("idn", idn)
+
+    getApp().post('api/WxPay/order', {
+      'pdType': pdType, // 商品 类型
+      'gp_id': gp_id,  // 团的id
+      'num_of_people': num_of_people, // 人数
+      'comment': comment, // 其他需求
+      'contact': contact, // 联系人姓名
+      'mobile': mobile, // 电话
+      'mailing': mailing, // 邮寄地址
+      'pd_name': pd_name,
+      'dep_date': dep_date,
+      'back_date': back_date,
+      'orderImgUrl0': orderImgUrl0
+
+    }, data => {
+      // ['id','order_num','retail_price','amount']
+      // 团id    订单人数    担任金额    总金额
+      console.log(data)
+      var pdType = data.pdType
+      var pd_name = data.pd_name
+      var dep_city_name = data.dep_city_name
+      var dep_date = data.dep_date
+      var back_date = data.back_date
+      var amount = data.amount
+      var comment = data.comment
+      var contact = data.contact
+      var order_num = data.order_num
+      var mobile = data.mobile
+      var mailing = data.mailing
+      var orderImgUrl0 = data.orderImgUrl0
+      var id = data.id
+      wx.navigateTo({
+        url: `../pay/pay?pdType=${pdType}&pd_name=${pd_name}&dep_city_name=${dep_city_name}&dep_date=${dep_date}&back_date=${back_date}&amount=${amount}&comment=${comment}&contact=${contact}&order_num=${order_num}&mobile=${mobile}&orderImgUrl0=${orderImgUrl0}&id=${id}&mailing=${mailing}`
+      })
+    })
+  },
+
+
+  // 
+  //  跟团游 JS
+  // 
 
   // 改变时间格式
   changeFormat: function (date) {
@@ -257,7 +284,7 @@ Page({
         month = 1
         year = year - 0 + 1
       }
-    } else{
+    } else {
       return
     }
     year = year + ''

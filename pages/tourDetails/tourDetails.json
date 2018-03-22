@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "component-swiper": "../components/swiper/swiper",
-    "component-footer-pay": "../components/footerPay/footerPay"
+    "component-swiper": "../components/swiper/swiper"
   },
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "white",

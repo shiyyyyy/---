@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "component-swiper": "../components/swiper/swiper"
+  },
+  "navigationBarBackgroundColor": "#000000",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "签证详情",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
+}

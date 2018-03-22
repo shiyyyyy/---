@@ -15,7 +15,7 @@
     <view class="scroll">
       <scroll-view class="scroll-view" scroll-x style="width: 100%">
         <view class="scroll-item" wx:for="{{imgUrls}}">
-          <image src="{{item}}"></image>
+          <image src="{{item}}" catchtap='previewImg' data-url="{{item}}" />
         </view>
       </scroll-view>
     </view>

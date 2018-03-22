@@ -25,6 +25,10 @@
 
 .prevImg {
   transform: rotate(180deg);
+  padding: 20rpx;
+}
+.nextImg{
+  padding: 20rpx;
 }
 
 .calendar-panel image {
@@ -263,6 +267,20 @@
   padding-left: 26rpx;
   color: red;
 }
+/* 联系人地址 */
+.address-box{
+  
+}
+.add-textarea{
+  width: 80%;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 52rpx;
+  max-height: 120rpx;
+  margin: 0 auto;
+}
+
+
 
 /* footer submit  */
  .footer{

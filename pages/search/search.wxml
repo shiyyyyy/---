@@ -16,22 +16,20 @@
       <text class="history-header-right" bindtap="emptySearchHistory">清空</text>
     </view>
     <view class="search-history-main" catchtap='clickSearchHistory'>
-      <view class="history-item" wx:for="{{historyArr}}" data-item="{{item}}">{{item}}</view>
+      <view class="history-item" wx:for="{{historyArr}}" data-pd_name="{{item}}">{{item}}</view>
     </view>
   </view>
 
   <!-- 无 搜索结果 -->
-  <view class="no-result">
+  <view class="no-result" hidden="{{res.length}}">
     对不起，没有您要搜索的结果
   </view>
 
   <!-- 有结果  -->
   <view>
-    <view class="list" wx:for="{{res.recommend}}">
-      <view class="list-title">{{index}}</view>
-      <view class="list-main">
-        <component-list res="{{item}}"></component-list>
-      </view>
+    <view class="list-title">{{index}}</view>
+    <view class="list-main">
+      <component-list res="{{res}}"></component-list>
     </view>
   </view>
 

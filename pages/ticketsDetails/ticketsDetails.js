@@ -19,7 +19,10 @@ Page({
     material: false,
     booking: false,
     service: false,
-    prompt: false
+    prompt: false,
+    // 星期 数组
+    day: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+    dayArr: []
   },
   /**
    * 生命周期函数--监听页面加载
@@ -39,7 +42,7 @@ Page({
         res: res
       })
     })
-    console.log(this)
+    this.timeTraverse()
   },
 
   // 点击 展开收起
@@ -59,17 +62,48 @@ Page({
     })
   },
 
-  // 点击 立即预定
+  // 选择日期 / 点击立即预定
   selectDate: function (e) {
     console.log(e)
     util.showLoading()
-    //  类型需要传过去,因为商品类型 支付页面需要不同显示
-    // ['错误','跟团','签证','机票','酒店','门票','当地游']
+    var target = e.currentTarget.dataset.date || ""
+    var dateArr = this.data.res.groups
+    var idn = ''
+    for (var i = 0, len = dateArr.length; i < len; i++) {
+      if (dateArr[i].dep_date === target) {
+        idn = i
+      }
+    }
     var pdType = this.data.pdType
+    // ['错误','跟团','签证','机票','酒店','门票','当地游']
     wx.navigateTo({
-      url: `../orderSubmit/orderSubmit?pdType=${pdType}`
+      url: `../orderSubmit/orderSubmit?date=${target}&idn=${idn}&pdType=${pdType}`
     })
+  },
 
+  // 时间格式
+  timeTraverse: function () {
+    var dayArr = []
+    var y = new Date().getFullYear()
+    var m = new Date().getMonth()
+    var d = new Date().getDate()
+    for (var i = 0; i < 7; i++) {
+      var newTime = new Date(y, m, d + i)
+      var year = newTime.getFullYear()
+      var month = newTime.getMonth() + 1 < 10 ? '0' + (newTime.getMonth() + 1) : "" + newTime.getMonth() + 1
+      var date = newTime.getDate() < 10 ? '0' + newTime.getDate() : "" + newTime.getDate()
+      var day = newTime.getDay()
+      dayArr.push({
+        year: year,
+        month: month,
+        date: date,
+        day: this.data.day[day]
+      })
+    }
+    this.setData({
+      dayArr: dayArr
+    })
+    console.log(this)
   },
 
   /**

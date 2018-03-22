@@ -4,7 +4,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="visa-swiper">
       <block wx:for="{{res.pd_detail['产品图片']}}">
         <swiper-item>
-          <image src="{{host + item.path}}" class="visa-slide-image" />
+          <image src="{{host + item.path}}" class="visa-slide-image" width="355" height="150" />
         </swiper-item>
       </block>
     </swiper>
@@ -21,8 +21,8 @@
     </view>
   </view>
 
-  <!-- 选择时间和亮点介绍 -->
-  <view class="main" wx:if="{{pdType === '3' || pdType === '4'}}">
+  <!-- 选择时间和亮点介绍 门票没有,酒店有-->
+  <view class="main" wx:if="{{pdType === '4' || pdType === '3' || pdType === '5'}}">
     <view class="select-date">
       <view class="select-text">选择日期</view>
 
@@ -49,7 +49,7 @@
   </view>
 
   <!-- 专业办签 -->
-  <view class="visa-store">
+  <view class="visa-store" wx:if="{{pdType === '2'}}">
     <view class="visa-store-info">
       <image class="visa-store-img" src="../../images/icon/ok.png" /> 专业办签，高效出签
     </view>
@@ -58,9 +58,49 @@
     <view class="visa-store-time">咨询时间：09:00 - 18:00</view>
   </view>
 
-  <!-- 商品详情 -->
-  <view class="visa-product-detail">
-    <view class="visa-product-detail-title">商品详情</view>
+
+  <!-- 商品详情 门票 -->
+  <view class="visa-product-detail" wx:if="{{pdType === '5'}}">
+    <view class="visa-product-detail-title">门票详情</view>
+
+    <view class="visa-product-detail-main">
+      <text class="visa-country" space="nbsp">产品名称：   {{res.pd_detail['产品名称']}}</text>
+      <text class="visa-sign" space="nbsp">开始时间：   {{res.pd_detail['产品门票信息'][0].open_time}}</text>
+      <text class="visa-travel-date" space="nbsp">结束时间：   {{res.pd_detail['产品门票信息'][0].close_time}}</text>
+
+    </view>
+  </view>
+
+  <!-- 商品详情 酒店 -->
+  <view class="visa-product-detail" wx:if="{{pdType === '4'}}">
+    <view class="visa-product-detail-title">酒店详情</view>
+
+    <view class="visa-product-detail-main">
+      <text class="visa-country" space="nbsp">酒店名称：   {{res.pd_detail['产品酒店信息'][0].hotel}}</text>
+      <text class="visa-sign" space="nbsp">酒店星级：   {{res.pd_detail['产品酒店信息'][0].hotel_level}}</text>
+      <text class="visa-travel-date" space="nbsp">酒店电话：   {{res.pd_detail['产品酒店信息'][0].hotel_phone}}</text>
+      <text class="visa-travel-date" space="nbsp">酒店地址：   {{res.pd_detail['产品酒店信息'][0].hotel_address}}</text>
+
+    </view>
+  </view>
+
+  <!-- 商品详情 机票 -->
+  <view class="visa-product-detail" wx:if="{{pdType === '3'}}">
+    <view class="visa-product-detail-title">机票详情</view>
+
+    <view class="visa-product-detail-main">
+      <text class="visa-country" space="emsp">航  班： {{res.pd_detail['产品航班车次'][0].flight_train}}</text>
+      <text class="visa-sign" space="emsp">出发时间： {{res.pd_detail['产品航班车次'][0].dep_time}}</text>
+      <text class="visa-sign" space="emsp">出发机场： {{res.pd_detail['产品航班车次'][0].dep_airport_station}}</text>
+      <text class="visa-sign" space="emsp">到达时间： {{res.pd_detail['产品航班车次'][0].arr_time}}</text>
+      <text class="visa-sign" space="emsp">到达机场： {{res.pd_detail['产品航班车次'][0].arr_airport_station}}</text>
+
+    </view>
+  </view>
+
+  <!-- 商品详情 签证-->
+  <view class="visa-product-detail" wx:if="{{pdType === '2'}}">
+    <view class="visa-product-detail-title">签证详情</view>
 
     <view class="visa-product-detail-main">
       <text class="visa-country" space="nbsp">签证国家：   {{res.pd_detail['产品名称']}}</text>
@@ -72,6 +112,17 @@
       </text>
     </view>
   </view>
+
+  <!-- 联系我们 -->
+  <view class="contact-me" wx:if="{{ pdType !== '2' }}">
+    <view class="contact-me-title">联系我们</view>
+
+    <text scope="nbsp" class="contact-me-tel">咨询电话：    84683388</text>
+    <text scope="nbsp" class="contact-me-time">咨询时间：    09：00 - 18：00</text>
+    <text scope="nbsp" class="contact-me-time">联系地址：    北京市朝阳区新源里16号琨莎中心3座</text>
+  </view>
+
+
 
   <!-- 所需材料 -->
   <view class="visa-item-box" data-title="material" catchtap='fold' wx:if="{{res.pd_detail['签证所需材料']}}">
@@ -87,12 +138,12 @@
   </view>
   <text class="visa-text-item" wx:if="{{booking}}">{{ res.pd_detail['预定须知'] }}</text>
 
-  <!-- 服务说明 -->
-  <view class="visa-item-box" data-title="service" catchtap='fold' wx:if="{{res.pd_detail['服务说明']}}">
-    服务说明
+  <!-- 产品特色 -->
+  <view class="visa-item-box" data-title="service" catchtap='fold' wx:if="{{res.pd_detail['产品特色']}}">
+    产品特色
     <image class="visa-click-an-img {{ service ? 'active-an-img':'' }}" src="../../images/icon/an-down.png" />
   </view>
-  <text class="visa-text-item" wx:if="{{service}}">{{ res.pd_detail['服务说明'] }}</text>
+  <text class="visa-text-item" wx:if="{{service}}">{{ res.pd_detail['产品特色'] }}</text>
 
   <!-- 温馨提示 -->
   <view class="visa-item-box" data-title="prompt" catchtap='fold' style="margin-bottom: {{prompt ? '' : '88rpx;'}}" wx:if="{{res.pd_detail['温馨提示']}}">

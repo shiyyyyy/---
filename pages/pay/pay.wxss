@@ -1,6 +1,7 @@
-page{
+page {
   height: 100%;
 }
+
 .body {
   border-top: 1rpx solid rgba(255, 255, 255, 0);
   border-bottom: 1rpx solid rgba(255, 255, 255, 0);
@@ -10,16 +11,17 @@ page{
 
 /* 新 订单信息 */
 
-.order{
+.order {
   font-size: 26rpx;
   background-color: #fff;
   padding: 24rpx;
   margin-bottom: 16rpx;
 }
-.order-title{
-    
+
+.order-title {
 }
-.order-details{
+
+.order-details {
   font-size: 22rpx;
   color: #999;
   margin-top: 20rpx;
@@ -28,18 +30,21 @@ page{
 }
 
 /* 往返日期 */
-.back-froth{
+
+.back-froth {
   font-size: 28rpx;
   background-color: #fff;
   margin-bottom: 16rpx;
 }
-.bf-date{
+
+.bf-date {
   line-height: 72rpx;
   border-bottom: 2rpx solid #f1f5f8;
   padding-left: 24rpx;
   padding-right: 24rpx;
 }
-.bf-details{
+
+.bf-details {
   width: 70%;
   color: #666;
   margin-left: 15%;
@@ -49,17 +54,19 @@ page{
   display: flex;
   justify-content: space-between;
 }
-.forth, .back{
-  width: 30%;
+
+.forth, .back {
+  width: 35%;
 }
-.b-time, .f-time{
+
+.b-time, .f-time {
   color: #999;
 }
-.bf-img-box{
 
+.bf-img-box {
 }
 
-.bf-img{
+.bf-img {
   width: 50rpx;
   height: 50rpx;
   margin-top: 13rpx;
@@ -131,11 +138,20 @@ page{
 .contact-right {
   margin-left: 48rpx;
 }
-.name{
-  border-top: 2rpx solid #f1f5f8;  
+
+.name {
+  border-top: 2rpx solid #f1f5f8;
 }
-.tel{
+
+.tel {
   border-bottom: 2rpx solid #f1f5f8;
+}
+
+.mailingAddress {
+  width: 80%;
+  margin: 0 auto;
+  text-indent: 2em;
+  max-height: 120rpx;
 }
 
 /* 其他需求  */
@@ -163,6 +179,7 @@ page{
 }
 
 /* 支付  */
+
 .pay {
   width: 100%;
   font-size: 28rpx;
@@ -183,6 +200,7 @@ page{
   background-color: #fff;
   flex: 5;
 }
+
 .shop {
   background-color: #ff9251;
   flex: 7;

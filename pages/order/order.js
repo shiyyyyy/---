@@ -31,6 +31,7 @@ Page({
     }
     console.log(data)
     console.log(index)
+    var pdType = data.paType
     var pd_name = data.pd_name
     var dep_city_name = data.dep_city_name
     var dep_date = data.dep_date
