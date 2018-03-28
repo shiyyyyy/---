@@ -1,0 +1,10 @@
+<!--pages/components/leaderList/leaderList.wxml-->
+<view class="list" wx:for="{{res}}" wx:key="{{index}}" bindtap='clickList' data-id="{{item.id}}" data-pdType="{{item.pd_template_type}}">
+  <view class="img-box">
+    <image class="img" src="{{ host + item.pic}}" mode="scaleToFill"></image>
+  </view>
+  <view class="right">
+    <view class="name">{{item.name}}</view>
+    <view class="introduction">{{item.brief}}</view>
+  </view>
+</view>

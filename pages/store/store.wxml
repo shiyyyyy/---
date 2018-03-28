@@ -12,11 +12,11 @@
   </view>
 
   <view class="tel" bindtap='callPhone'>
-    联系电话：84683388
+    联系电话：400-058-2007
   </view>
 
   <view class="address" bindtap='clickAddress'>
-    <view class="address-text">地址: 北京市朝阳区新源里16号琨莎中心3座</view>
+    <view class="address-text">地址: 北京市朝阳区新源里16号琨莎中心A座3层</view>
     <view class="add-img-box" bindtap="clickAddress">
       <image class="landmark" src="../../images/icon/address.png" />
     </view>

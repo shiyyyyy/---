@@ -5,7 +5,8 @@
   <swiper class="slide" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="circular">
     <block wx:for="{{res.pd_detail['产品图片']}}">
       <swiper-item>
-        <image src="{{host + item.path}}" class="slide-image" mode="aspectFill" />
+        <image src="{{host + item.path}}" class="slide-image" mode="scaleToFill"
+        catchtap='previewImg' data-index="{{index}}" />
       </swiper-item>
     </block>
   </swiper>

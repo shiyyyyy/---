@@ -1,0 +1,4 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<view class="body">
+  <web-view src="https://nyfq.tlink.cc/aboutus/"></web-view>
+</view>

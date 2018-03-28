@@ -38,7 +38,7 @@ Page({
   // 点击 电话
   callPhone: function () {
     wx.makePhoneCall({
-      phoneNumber: '84683388',
+      phoneNumber: '400-058-2007',
     })
   },
   /**

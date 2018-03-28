@@ -8,6 +8,10 @@ Page({
   data: {
     // 订单列表
     res: [],
+    // 控制页数 每次加载多少条 从多少条开始
+    pages: 0,
+    limit: 10,
+    start: 0,
     // 用户信息
     userAvatar: '',
     userName: '',
@@ -22,12 +26,12 @@ Page({
     var index = e.currentTarget.dataset.ind
     var data = this.data.res[index]
     // 如果已经付完款了 就返回查看详情页面,否则,支付页面
-    if(data.state === '1'){
+    if (data.state === '1') {
       util.showLoading()
       wx.navigateTo({
         url: '../orderDetails/olderDetails?ind=' + index,
       })
-      return 
+      return
     }
     console.log(data)
     console.log(index)
@@ -95,12 +99,37 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    this.refreshPage()
+    console.log("onLoad")
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.userInfo
+        var nickName = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+
+        that.setData({
+          userAvatar: avatarUrl,
+          userName: nickName
+        })
+      }
+    })
+    // 现在订单不需要分页
+    // var limit = this.data.limit
+    // var start = this.data.start
+
+    var fn = function (res) {
+      that.setData({
+        res: res
+      })
+    }
+    // this.refreshPage(limit, start, fn)
+    this.refreshPage(fn)
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
-   */
+   *
+
   onReady: function () {
 
   },
@@ -109,8 +138,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
+    var that = this
     console.log("onShow")
-    this.refreshPage()
+    // 现在订单不需要分页
+    // var limit = this.data.limit
+    // var start = this.data.start
+
+    var fn = function (res) {
+      // var res = that.data.res.concat(res)
+      that.setData({
+        res: res
+      })
+    }
+    // this.refreshPage(limit, start, fn)
+    this.refreshPage(fn)
+    
   },
 
   /**
@@ -131,15 +173,39 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作  尼玛
    */
   onPullDownRefresh: function () {
+    var that = this
     console.log("下拉刷新")
-    this.refreshPage()
+    this.setData({
+      start: 0
+    })
+
+    // 现在订单不需要分页
+    // var limit = this.data.limit
+    // var start = this.data.start
+    var fn = function (res) {
+      that.setData({
+        res: res
+      })
+    }
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var that = this
+    console.log("上拉加载")
+    this.setData({
+      start: this.data.start + 1
+    })
+    // 现在订单不需要分页
+    // var limit = this.data.limit
+    // var start = this.data.start * 10
+    var fn = function (res) {
+      that.setData({
+        res: res
+      })
+    }
   },
 
   /**
@@ -148,30 +214,21 @@ Page({
   onShareAppMessage: function () {
 
   },
-  refreshPage: function () {
+
+  // 刷新函数
+  refreshPage: function (fn) {
     util.showLoading()
-    var that = this
-    wx.getUserInfo({
-      success: function (res) {
-        var userInfo = res.userInfo
-        var nickName = userInfo.nickName
-        var avatarUrl = userInfo.avatarUrl
 
-        that.setData({
-          userAvatar: avatarUrl,
-          userName: nickName
-        })
-      }
-    })
+    getApp().post('api/WxPay/order_list', {
+      // 'limit': limit, 'start': start //现在订单不需要这个
+    }, data => {
 
-    getApp().post('api/WxPay/order_list', {}, data => {
       console.log(data)
       var res = data.reverse()
-      this.setData({
-        res: res
-      })
+      fn(res)
+
       wx.stopPullDownRefresh()
-      util.hideToast()      
+      util.hideToast()
     })
   }
 })

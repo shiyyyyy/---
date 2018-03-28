@@ -5,10 +5,12 @@
       {{item}}
     </view>
   </scroll-view>
-
-  <view class="product-list">
+  <view class="product-list" wx:if="{{proList}}">
     <component-list res="{{proList}}"></component-list>
   </view>
 
+  <view class="leader-list" wx:if="{{leaderList}}">
+    <component-leader-list res="{{leaderList}}"></component-leader-list>
+  </view>
 
 </view>

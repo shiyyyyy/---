@@ -69,7 +69,7 @@ Page({
   // 店家电话咨询按钮
   callPhone: function () {
     wx.makePhoneCall({
-      phoneNumber: '84683388',
+      phoneNumber: '400-058-2007',
     })
   },
 

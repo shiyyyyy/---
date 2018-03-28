@@ -67,6 +67,11 @@ Page({
   onPullDownRefresh: function () {
     this.loadRefreshFn(wx.stopPullDownRefresh())
   },
+
+  // 上拉加载
+  onReachBottom(){
+    console.log("上拉刷新")
+  },
   // 加载 或者刷新页面调用的函数
   loadRefreshFn: function (fn) {
     util.showLoading()

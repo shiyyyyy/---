@@ -1,0 +1,44 @@
+/* pages/components/leaderList/leaderList.wxss */
+
+.list {
+  /* height: 248rpx; */
+  box-sizing: border-box;
+  padding: 25rpx 24rpx 0rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ccc;
+  background-color: #fff;
+}
+
+.img-box {
+  margin-right: 24rpx;
+  height: 198rpx;
+  margin-bottom: 20rpx;
+}
+
+.img {
+  width: 240rpx;
+  height: 198rpx;
+}
+
+.right {
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  flex: 1;
+}
+
+.name{
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.introduction{
+  font-size: 24rpx;
+  color: #666;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

@@ -45,6 +45,8 @@ App({
   globalData: {
     userInfo: null
   },
+  // webViewHost: 'https://ssl.tlink.cc/cj-back/api/B2C/leader/',
+  webViewHost: 'https://nyfq.tlink.cc/cj-back/api/B2C/leader/',
   // host: 'https://ssl.tlink.cc/cj-back/',
   host: 'https://nyfq.tlink.cc/cj-back/',
   post: (url, data, cb) => {

@@ -26,6 +26,6 @@
   color: #38b2c0; 
 }
 
-.product-list{
+.product-list, .leader-list{
   padding-top: 88rpx;
 }

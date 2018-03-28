@@ -1,0 +1,6 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<view class="body">
+  <view wx:if="{{path}}">
+    <web-view src="{{path}}"></web-view>
+  </view>
+</view>

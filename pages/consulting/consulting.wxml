@@ -7,7 +7,7 @@
   <view class="main">
     <view class="name">亚美运通国际旅行社</view>
     <view class="address" bindtap="clickAddress">
-      <view>地址: 北京市朝阳区新源里16号琨莎中心3座</view>
+      <view>地址: 北京市朝阳区新源里16号琨莎中心A座3层</view>
       <view class="add-img-box">
         <image src="../../images/icon/address.png" />
       </view>
@@ -44,7 +44,7 @@
       </view>
       <view class="text">
         <view class="center-title">联系电话</view>
-        <text class="center-text">84683388</text>
+        <text class="center-text">400-058-2007</text>
       </view>
     </view>
 

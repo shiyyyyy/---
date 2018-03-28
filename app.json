@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/airTicketsDetails/airTicketsDetails",
     "pages/visaDetails/visaDetails",
+    "pages/leaderWebView/leaderWebView",
     "pages/ticketsDetails/ticketsDetails",
     "pages/visaPay/visaPay",
     "pages/consulting/consulting",
@@ -15,7 +16,8 @@
     "pages/store/store",
     "pages/order/order",
     "pages/classification/classification",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/aboutUs/aboutUs"
   ],
   "window": {
     "navigationBarBackgroundColor": "#000000",
@@ -46,6 +48,12 @@
         "text": "订单",
         "iconPath": "./images/tabBar/order-icon.jpg",
         "selectedIconPath": "./images/tabBar/selected-order-icon.jpg"
+      },
+      {
+        "pagePath": "pages/aboutUs/aboutUs",
+        "text": "关于我们",
+        "iconPath": "./images/tabBar/aboutUs-icon.png",
+        "selectedIconPath": "./images/tabBar/selected-aboutUs-icon.png"
       }
     ]
   },

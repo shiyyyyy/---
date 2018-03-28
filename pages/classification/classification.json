@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "component-list": "../components/list/list"
+    "component-list": "../components/list/list",
+    "component-leader-list": "../components/leaderList/leaderList"
   },
   "navigationBarBackgroundColor": "#000000",
   "navigationBarTextStyle": "white",

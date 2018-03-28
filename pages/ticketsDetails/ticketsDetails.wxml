@@ -54,7 +54,7 @@
       <image class="visa-store-img" src="../../images/icon/ok.png" /> 专业办签，高效出签
     </view>
 
-    <view class="visa-store-tel">咨询电话：84683388</view>
+    <view class="visa-store-tel">咨询电话：400-058-2007</view>
     <view class="visa-store-time">咨询时间：09:00 - 18:00</view>
   </view>
 
@@ -88,14 +88,17 @@
   <view class="visa-product-detail" wx:if="{{pdType === '3'}}">
     <view class="visa-product-detail-title">机票详情</view>
 
-    <view class="visa-product-detail-main">
-      <text class="visa-country" space="emsp">航  班： {{res.pd_detail['产品航班车次'][0].flight_train}}</text>
-      <text class="visa-sign" space="emsp">出发时间： {{res.pd_detail['产品航班车次'][0].dep_time}}</text>
-      <text class="visa-sign" space="emsp">出发机场： {{res.pd_detail['产品航班车次'][0].dep_airport_station}}</text>
-      <text class="visa-sign" space="emsp">到达时间： {{res.pd_detail['产品航班车次'][0].arr_time}}</text>
-      <text class="visa-sign" space="emsp">到达机场： {{res.pd_detail['产品航班车次'][0].arr_airport_station}}</text>
-
+    <view wx:for="{{res.pd_detail['产品航班车次']}}">
+      <view class="visa-product-detail-main">
+        <text class="visa-country" space="emsp" wx:if="{{res.pd_detail['产品航班车次'].length > 1}}">航  次： {{index + 1}}</text>      
+        <text class="visa-country" space="emsp">航  班： {{item.flight_train}}</text>
+        <text class="visa-sign" space="emsp">出发时间： {{item.dep_time}}</text>
+        <text class="visa-sign" space="emsp">出发机场： {{item.dep_airport_station}}</text>
+        <text class="visa-sign" space="emsp">到达时间： {{item.arr_time}}</text>
+        <text class="visa-sign" space="emsp">到达机场： {{item.arr_airport_station}}</text>
+      </view>
     </view>
+
   </view>
 
   <!-- 商品详情 签证-->
@@ -117,9 +120,9 @@
   <view class="contact-me" wx:if="{{ pdType !== '2' }}">
     <view class="contact-me-title">联系我们</view>
 
-    <text scope="nbsp" class="contact-me-tel">咨询电话：    84683388</text>
+    <text scope="nbsp" class="contact-me-tel">咨询电话：    400-058-2007</text>
     <text scope="nbsp" class="contact-me-time">咨询时间：    09：00 - 18：00</text>
-    <text scope="nbsp" class="contact-me-time">联系地址：    北京市朝阳区新源里16号琨莎中心3座</text>
+    <text scope="nbsp" class="contact-me-time">联系地址：    北京市朝阳区新源里16号琨莎中心A座3层</text>
   </view>
 
 

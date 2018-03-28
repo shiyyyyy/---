@@ -1,0 +1,5 @@
+<view>
+  <view wx:if="{{id}}">
+    <web-view src="{{webViewHost + id}}"></web-view>
+  </view>
+</view>
