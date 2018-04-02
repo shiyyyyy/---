@@ -6,6 +6,10 @@ Component({
     res: {
       type: Object,
       value: {}
+    },
+    label: {
+      type: Object,
+      value: []
     }
   },
 
@@ -18,7 +22,7 @@ Component({
     duration: 500,
     circular: true,
     // 图片地址 前缀
-    host: getApp().host,
+    host: getApp().host
   },
 
   /* 组件的方法列表 */
@@ -42,7 +46,8 @@ Component({
     }
   },
   onLoad: function (event) {
-
+    console.log("swiper组件")
+    console.log(this)
   }
 })
 

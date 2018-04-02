@@ -22,7 +22,9 @@ Page({
     prompt: false,
     // 星期 数组
     day: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
-    dayArr: []
+    dayArr: [],
+    // 从二级标签列表 传递过来的 小标签
+    label: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -30,6 +32,16 @@ Page({
   onLoad: function (options) {
     var that = this;
     var id = options.id
+    // 从二级标签列表 传递过来的 小标签
+    console.log(options)
+    var label = options.label
+    if (label !== 'null' && label !== undefined && label !== 'undefined'){
+      var label = options.label.split(',')
+      this.setData({
+        label: label
+      })
+    }
+
     wx.setStorageSync("id", options.id)
     var pdType = options.pdType
     this.setData({

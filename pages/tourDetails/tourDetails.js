@@ -37,7 +37,9 @@ Page({
 
     // 星期 数组
     day: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
-    dayArr: []
+    dayArr: [],
+    // 二级标签传过来的小标签
+    label: ''
 
   },
   // 时间格式
@@ -144,6 +146,13 @@ Page({
     util.showLoading()
     var that = this;
     console.log(options)
+    var label = options.label
+    if (label !== 'null' && label !== undefined && label !== 'undefined'){
+      label = label.split(',')
+      this.setData({
+        label: label
+      })
+    }
     wx.setStorageSync("id", options.id)
     this.setData({
       id: options.id,

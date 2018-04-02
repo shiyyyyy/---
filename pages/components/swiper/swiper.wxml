@@ -5,8 +5,7 @@
   <swiper class="slide" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="circular">
     <block wx:for="{{res.pd_detail['产品图片']}}">
       <swiper-item>
-        <image src="{{host + item.path}}" class="slide-image" mode="scaleToFill"
-        catchtap='previewImg' data-index="{{index}}" />
+        <image src="{{host + item.path}}" class="slide-image" mode="scaleToFill" catchtap='previewImg' data-index="{{index}}" />
       </swiper-item>
     </block>
   </swiper>
@@ -17,9 +16,12 @@
   </view>
 
   <view class="main-box">
-    <view class="main-info" >
+    <view class="main-info">
       <view class="title">{{res.pd_detail['产品名称']}}</view>
       <view class="days">{{res.pd_detail['天数']}}天{{res.pd_detail['晚数']}}晚</view>
+      <view class="lv2-label" wx:if="{{label}}">
+        <view class="label" wx:for="{{label}}">{{item}}</view>
+      </view>
     </view>
     <view class="forwarding">
       <slot></slot>

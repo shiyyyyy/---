@@ -19,6 +19,10 @@
       <view>分享</view>
       <button class="visa-share-btn" open-type="share"></button>
     </view>
+    <!-- 二级标签里面的 小标签 -->
+    <view class="lv2-label">
+      <view class="label" wx:if="{{label}}" wx:for="{{label}}">{{item}}</view>
+    </view>
   </view>
 
   <!-- 选择时间和亮点介绍 门票没有,酒店有-->
@@ -90,7 +94,7 @@
 
     <view wx:for="{{res.pd_detail['产品航班车次']}}">
       <view class="visa-product-detail-main">
-        <text class="visa-country" space="emsp" wx:if="{{res.pd_detail['产品航班车次'].length > 1}}">航  次： {{index + 1}}</text>      
+        <text class="visa-country" space="emsp" wx:if="{{res.pd_detail['产品航班车次'].length > 1}}">航  次： {{index + 1}}</text>
         <text class="visa-country" space="emsp">航  班： {{item.flight_train}}</text>
         <text class="visa-sign" space="emsp">出发时间： {{item.dep_time}}</text>
         <text class="visa-sign" space="emsp">出发机场： {{item.dep_airport_station}}</text>

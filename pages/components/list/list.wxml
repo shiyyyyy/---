@@ -1,5 +1,5 @@
 <!--pages/list/list.wxml-->
-<view class="list" wx:for="{{res}}" wx:key="{{index}}" bindtap='clickList' data-id="{{item.id}}" data-pdType="{{item.pd_template_type}}">
+<view class="list" wx:for="{{res}}" wx:key="{{index}}" bindtap='clickList' data-id="{{item.id}}" data-pdType="{{item.pd_template_type}}" data-label="{{item.b2c_keyword}}">
   <view class="img-box">
     <image class="img" src="{{ host + item.pd_pic}}" mode="scaleToFill"></image>
   </view>
@@ -11,7 +11,13 @@
       <view class="origin" wx:if="{{item.dep_city_name}}">{{item.dep_city_name}}出发</view>
     </view>
 
-    <view class="lv2" wx:if="{{item.icon_lv2}}">{{item.icon_lv2}}</view>
+    <!-- <view class="lv2" wx:if="{{item.icon_lv2}}">{{item.icon_lv2}}</view> -->
+    <view class="lv2" wx:if="{{item.icon_lv2}}">
+      <view class="lv2-item">{{item.icon_lv2}}</view>
+      <view class="lv2-item" wx:for="{{item.b2c_keyword}}">{{item}}</view>
+    </view>
+
+
     <view class="dep-date" wx:else>{{item.dep_date}}</view>
   </view>
 </view>

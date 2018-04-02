@@ -36,6 +36,7 @@
 .main-box {
   padding-left: 24rpx;
   padding-right: 24rpx;
+  margin-bottom: 20rpx;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -69,4 +70,18 @@
   color: #999;
   line-height: 48rpx;
   margin-bottom: 10rpx;
+}
+/* 小标签 */
+.lv2-label{
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+.label{
+  font-size: 24rpx;
+  color: #999;
+  border: 2rpx solid #666;  
+  border-radius: 8rpx;
+  padding: 4rpx 10rpx;
+  margin-right: 20rpx;
+  display: inline-block;
 }
