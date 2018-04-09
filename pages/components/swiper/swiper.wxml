@@ -19,8 +19,8 @@
     <view class="main-info">
       <view class="title">{{res.pd_detail['产品名称']}}</view>
       <view class="days">{{res.pd_detail['天数']}}天{{res.pd_detail['晚数']}}晚</view>
-      <view class="lv2-label" wx:if="{{label}}">
-        <view class="label" wx:for="{{label}}">{{item}}</view>
+      <view class="lv2-label" wx:if="{{res.pd_detail.b2c_keyword}}">
+        <view class="label" wx:for="{{res.pd_detail.b2c_keyword}}">{{item}}</view>
       </view>
     </view>
     <view class="forwarding">

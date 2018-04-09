@@ -21,7 +21,7 @@
     </view>
     <!-- 二级标签里面的 小标签 -->
     <view class="lv2-label">
-      <view class="label" wx:if="{{label}}" wx:for="{{label}}">{{item}}</view>
+      <view class="label" wx:if="{{res.pd_detail.b2c_keyword}}" wx:for="{{res.pd_detail.b2c_keyword}}">{{item}}</view>
     </view>
   </view>
 
@@ -126,7 +126,7 @@
 
     <text scope="nbsp" class="contact-me-tel">咨询电话：    400-058-2007</text>
     <text scope="nbsp" class="contact-me-time">咨询时间：    09：00 - 18：00</text>
-    <text scope="nbsp" class="contact-me-time">联系地址：    北京市朝阳区新源里16号琨莎中心A座3层</text>
+    <text scope="nbsp" class="contact-me-time">联系地址：    北京市朝阳区新源里16号琨莎中心A座3楼(近昆仑饭店)</text>
   </view>
 
 

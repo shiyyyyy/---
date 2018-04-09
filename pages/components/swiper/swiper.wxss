@@ -73,8 +73,8 @@
 }
 /* 小标签 */
 .lv2-label{
-  padding-left: 24rpx;
-  padding-right: 24rpx;
+  /* padding-left: 24rpx;
+  padding-right: 24rpx; */
 }
 .label{
   font-size: 24rpx;

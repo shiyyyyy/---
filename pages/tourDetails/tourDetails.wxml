@@ -2,7 +2,7 @@
 <view class="package">
 
   <view>
-    <component-swiper res="{{res}}" label="{{label}}">
+    <component-swiper res="{{res}}">
       <view class="forwarding">
         <button class="forwarding-btn" open-type='share' plain='true'></button>
         <view class="forwarding-box">

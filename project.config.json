@@ -20,13 +20,30 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "确定转发入口",
+					"pathName": "pages/index/index",
+					"query": "name=can",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群1",
+						"shareName": "VjwWiTb_O1CVh4DyWfIqNANxkdRwqhzAAMedLwdj7rk@cr4dev",
+						"shareKey": "r3ex1DzW9DkLR7Grq-YJKDCJbJvusVEjGnBuW74UyvOVMQafFLlzkSoXb-0dSbiVEJ6WZ3DNBZd47qRTYA6dQQ~~"
+					}
+				}
+			]
 		}
 	}
 }

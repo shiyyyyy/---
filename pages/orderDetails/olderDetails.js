@@ -25,13 +25,15 @@ Page({
   },
   // 点击 地址
   clickAddress: function () {
-    var latitude = 39.94825 // 纬度
-    var longitude = 116.4503  // 经度
+    // var latitude = 39.94825 // 纬度
+    // var longitude = 116.4503  // 经度
+    var latitude = 39.924354 // 纬度
+    var longitude = 116.459698  // 经度
     wx.openLocation({
       latitude: latitude,
       longitude: longitude,
       scale: 28,
-      name: "南亚风情",
+      name: "笨象旅途",
       address: "北京市朝阳区新源里16号琨莎中心A座3楼(近昆仑饭店)",
     })
   },

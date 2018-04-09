@@ -6,10 +6,6 @@ Component({
     res: {
       type: Object,
       value: {}
-    },
-    label: {
-      type: Object,
-      value: []
     }
   },
 

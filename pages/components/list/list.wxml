@@ -1,5 +1,5 @@
 <!--pages/list/list.wxml-->
-<view class="list" wx:for="{{res}}" wx:key="{{index}}" bindtap='clickList' data-id="{{item.id}}" data-pdType="{{item.pd_template_type}}" data-label="{{item.b2c_keyword}}">
+<view class="list" wx:for="{{res}}" wx:key="{{index}}" bindtap='clickList' data-id="{{item.id}}" data-pdType="{{item.pd_template_type}}">
   <view class="img-box">
     <image class="img" src="{{ host + item.pd_pic}}" mode="scaleToFill"></image>
   </view>
