@@ -24,9 +24,9 @@
   <!-- 中间的小分类 -->
   <view class="type" catchtap='tapType'>
     <block wx:for="{{res.icon}}" wx:key="{{index}}">
-      <view class='type-item' bindtap='b_type_tap' data-iconid="{{item.id}}">
-        <image class="type-item-img" data-iconid="{{item.id}}" src="{{host + item.pic}}" mode="aspectFill"></image>
-        <view class="type-item-introduction" data-iconid="{{item.id}}"> {{item.name}} </view>
+      <view class='type-item' data-iconid="{{item.id}}" data-mod="{{item.bind_mod}}">
+        <image class="type-item-img" data-iconid="{{item.id}}" data-mod="{{item.bind_mod}}" src="{{host + item.pic}}" mode="aspectFill"></image>
+        <view class="type-item-introduction" data-iconid="{{item.id}}" data-mod="{{item.bind_mod}}"> {{item.name}} </view>
       </view>
     </block>
   </view>

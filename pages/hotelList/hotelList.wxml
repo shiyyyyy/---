@@ -1,0 +1,60 @@
+<view class="body">
+  <!-- 酒店页面首页  -->
+  <view class="index">
+    <!--头部搜索框 \ 点击按钮  -->
+    <view class="header">
+      <view class="input-box">
+        <input class="search-input" placeholder="输入城市名" value="{{searchCity}}" placeholder-style="input-placeholder" confirm-type="search" bindinput='inputChange' />
+        <!-- 搜索提示城市系列表  -->
+        <view class="search-pormpt">
+          <view class="prompt-list" hidden="{{!promptList}}" catchtap="selectInputCity" wx:for="{{promptList}}" data-citycode="{{item.CityCode}}" data-CityNameCN="{{item.CityName_CN}}">
+            {{item.CityName_CN}}
+          </view>
+        </view>
+      </view>
+      <view class="img-box">
+        <image class="search-img" src='../../images/icon/search-w.png' mode="aspectFill" />
+      </view>
+    </view>
+    <!-- 首页图片  -->
+    <view class="index-header">
+      <image></image>
+    </view>
+    <!-- 选择城市&&时间 -->
+    <view class="target-city" catchtap='toCityList'>{{ city.CityName_CN || '选择国家/城市'}}</view>
+    <view class="target-date">
+      <view>
+        <text>入住</text>
+        <picker mode="date" value="{{date.start}}" start="{{date.today}}" bindchange="startDate">
+          <view class="picker">
+            {{date.start}}
+          </view>
+        </picker>
+      </view>
+      <view class="night">
+        <view class="night-box">{{date.night}}晚</view>
+      </view>
+      <view>
+        <text>离店</text>
+        <picker mode="date" value="{{date.end}}" start="{{date.start}}" bindchange="endDate">
+          <view class="picker">
+            {{date.end}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <!-- btn -->
+    <view class="btn">
+      <button size="default" catchtap='clickSearchHotel'>搜索</button>
+    </view>
+
+    <!-- 底部酒店列表 -->
+    <view class="hotel-list" wx:for="{{hotelList}}" wx:if="{{hotelList.length}}"
+    catchtap='clickHotel' data-hotelId="{{item.HotelID}}">
+      {{item.HotelName}}
+    </view>
+    <!-- 没有酒店 返回提示 -->
+     <view wx:if="{{ !hotelList.length && flag}}" class="hotel-prompt">对不起,没有符合您要求的酒店</view> 
+  </view>
+
+</view>

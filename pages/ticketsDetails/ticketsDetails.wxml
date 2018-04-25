@@ -26,7 +26,7 @@
   </view>
 
   <!-- 选择时间和亮点介绍 门票没有,酒店有-->
-  <view class="main" wx:if="{{pdType === '4' || pdType === '3' || pdType === '5'}}">
+  <view class="main" wx:if="{{mod === '酒店分销' || pdType === '3' || pdType === '5'}}">
     <view class="select-date">
       <view class="select-text">选择日期</view>
 
@@ -76,7 +76,7 @@
   </view>
 
   <!-- 商品详情 酒店 -->
-  <view class="visa-product-detail" wx:if="{{pdType === '4'}}">
+  <view class="visa-product-detail" wx:if="{{mod === '酒店分销'}}">
     <view class="visa-product-detail-title">酒店详情</view>
 
     <view class="visa-product-detail-main">

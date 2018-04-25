@@ -54,8 +54,8 @@ Page({
     var start = this.data.start
     var limit = this.data.limit
     var url = `api/B2C/icon_lv2_view/${id}/${target}/${start}/${limit}`
-
-    this.lv2load(url)
+  console.log(url)
+    // this.lv2load(url)
   },
 
 

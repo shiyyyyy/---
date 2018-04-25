@@ -13,9 +13,16 @@ Component({
    */
   data: {
     // 图片地址 前缀
-    host: getApp().host
+    host: getApp().host,
+    // 用来判断跳转哪个模板/页面的,但是现在用的是id不对,以后得改
+    mod: ''
   },
-
+  onLoad() {
+    var mod = wx.getStorageSync('bind_mod')
+    this.setData({
+      mod: mod
+    })
+  },
   /**
    * 组件的方法列表
    */
@@ -32,6 +39,12 @@ Component({
 
     // 判断跳转页面
     estimateRoute(pdType, pd_id) {
+      // 先按照mon来跳转,没有mod的按照原来的id跳转,id跳转是有问题的,以后要改成mod
+      if (this.data.mod === '酒店分销') {
+        wx.navigateTo({
+          url: `../ticketsDetails/ticketsDetails?id=${pd_id}&pdType=${pdType}`,
+        })
+      }
       // ['错误','跟团','签证','机票','酒店','门票','当地游']
       switch (pdType) {
         case '1':

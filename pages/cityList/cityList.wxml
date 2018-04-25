@@ -1,0 +1,35 @@
+<!--  城市列表  -->
+<view class='city_box'>
+  <!-- // 国家  -->
+  <view class='city_left'>
+    <scroll-view scroll-y style='width:100%;height:100%;' scroll-with-animation scroll-into-view='{{toViewCountry}}'>
+      <view class='city_list_box'>
+        <block wx:for='{{countrylist}}' wx:key='this' wx:for-item='letterItem' wx:for-index='letterIndex'>
+          <view class='city_first_letter' id='{{letterItem.first_char}}'>{{letterItem.first_char}}</view>
+          <text class='city_name' wx:for='{{letterItem.list}}' wx:key='this' catchtap='cityTap' data-let='{{letterItem.first_char}}' data-val='{{item}}' data-CountryCode='{{item.ISOCountryCode}}'>{{item.CountryName_CN}}</text>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='city_right'>
+    <text class='letter_item' wx:for='{{letterCountry}}' wx:key='this' catchtap='letterTapCountry' data-item='{{item}}'>{{item}}</text>
+  </view>
+
+  <!-- 城市  style="display:{{citylist == undefined? 'none' : 'flex'}};"-->
+  <view class='city_fixed' hidden="{{!citylist}}">
+    <scroll-view scroll-y style='width:100%;height:100%;' scroll-with-animation scroll-into-view='{{toViewCity}}'>
+      <view class='city_list_box'>
+        <block wx:for='{{citylist}}' wx:key='this' wx:for-item='letterItem' wx:for-index='letterIndex'>
+          <view class='city_first_letter' id='{{letterItem.first_char}}'>{{letterItem.first_char}}</view>
+          <text class='city_name' wx:for='{{letterItem.list}}' wx:key='this' catchtap='clickCity' data-let='{{letterItem.first_char}}' data-val='{{item}}' data-CountryCode='{{item.CountryCode}}'>{{item.CityName_CN}}</text>
+        </block>
+      </view>
+    </scroll-view>
+    <!-- 返回国家列表 -->
+    <view class="back-country" catchtap='backCountry'>x</view>
+    <view class='city_right'>
+      <text class='letter_item' wx:for='{{letterCity}}' wx:key='this' catchtap='letterTapCity' data-item='{{item}}'>{{item}}</text>
+    </view>
+  </view>
+
+</view>

@@ -22,7 +22,9 @@ Page({
     prompt: false,
     // 星期 数组
     day: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
-    dayArr: []
+    dayArr: [],
+    // 用来判断显示的模板是哪个(现在还在用id其实是不对的)
+    mod: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -30,12 +32,14 @@ Page({
   onLoad: function (options) {
     var that = this;
     var id = options.id
-
+    // 不应该根据id判断现实的模板,应该根据bind_mod来判断(ps:现在只有酒店和领队有bing_mod)
+    var mod = wx.getStorageSync('bind_mod')
     wx.setStorageSync("id", options.id)
     var pdType = options.pdType
     this.setData({
       id: id,
-      pdType: pdType
+      pdType: pdType,
+      mod: mod
     })
     var url = 'api/B2C/product/' + id
     getApp().post(url, {}, res => {

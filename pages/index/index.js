@@ -42,9 +42,21 @@ Page({
     console.log(e);
     var target = e.target.dataset.iconid
     console.log("点击了分类小图标id:" + target)
-    wx.navigateTo({
-      url: '../classification/classification?iconid=' + target,
-    })
+    // 如果是酒店,bind_mod = 酒店分销
+    var mod = e.target.dataset.mod || ' '
+    console.log(mod)
+    wx.setStorageSync('mod', mod)
+    if (mod === '酒店分销') {
+      console.log('跳转酒店页啊')
+      wx.navigateTo({
+        url: '../hotelList/hotelList?iconid=' + target,
+      })
+    } else {
+      wx.navigateTo({
+        url: '../classification/classification?iconid=' + target,
+      })
+    }
+
   },
 
   // 点击首页列表
@@ -69,7 +81,7 @@ Page({
   },
 
   // 上拉加载
-  onReachBottom(){
+  onReachBottom() {
     console.log("上拉刷新")
   },
   // 加载 或者刷新页面调用的函数

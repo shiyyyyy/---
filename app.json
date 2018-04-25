@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/hotelList/hotelList",
+    "pages/cityList/cityList",    
     "pages/airTicketsDetails/airTicketsDetails",
     "pages/visaDetails/visaDetails",
     "pages/leaderWebView/leaderWebView",

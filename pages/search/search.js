@@ -7,7 +7,9 @@ Page({
     // 搜索历史数组
     historyArr: [],
     // 用户输入的数据
-    value: ''
+    value: '',
+    // 刚进搜索页面,没有结果提示不显示(所以刚开始是true,搜索一次之后就false)
+    flag: true
   },
 
   // 获取 搜索数组
@@ -78,7 +80,11 @@ Page({
     console.log(e)
     console.log("点击搜索")
     var pd_name = this.data.userInput
-    if (pd_name === '') return
+    if (pd_name === '' || pd_name === undefined) return
+    // 先让flag变为false
+    this.setData({
+      flag: false
+    })
     this.requestSearchArr(that, pd_name)
     // 清空 输入框
     this.setData({

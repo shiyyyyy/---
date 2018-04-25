@@ -21,7 +21,7 @@
   </view>
 
   <!-- 无 搜索结果 -->
-  <view class="no-result" hidden="{{res.length}}">
+  <view class="no-result" hidden="{{res.length || flag}}">
     对不起，没有您要搜索的结果
   </view>
 

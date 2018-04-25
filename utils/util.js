@@ -15,8 +15,9 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-
+// 转换时间格式(date参数格式: 12312312312312就是都是毫秒数,得先转化为时间)
 function getDay(date) {
+  var date = new Date(date)
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()  
@@ -25,6 +26,18 @@ function getDay(date) {
   return year + "-" + y + "-" + r
 }
 
+function tomorrow(date){
+  return date.setTime(date.getTime() + 24 * 60 * 60 * 1000)
+}
+// 传过来的date格式 2000-00-00 输出new Date(2000,00,00)
+function getDate(date){
+  var dateArr = []
+  dateArr.push(date.slice(0, 4))
+  dateArr.push(date.slice(5, 7))
+  dateArr.push(date.slice(8))
+  console.log(dateArr)
+  return new Date(dateArr[0], dateArr[1], dateArr[2])
+}
 
 //网络请求
 function request(parameters = "", success, method = "GET", header = {}) {
@@ -89,6 +102,8 @@ function alertView(title = "提示", content = "消息提示", confirm) {
 module.exports = {
   formatTime: formatTime,
   getDay: getDay,
+  getDate: getDate,
+  tomorrow: tomorrow,
   request: request,
   showLoading: showLoading,
   showSuccess: showSuccess,
