@@ -25,10 +25,17 @@ Page({
   },
   onLoad() {
     var city = wx.getStorageSync('city') || ''
+    console.log(city)
     this.setData({
       city: city
     })
-
+  },
+  onShow(){
+    var city = wx.getStorageSync('city') || this.data.city || ''
+    console.log(city)
+    this.setData({
+      city: city
+    })
   },
   // 首页 函数区
   // 入住/离店 日期
@@ -72,8 +79,9 @@ Page({
       CityName: val.detail.value
     }
     getApp().post(url, data, res => {
+      console.log(res)
       this.setData({
-        promptList: res.list
+        promptList: res
       })
     })
   },
@@ -131,11 +139,15 @@ Page({
   clickHotel(e) {
     console.log('点击酒店列表')
     console.log(e)
+    var hotelId = e.currentTarget.dataset.hotelid
+    var inDate = this.data.date.start
+    var outDate = this.data.date.end
+    var night = this.data.date.night
+    wx.navigateTo({
+      url: `/pages/hotelDetails/hotelDetails?hotelId=${hotelId}&inDate=${inDate}&outDate=${outDate}&night=${night}`,
+    })
   },
   //  --------------------
-  onShow() {
-
-  },
   onUnload() {
     console.log('关闭页面')
     wx.switchTab({

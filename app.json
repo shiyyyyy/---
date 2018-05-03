@@ -1,10 +1,9 @@
 {
   "pages": [
+    "pages/hotelList/hotelList",    
     "pages/index/index",
-    "pages/hotelList/hotelList",
+    "pages/hotelDetails/hotelDetails",
     "pages/cityList/cityList",    
-    "pages/airTicketsDetails/airTicketsDetails",
-    "pages/visaDetails/visaDetails",
     "pages/leaderWebView/leaderWebView",
     "pages/ticketsDetails/ticketsDetails",
     "pages/visaPay/visaPay",

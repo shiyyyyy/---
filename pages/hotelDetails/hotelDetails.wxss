@@ -1,0 +1,371 @@
+.body {
+  background-color: #f2f2f2;
+}
+.scroll{
+  width: 100%;
+  height: 100vh;
+}
+/*hotel-name 顶部 */
+
+.hotel-header-box {
+  background-color: #fff;
+  position: relative;
+  padding-bottom: 30rpx;
+}
+
+/* 轮播图 */
+
+.hotel-swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* info */
+
+.hotel-info {
+  width: 80%;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  margin-top: 10rpx;
+  position: relative;
+}
+
+.hotel-name {
+  font-size: 34rpx;
+  line-height: 60rpx;
+}
+
+.hotel-other-info {
+  font-size: 26rpx;
+  line-height: 40rpx;
+  display: flex;
+}
+
+.hotel-level {
+  margin-left: 30rpx;
+}
+
+.hotel-share {
+  font-size: 24rpx;
+  text-align: center;
+  position: absolute;
+  right: -50rpx;
+  top: 10rpx;
+}
+
+.hotel-share-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.hotel-share-btn {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 地址 */
+
+.address {
+  font-size: 28rpx;
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+  margin-top: 16rpx;
+  display: flex;
+}
+
+.address-text {
+  width: 84%;
+  line-height: 34rpx;
+}
+
+.address-img-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-img-box image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 筛选 */
+
+.screening-box {
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+
+.screening {
+  padding: 20rpx 24rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.screening-item {
+  width: 22%;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+}
+
+.screening-item-active {
+  color: #4bb2c0;
+  border: 1px solid #4bb2c0;
+  background-color: #fff;
+}
+
+/* 返回房间列表 */
+
+.room-list {
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+
+.room-item {
+  font-size: 32rpx;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+}
+
+.room-img-box {
+  width: 194rpx;
+  height: 166rpx;
+}
+
+.room-img {
+  width: 100%;
+  height: 100%;
+}
+
+.room-info {
+  padding: 20rpx;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+room-name {
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+
+.room-attr {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #999;
+  display: flex;
+}
+
+.room-attr-except1 {
+  margin-left: 20rpx;
+}
+
+.room-info-right {
+  display: flex;
+  align-items: center;
+}
+
+.room-price {
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #ff6913;
+  font-size: 26rpx;
+  display: flex;
+}
+
+.room-price-text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.an-img {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 20rpx;
+  position: relative;
+  top: 42rpx;
+}
+
+.an-active {
+  transform: rotate(180deg);
+}
+
+/* ----------------------------------------------------------- */
+
+/* ------------------- 新(简化版)样式 ------------------------- */
+
+/* ----------------------------------------------------------- */
+
+.header {
+  font-size: 36rpx;
+  padding: 30rpx 24rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hotel-name {
+  line-height: 40rpx;
+  flex: 1;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.lowest-price {
+  width: 30%;
+  color: #ff6913;
+  line-height: 40rpx;
+  text-align: right;
+}
+
+.hotel-date {
+  font-size: 32rpx;
+  line-height: 40rpx;
+  padding: 30rpx 24rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.in-out-date {
+  flex: 1;
+}
+
+.night-num0 {
+  color: #ff6913;
+}
+
+/* room-item */
+
+.room-item1 {
+  background-color: #fff;
+  border: 2rpx solid #ddd;
+  padding: 10rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ← */
+
+.item-left1 {
+  font-size: 24rpx;
+  flex: 1;
+}
+
+.bed-room1 {
+  font-size: 32rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.item-center1 {
+  padding: 10rpx 0;
+  display: flex;
+}
+
+.item-num1 {
+  margin-right: 30rpx;
+}
+
+.item-breakfast1 {
+  margin-right: 30rpx;
+}
+
+.item-inventory-count {
+  color: #f21;
+}
+
+.item-footer1 {
+  display: flex;
+}
+
+.price-text {
+  margin-left: 30rpx;
+  color: #ff6913;
+  position: relative;
+}
+
+.price-text .an-img {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 0;
+  right: -40rpx;
+}
+
+.active-img {
+  transform: rotate(180deg);
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: flex;
+}
+
+/* → */
+
+.item-right1 {
+  min-width: 19%;
+  font-size: 32rpx;
+  border-radius: 14rpx;
+  text-align: center;
+}
+
+.total-pirce {
+  color: #ff6913;
+  background-color: #fff;
+  border: 1px solid #ff6913;
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.night-num {
+  font-size: 26rpx;
+  color: #fff;
+  background-color: #ff6913;
+  border: 1px solid #ff6913;  
+  border-radius: 0 0 10rpx 10rpx;  
+}
+
+/* back-top */
+.back-top{
+  width: 60rpx;
+  height: 60rpx;
+  position: fixed;
+  bottom: 130rpx;
+  right: 90rpx;
+  z-index: 10;
+}
+.back-top image{
+  width: 100%;
+  height: 100%;
+}

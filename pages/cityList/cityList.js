@@ -85,6 +85,9 @@ Page({
     wx.redirectTo({
       url: '../hotelList/hotelList',
     })
+    // wx.switchTab({
+    //   url: '../hotelList/hotelList'
+    // })
   },
   //点击国家索引字母---------------------------
   letterTapCountry(e) {

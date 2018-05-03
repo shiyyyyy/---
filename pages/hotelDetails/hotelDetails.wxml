@@ -1,0 +1,143 @@
+<view class="body">
+  <scroll-view class="scroll" scroll-y scroll-top="{{scrollTop}}" scroll-with-animation bindscroll="scroll">
+    <!-- 头部 -->
+    <!-- <view class="hotel-header-box"> -->
+    <!-- 轮播图 -->
+    <!-- <swiper class="hotel-swiper" indicator-dots="false" circular="true" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper> -->
+    <!-- 名字、开业时间、星级 -->
+    <!-- <view class="hotel-info">
+      <view class="hotel-name">{{hotel.name}}</view>
+      <view class="hotel-other-info">
+        <view class="hotel-open-tiem">{{hotel.openTime}}</view>
+        <view class="hotel-level">{{hotel.level}}</view>
+      </view>
+      <view class="hotel-share">
+        <image src="../../images/icon/forwarding.png" class="hotel-share-img"></image>
+        <view>分享</view>
+        <button class="hotel-share-btn" open-type="share"></button>
+      </view>
+    </view>
+  </view> -->
+
+    <!-- 酒店名 & 最低价-->
+    <view class="header">
+      <view class="hotel-name">{{hotelData.HotelName}}</view>
+      <view class="lowest-price">
+        ￥{{hotelData.LowestPrice.Value}}起
+      </view>
+    </view>
+
+    <!-- 入住离店日期  -->
+    <view class="hotel-date">
+      <view class="in-out-date">
+        <view>入住日期: {{time.start}}</view>
+        <view>离店日期: {{time.end}}</view>
+      </view>
+
+      <view class="night-num0">共 {{time.night}} 晚</view>
+    </view>
+
+    <!-- 地址 -->
+    <!-- <view class="address">
+    <view class="address-text">{{hotel.address}}</view>
+    <view class="address-img-box">
+      <image src="../../images/icon/address.png"></image>
+    </view>
+  </view> -->
+
+    <!-- search 筛选 -->
+    <!-- <view class="screening-box">
+    <view class="screening" catchtap='screening'>
+      <view class="screening-item {{roomScreening.breakfast?'screening-item-active':''}}" data-breakfast="{{roomScreening.breakfast}}">含早</view>
+      <view class="screening-item {{roomScreening.bigBed?'screening-item-active':''}}" data-big-bed="{{roomScreening.bigBed}}">大床房</view>
+      <view class="screening-item {{roomScreening.doubleBed?'screening-item-active':''}}" data-double-bed="{{roomScreening.doubleBed}}">双床房</view>
+      <view class="screening-item {{roomScreening.freeCancellation?'screening-item-active':''}}" data-free-cancellation="{{roomScreening.freeCancellation}}">免费取消</view>
+    </view>
+  </view> -->
+
+    <!-- 返回的房间列表 -->
+    <!-- <view class="room-list">
+    <view class="room-item" wx:for="{{roomList}}">
+      <view class="room-img-box">
+        <image class="room-img" src="{{item.pic}}"></image>
+      </view>
+      <view class="room-info">
+
+        <view class="room-info-left">
+          <view class="room-name">{{item.name}}</view>
+          <view class="room-attr">
+            <view>{{item.m2}}</view>
+            <view class="room-attr-except1">{{item.bed}}</view>
+            <view class="room-attr-except1">{{item.floor}}</view>
+          </view>
+        </view>
+        <view class="room-info-right">
+          <view class="room-price">
+            <text>￥</text>
+            <text class="room-price-text">{{item.lowestPrice}}</text>
+            <text>起</text>
+            <image class="an-img" src="../../images/icon/an-down.png"></image>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view> -->
+
+    <!-- 酒店房间列表 -->
+    <view class="room-list1">
+      <view class="room-item1" wx:for="{{hotelData.RatePlanList}}">
+        <view class="item-left1">
+          <view class="bed-room1">
+            {{item.RatePlanName}}
+          </view>
+          <view class="item-center1">
+            <view class="item-num1">
+              可住{{item.StandardOccupancy}}人
+            </view>
+            <view class="item-breakfast1">
+              {{item.BreakfastType === 1 ? '含早' : '不含早'}}
+            </view>
+            <view class="item-inventory-count" hidden="{{item.InventoryCount > 10}}">
+              仅剩{{item.InventoryCount}}间
+            </view>
+          </view>
+
+          <view wx:for="{{item.PriceList}}" wx:for-item="dateItem" wx:for-index="dateIndex" class="item-footer1 {{dateIndex > 0 ? 'none':''}} {{index === currentIndex ? 'block' : ''}}">
+            入住时间:{{dateItem.StayDate}}
+            <view class="price-text">￥{{dateItem.Price}}
+              <image src="../../images/icon/an-down.png" class="an-img {{ index === currentIndex ? 'active-img': ''}}" catchtap='toggle' data-index="{{index}}" hidden="{{item.PriceList.length <= 1 || dateIndex > 0}}"></image>
+            </view>
+          </view>
+        </view>
+
+        <view class="item-right1" catchtap='reservation' data-RatePlanID="{{item.RatePlanID}}">
+          <view class="total-pirce">￥{{item.TotalPrice}}</view>
+          <!-- <view class="night-num">共{{time.night}}晚</view> -->
+          <view class="night-num">预定</view>
+        </view>
+
+      </view>
+    </view>
+
+    <!-- 返回顶部 -->
+    <view class="back-top" catchtap='backTop' hidden="{{scrollTopShow}}">
+      <image src="../../images/icon/back-top.png"></image>
+    </view>
+
+    <!-- 酒店详情 -->
+
+    <!-- 酒店附近 -->
+
+    <!-- 酒店政策 -->
+
+    <!-- 酒店设备 -->
+  </scroll-view>
+
+</view>

@@ -49,6 +49,7 @@ App({
   // webViewHost: 'https://nyfq.tlink.cc/cj-back/api/B2C/leader/',
   host: 'https://ssl.tlink.cc/cj-back/',
   // host: 'https://nyfq.tlink.cc/cj-back/',
+  // host: 'http://192.168.1.111/cj-back/',
   post: (url, data, cb) => {
     data = data || {}
     var app = getApp();

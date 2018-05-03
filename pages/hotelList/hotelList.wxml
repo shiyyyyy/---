@@ -18,7 +18,7 @@
     </view>
     <!-- 首页图片  -->
     <view class="index-header">
-      <image></image>
+      <image src="../../images/icon/hotel.jpg"></image>
     </view>
     <!-- 选择城市&&时间 -->
     <view class="target-city" catchtap='toCityList'>{{ city.CityName_CN || '选择国家/城市'}}</view>

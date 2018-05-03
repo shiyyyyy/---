@@ -4,7 +4,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="visa-swiper">
       <block wx:for="{{res.pd_detail['产品图片']}}">
         <swiper-item>
-          <image src="{{host + item.path}}" class="visa-slide-image" width="355" height="150" />
+          <image src="{{host + item.path}}" class="visa-slide-image" />
         </swiper-item>
       </block>
     </swiper>
