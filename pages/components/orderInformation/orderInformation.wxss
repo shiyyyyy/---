@@ -1,8 +1,9 @@
 /* pages/components/orderInformation/order information.wxss */
 
 /* pages/list/list.wxss */
-.body{
-  height: 160rpx;
+
+.body {
+  /* height: 160rpx; */
   background-color: #fff;
 }
 
@@ -34,9 +35,11 @@
 .right-title {
   font-size: 28rpx;
   line-height: 42rpx;
-  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; */
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* 出发时间  */
@@ -46,5 +49,3 @@
   color: #999;
   line-height: 36rpx;
 }
-
-

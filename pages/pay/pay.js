@@ -33,6 +33,11 @@ Page({
       id: options.id,
       order: options.order
     }
+    if (options && options.orderInfo) {
+      // 酒店 才有(暂时)
+      console.log(options.orderInfo)
+      res.orderInfo = JSON.parse(options.orderInfo)
+    }
     this.setData({
       res: res
     })
@@ -40,13 +45,14 @@ Page({
     console.log(this)
   },
   // 点击 到店支付
-  arriveStore: function(e){
+  arriveStore: function (e) {
     console.log(this)
     var productImgUrl0 = this.data.res.orderImgUrl0
-    var productTitle = this.data.res.pd_name
+    // 如果是酒店详情 则显示酒店详情的pd_name 否则正常pd_name
+    var pd_name = this.data.res.orderInfo.pd_name || this.data.res.pd_name
     var orderNum = this.data.res.order_num
     wx.navigateTo({
-      url: `../store/store?productImgUrl0=${productImgUrl0}&productTitle=${productTitle}&orderNum=${orderNum}`,
+      url: `../store/store?productImgUrl0=${productImgUrl0}&pd_name=${pd_name}&orderNum=${orderNum}`,
     })
   },
   // 点击 支付 按钮
@@ -104,9 +110,9 @@ Page({
   onUnload: function () {
     util.showLoading()
     console.log("onUnload")
-    if(this.data.res.order === "order"){
+    if (this.data.res.order === "order") {
       util.hideToast()
-      return 
+      return
     }
     wx.navigateBack({
       delta: 1

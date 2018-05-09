@@ -1,0 +1,102 @@
+<!--pages/orderSubmit/orderSubmit.wxml-->
+<view class="body">
+
+  <!-- 价格明细 晚数 价钱 -->
+  <view class="room">
+    <view class="room-title">房间详情</view>
+    <view class="room-info">
+      <view class="item-left1">
+        <view class="bed-room1">
+          {{roomData.RatePlanName}}
+        </view>
+        <view class="item-center1">
+          <view class="item-num1">
+            可住{{roomData.StandardOccupancy}}人
+          </view>
+          <view class="item-breakfast1">
+            {{roomData.BreakfastType === 1 ? '含早' : '不含早'}}
+          </view>
+          <view class="item-inventory-count" hidden="{{roomData.InventoryCount > 10}}">
+            仅剩{{roomData.InventoryCount}}间
+          </view>
+        </view>
+
+        <view wx:for="{{roomData.PriceList}}" wx:for-item="dateItem" wx:for-index="dateIndex" class="item-footer1">
+          入住时间:{{dateItem.StayDate}}
+          <view class="price-text">￥{{dateItem.Price}}</view>
+        </view>
+      </view>
+
+      <view class="item-right1" catchtap='reservation' data-RatePlanID="{{dateItem.RatePlanID}}">
+        <view class="total-pirce">￥{{roomData.TotalPrice}}</view>
+        <view class="night-num">共{{roomData.night}}晚</view>
+        <!-- <view class="night-num">预定</view> -->
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 选择人数 number  -->
+  <view class="number" bindtap='ctorNum'>
+    <view class="adult">
+      <view class="number-text">人数</view>
+      <!-- <view class="number-price">￥</view> -->
+
+      <view class="number-ctor">
+        <view class="subtract">
+          <image src="../../images/icon/jian.png" wx:if="{{ num <= 1}}"></image>
+          <image src="../../images/icon/jian1.png" wx:else data-name="subNum"></image>
+        </view>
+        <view class="num">{{num}}</view>
+        <view class="add">
+          <image src="../../images/icon/jia.png" wx:if="{{ num >= roomData.StandardOccupancy}}"></image>
+          <image src="../../images/icon/jia1.png" wx:else data-name="addNum"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 表单 -->
+  <view class="form">
+    <form bindsubmit="formSubmit">
+      <!-- 其他需求  这里的hidden是不让这个加载的太快,会先显示这个-->
+      <view class="other">
+        <view class="other-text">其他需求</view>
+        <view class="text-box">
+          <textarea class="textarea" name="otherNeed" placeholder="请输入您的其它需求，等待客服与您二次确认" placeholder-style="placeholder" maxlength="500"> </textarea>
+        </view>
+      </view>
+
+      <!-- 联系人信息  -->
+      <view class="contact">
+        <view class="contact-text">联系人信息</view>
+        <view class="contact-box">
+          <view class="name">
+            <text space="emsp" class="left-name">姓</text>
+            <input class="last-name" bindblur='last_name_input' name="last_name" />
+            <text space="emsp" class="left-name">名</text>
+            <input class="first-name" bindblur='first_name_input' name="first_name" />  
+            <text class="will">(必填)</text>
+          </view>
+          <view class="tel">
+            <text space="emsp" class="left">手 机</text>
+            <input class="mobile" placeholder='请输入联系人电话' bindblur='tel_input' name="mobile" />
+            <text class="will">(必填)</text>
+          </view>
+          <view class="tel">
+            <text space="emsp" class="left">邮 箱</text>
+            <input class="mobile" placeholder='请输入联系人邮箱' bindblur='email_input' name="email" />
+            <text class="will">(必填)</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- footer submit  -->
+      <view class='footer'>
+        <button formType="submit" class="submit">提交</button>
+      </view>
+    </form>
+  </view>
+
+  <!-- 邮寄地址 -->
+</view>

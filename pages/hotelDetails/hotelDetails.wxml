@@ -117,7 +117,7 @@
           </view>
         </view>
 
-        <view class="item-right1" catchtap='reservation' data-RatePlanID="{{item.RatePlanID}}">
+        <view class="item-right1" catchtap='reservation' data-RatePlanID="{{item.RatePlanID}}" data-index='{{index}}'>
           <view class="total-pirce">￥{{item.TotalPrice}}</view>
           <!-- <view class="night-num">共{{time.night}}晚</view> -->
           <view class="night-num">预定</view>

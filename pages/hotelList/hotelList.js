@@ -73,12 +73,9 @@ Page({
   // 输入框改变事件---------------------
   inputChange(val) {
     console.log('input 改变事件')
-    console.log(val)
-    var url = 'api/Daolv/city_prompt'
-    var data = {
-      CityName: val.detail.value
-    }
-    getApp().post(url, data, res => {
+    if ( !val || !val.detail || !val.detail.value) return 
+    var url = 'api/Daolv/city_prompt/' + val.detail.value
+    getApp().post(url,{}, res => {
       console.log(res)
       this.setData({
         promptList: res
@@ -105,18 +102,21 @@ Page({
   clickSearchHotel() {
     console.log('点击搜索按钮')
     var that = this
+    // 如果 没选城市 不行
+    if (!this.data.city.CityName_CN){
+      wx.showToast({
+        title: '请选择或搜索入住城市',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
     // 如果 时间 一样 不行
     if (this.data.date.start === this.data.date.end) {
-      wx.showModal({
-        title: '提示',
-        content: '入住、离店日期不能相同',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
+      wx.showToast({
+        title: '入住/离店日期不能相同',
+        icon: 'none',
+        duration: 2000
       })
       return
     }
@@ -130,7 +130,7 @@ Page({
       console.log(res)
       // 所搜过后,要把flagbianwei true
       that.setData({
-        hotelList: res.HotelList,
+        hotelList: res,
         flag: true
       })
     })

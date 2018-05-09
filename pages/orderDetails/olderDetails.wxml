@@ -3,7 +3,8 @@
 <!-- 订单详情页 -->
 <view class="body">
 
-  <view class="header">{{res.pd_name}}</view>
+  <view class="header" wx:if="{{res.orderInfo.pd_name}}">{{res.orderInfo.pd_name}}</view>
+  <view class="header" wx:else>{{res.pd_name}}</view>
 
   <view class="order-info">
 
@@ -16,30 +17,34 @@
         <text space="emsp">订单编号：  {{res.order_num}}</text>
       </view>
       <!-- 人数 -->
-      <view class="order-num" wx:if="{{pdType !== '2' || pdType !== '4'}}">
-        <text space="emsp">出行人数：  {{res.num_of_people}}人</text>
+      <view class="order-num">
+        <text space="emsp" wx:if="{{res.orderInfo.num_of_people}}">入住人数：  {{res.orderInfo.num_of_people}}人</text>
+        <text space="emsp" wx:elif="{{pdType !== '2' || pdType !== '4'}}">出行人数：  {{res.num_of_people}}人</text>
       </view>
       <view class="order-num" wx:if="{{pdType === '2'}}">
         <text space="emsp">签证人数：  {{res.num_of_people}}人</text>
       </view>
-      <view class="order-num" wx:if="{{pdType !== '4'}}">
-        <text space="emsp">住宿天数：  {{res.num_of_people}}人</text>
+      <view class="order-num">
+        <text space="emsp" wx:if="{{res.orderInfo.night}}">入住晚数：  {{res.orderInfo.night}}人</text>
+        <text space="emsp" wx:elif="{{pdType !== '4'}}">住宿天数：  {{res.num_of_people}}人</text>
       </view>
       <!-- 价格 -->
       <view class="order-num">
-        <text space="emsp">商品价格：  ￥{{res.retail_price}}</text>
+        <text space="emsp" wx:if="{{!res.orderInfo.amount}}">商品价格：  ￥{{res.retail_price}}</text>
       </view>
       <!-- 总计 -->
       <view class="order-amount">
-        <text space="emsp">订单总计：  ￥{{res.amount}}</text>
+        <text space="emsp" wx:if="{{res.orderInfo.amount}}">订单总计：  ￥{{res.orderInfo.amount}}</text>
+        <text space="emsp" wx:else>订单总计：  ￥{{res.amount}}</text>
       </view>
       <!-- 出发城市 -->
       <view class="order-dep_city_name" wx:if="{{res.dep_city_name}}">
         <text space="emsp">出发城市：  {{res.dep_city_name}}</text>
       </view>
       <!-- 出发日期 -->
-      <view class="order-dep_date" wx:if="{{res.dep_date}}">
-        <text space="emsp">出发时间：  {{res.dep_date}}</text>
+      <view class="order-dep_date">
+        <text space="emsp" wx:if="{{res.orderInfo.in_date}}">入住日期：  {{res.orderInfo.in_date}}</text>      
+        <text space="emsp" wx:elif="{{res.dep_date}}">出发时间：  {{res.dep_date}}</text>
       </view>
       <!-- 回团日期 -->
       <!-- <view class="order-num"><text space="emsp">{{res.num_of_people}}</text></view> -->

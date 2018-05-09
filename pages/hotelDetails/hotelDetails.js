@@ -19,57 +19,6 @@ Page({
     scrollTopShow: true,
     // 距离顶部距离
     scrollTop: 0,
-
-    // 假数据
-    hotel: {
-      name: '上海徐汇和颐至尊酒店',
-      openTime: '2017年开业',
-      level: '五星级',
-      address: '[光大会展中心]漕宝路124号(近桂林路)[光大会展中心][光大会展中心]'
-    },
-    roomList: [
-      {
-        pic: 'https://dimg04.c-ctrip.com/images/200j0f0000007b0zfFDAA_C_190_150_Q50.jpg_.webp?v=1',
-        name: '豪华湖景房',
-        m2: '64㎡',
-        bed: "大/双床",
-        floor: "20-25层",
-        lowestPrice: 998,
-        children: [
-          { title: '标准价', breakfast: '双早', bed: '大/双床', numOf: '可住2人', cancel: '不可取消', confirm: '立即确认', price: 1024 },
-          { title: '标准价', breakfast: '双早', bed: '大/双床', numOf: '可住2人', cancel: '不可取消', confirm: '立即确认', price: 998 }
-        ]
-      },
-      {
-        pic: 'https://dimg04.c-ctrip.com/images/200j0f0000007b0zfFDAA_C_190_150_Q50.jpg_.webp?v=1',
-        name: '豪华湖景房',
-        m2: '64㎡',
-        bed: "大/双床",
-        floor: "20-25层",
-        lowestPrice: 998,
-        children: [
-          { title: '标准价', breakfast: '双早', bed: '大/双床', numOf: '可住2人', cancel: '不可取消', confirm: '立即确认', price: 1024 },
-          { title: '标准价', breakfast: '双早', bed: '大/双床', numOf: '可住2人', cancel: '不可取消', confirm: '立即确认', price: 998 }
-        ]
-      },
-      {
-        pic: 'https://dimg04.c-ctrip.com/images/200j0f0000007b0zfFDAA_C_190_150_Q50.jpg_.webp?v=1',
-        name: '豪华湖景房',
-        m2: '64㎡',
-        bed: "大/双床",
-        floor: "20-25层",
-        lowestPrice: 998,
-        children: [
-          { title: '标准价', breakfast: '双早', bed: '大/双床', numOf: '可住2人', cancel: '不可取消', confirm: '立即确认', price: 1024 },
-          { title: '标准价', breakfast: '双早', bed: '大/双床', numOf: '可住2人', cancel: '不可取消', confirm: '立即确认', price: 998 }
-        ]
-      }
-    ],
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ]
   },
   // onload
   onLoad(options) {
@@ -159,16 +108,16 @@ Page({
   reservation(e) {
     console.log('点击预定')
     console.log(e)
-    wx.showModal({
-      title: '提示',
-      content: '确认预定本房间',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
+    console.log(this.data.hotelData)
+    var index = e.currentTarget.dataset.index
+    var roomData = this.data.hotelData.RatePlanList[index]
+    roomData.night = this.data.time.night
+    roomData.start = this.data.time.start
+    roomData.end = this.data.time.end
+    roomData.hotelId = this.data.hotelData.HotelID
+    roomData = JSON.stringify(roomData)
+    wx.navigateTo({
+      url: `../hotelSubmit/hotelSubmit?roomData=${roomData}`,
     })
   },
   // 滚动事件

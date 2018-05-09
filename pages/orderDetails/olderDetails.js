@@ -19,6 +19,11 @@ Page({
       this.setData({
         res: res[index]
       })
+      if (res[index] && res[index].order_info) {
+        this.setData({
+          'res.orderInfo': JSON.parse(res[index].order_info)
+        })
+      }
       util.hideToast()
     })
     console.log(this)

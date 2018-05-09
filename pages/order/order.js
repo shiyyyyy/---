@@ -47,11 +47,14 @@ Page({
     var mobile = data.mobile
     var orderImgUrl0 = data.pd_pic
     var id = data.id
+    // 酒店 才有的
+    var orderInfo = JSON.stringify(data.order_info)
+    console.log(orderInfo)
     // 判断是由 order 传进去的
     var order = "order"
 
     wx.navigateTo({
-      url: `../pay/pay?pd_name=${pd_name}&dep_city_name=${dep_city_name}&dep_date=${dep_date}&back_date=${back_date}&amount=${amount}&comment=${comment}&contact=${contact}&order_num=${order_num}&mobile=${mobile}&orderImgUrl0=${orderImgUrl0}&id=${id}&order=${order}`
+      url: `../pay/pay?pd_name=${pd_name}&dep_city_name=${dep_city_name}&dep_date=${dep_date}&back_date=${back_date}&amount=${amount}&comment=${comment}&contact=${contact}&order_num=${order_num}&mobile=${mobile}&orderImgUrl0=${orderImgUrl0}&id=${id}&order=${order}&orderInfo=${orderInfo}`,
     })
   },
   //  点击 查看详情按钮
@@ -80,7 +83,7 @@ Page({
           })
 
           // 付款成功之后刷新
-          that.refreshPage()
+          that.refreshPage(that.fn)
         },
         'fail': function (res) {
           wx.showModal({
@@ -116,13 +119,19 @@ Page({
     // var limit = this.data.limit
     // var start = this.data.start
 
-    var fn = function (res) {
-      that.setData({
-        res: res
-      })
-    }
+    // var fn = function (res) {
+    //   var orderArr = []
+    //   for (var i = 0, len = res.length; i, len; i++) {
+    //     var order_info = JSON.parse(res[i].order_info)
+    //     res[i].order_info = order_info
+    //     orderArr.push(res[i])
+    //   }
+    //   that.setData({
+    //     res: orderArr
+    //   })
+    // }
     // this.refreshPage(limit, start, fn)
-    this.refreshPage(fn)
+    // this.refreshPage(fn)
 
   },
 
@@ -144,15 +153,10 @@ Page({
     // var limit = this.data.limit
     // var start = this.data.start
 
-    var fn = function (res) {
-      // var res = that.data.res.concat(res)
-      that.setData({
-        res: res
-      })
-    }
+
     // this.refreshPage(limit, start, fn)
-    this.refreshPage(fn)
-    
+    this.refreshPage(this.fn)
+
   },
 
   /**
@@ -175,18 +179,14 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     console.log("下拉刷新")
-    this.setData({
-      start: 0
-    })
+    // this.setData({
+    //   start: 0
+    // })
 
     // 现在订单不需要分页
     // var limit = this.data.limit
     // var start = this.data.start
-    var fn = function (res) {
-      that.setData({
-        res: res
-      })
-    }
+    this.refreshPage(this.fn)
   },
 
   /**
@@ -214,7 +214,29 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 刷新的回调
+  fn(res) {
+    var that = this
+    var orderArr = []
+    for (var i = 0, len = res.length; i < len; i++) {
+      if (res[i] && res[i].order_info) {
+        var order_info = JSON.parse(res[i].order_info)
+        res[i].order_info = order_info
+      } else {
+        res[i].order_info = ''
+      }
+      orderArr.push(res[i])
+    }
+    console.log(orderArr)
 
+    that.setData({
+      res: orderArr
+    })
+    // that.setData({
+    //   res:res
+    // })
+    // console.log(that)
+  },
   // 刷新函数
   refreshPage: function (fn) {
     util.showLoading()

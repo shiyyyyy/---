@@ -4,7 +4,7 @@
     <image src="{{host + res.productImgUrl0}}" class="img" />
   </view>
   <view class="title">
-    {{ res.productTitle }}
+    {{ res.pd_name }}
   </view>
 
   <view class="order-num" wx:if="{{res.orderNum}}">

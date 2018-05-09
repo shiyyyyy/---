@@ -3,6 +3,7 @@
     "pages/hotelList/hotelList",    
     "pages/index/index",
     "pages/hotelDetails/hotelDetails",
+    "pages/hotelSubmit/hotelSubmit",
     "pages/cityList/cityList",    
     "pages/leaderWebView/leaderWebView",
     "pages/ticketsDetails/ticketsDetails",

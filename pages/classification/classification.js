@@ -61,7 +61,7 @@ Page({
 
 
   onLoad: function (options) {
-
+    var mod = wx.getStorageSync('mod')
     var id = options.iconid
     this.setData({
       iconId: id,

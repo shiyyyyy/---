@@ -1,18 +1,20 @@
 <!--pages/components/orderInformation/order information.wxml-->
 <view class="body">
-
   <slot></slot>
   <view class="order">
     <view class="left">
-      <image class="img" src="{{host + item.pd_pic}}" mode="scaleToFill"></image>
+      <image class="img" src="{{item.pd_pic ? host + item.pd_pic : '../../../images/icon/plhd.jpg'}}" mode="scaleToFill"></image>
     </view>
-
     <view class="right">
-      <view class="right-title">
+       <view class="right-title" wx:if="{{item.order_info.pd_name}}">
+        {{item.order_info.pd_name}}
+      </view> 
+      <view class="right-title" wx:else>
         {{item.pd_name}}
       </view>
 
-      <view class="time">出发日期：{{item.dep_date}}</view>
+       <view class="time" wx:if="{{item.order_info.in_date}}">入住日期：{{item.order_info.in_date}}</view> 
+      <view class="time" wx:else>出发日期：{{item.dep_date}}</view>
       <view class="number"> 人数: {{ item.num_of_people }}</view>
       <view class="money">总计：{{ item.amount }}</view>
     </view>

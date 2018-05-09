@@ -1,0 +1,336 @@
+.body {
+  font-size: 26rpx;
+  background-color: #f1f5f8;
+}
+
+/* 房间信息 */
+
+/* room-item */
+
+.room {
+  background-color: #fff;
+}
+
+.room-title {
+  width: 100%;
+  font-size: 30rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+}
+
+.room-info {
+  background-color: #fff;
+  padding: 10rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ← */
+
+.item-left1 {
+  width: 70%;
+  font-size: 24rpx;
+  overflow: hidden;
+}
+
+.bed-room1 {
+  font-size: 30rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.item-center1 {
+  padding: 10rpx 0;
+  display: flex;
+}
+
+.item-num1 {
+  margin-right: 30rpx;
+}
+
+.item-breakfast1 {
+  margin-right: 30rpx;
+}
+
+.item-inventory-count {
+  color: #f21;
+}
+
+.item-footer1 {
+  display: flex;
+}
+
+.price-text {
+  margin-left: 30rpx;
+  color: #ff6913;
+  position: relative;
+}
+
+.price-text .an-img {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 0;
+  right: -40rpx;
+}
+
+.active-img {
+  transform: rotate(180deg);
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: flex;
+}
+
+/* → */
+
+.item-right1 {
+  min-width: 19%;
+  font-size: 30rpx;
+  border-radius: 14rpx;
+  text-align: center;
+}
+
+.total-pirce {
+  color: #ff6913;
+  background-color: #fff;
+  border: 1px solid #ff6913;
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.night-num {
+  font-size: 26rpx;
+  color: #fff;
+  background-color: #ff6913;
+  border: 1px solid #ff6913;
+  border-radius: 0 0 10rpx 10rpx;
+}
+
+/* number 人数 */
+
+.number {
+  line-height: 72rpx;
+  background-color: #fff;
+  margin-top: 16rpx;
+}
+
+.adult {
+  border-bottom: 1rpx solid #eee;
+  padding-left: 48rpx;
+  padding-right: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.number-text {
+  width: 100rpx;
+}
+
+.number-price {
+  width: 200rpx;
+  margin-left: 100rpx;
+  margin-right: 100rpx;
+}
+
+.number-ctor {
+  height: 50rpx;
+  border: 1px solid #f1f5f8;
+  display: flex;
+  align-items: center;
+}
+
+.subtract, .num, .add {
+}
+
+.subtract {
+  box-sizing: border-box;
+  padding-bottom: 6rpx;
+}
+
+.num {
+  width: 80rpx;
+  line-height: 50rpx;
+  border-left: 1px solid #f1f5f8;
+  border-right: 1px solid #f1f5f8;
+  text-align: center;
+}
+
+.add {
+  box-sizing: border-box;
+  padding-bottom: 6rpx;
+}
+
+.subtract image, .add image {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+}
+
+/* 表单 */
+
+/* 其他需求  */
+
+.form {
+  margin-top: 16rpx;
+  margin-bottom: 2rpx;
+}
+
+.other {
+  background-color: #fff;
+  border-bottom: 1rpx solid #fff;
+}
+
+.other-text {
+  font-size: 30rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+}
+
+.text-box {
+  width: 95%;
+  margin: 16rpx auto 30rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.textarea {
+  font-size: 24rpx;
+  line-height: 48rpx;
+  width: 95%;
+  height: 200rpx;
+  margin: 24rpx auto;
+}
+
+.placeholder {
+  color: #999;
+}
+
+/* 联系人信息  */
+
+.contact {
+  background-color: #fff;
+  border-bottom: 1rpx solid #fff;
+  margin-bottom: 18rpx;
+  padding-bottom: 100rpx;
+}
+
+.contact-text {
+  font-size: 30rpx;
+  line-height: 64rpx;
+  padding-left: 24rpx;
+  border-bottom: 1rpx solid #f1f5f8;
+}
+
+.contact-box {
+  line-height: 96rpx;
+  font-size: 26rpx;
+}
+
+.contact-box .left {
+  width: 116rpx;
+  text-align: right;
+  padding-right: 26rpx;
+  display: inline-block;
+}
+.contact-box .left-name{
+  width: 50rpx;
+  text-align: right;
+  padding-right: 26rpx;
+  display: inline-block;
+}
+.name {
+  padding-left: 65rpx;
+  display: flex;
+  align-items: center;
+}
+
+.name input {
+  text-align: center;
+  border: 1rpx solid #ccc;
+  border-radius: 6rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.contact-box .last-name {
+  width: 70px;
+}
+
+.contact-box .first-name {
+  width: 85px;
+  text-align: center;
+}
+
+.contact-box .mobile {
+  width: 420rpx;
+  padding-left: 24rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 6rpx;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.contact-box .will {
+  padding-left: 24rpx;
+  color: red;
+}
+
+/* 联系人地址 */
+
+.address-box {
+}
+
+.add-textarea {
+  width: 80%;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 52rpx;
+  max-height: 120rpx;
+  margin: 0 auto;
+}
+
+/* footer submit  */
+
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-top: 2rpx solid #f1f5f8;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.submit {
+  width: 100%;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #db2424;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  z-index: 200;
+}
+
+.hidden {
+  font-size: 22rpx;
+  color: red;
+  line-height: 32rpx;
+  text-align: center;
+}

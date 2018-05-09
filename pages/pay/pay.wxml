@@ -1,9 +1,11 @@
 <view class="body">
 
   <view class="order">
-    <view class="order-title">{{res.pd_name}} </view>
+    <view class="order-title" wx:if="{{res.orderInfo.pd_name}}">{{res.orderInfo.pd_name}} </view>
+    <view class="order-title" wx:else>{{res.pd_name}} </view>
     <view class="order-details">
-      <view class="order-time">{{res.dep_date}}</view>
+      <view class="order-time" wx:if="{{res.orderInfo.night}}">共 {{res.orderInfo.night}} 晚</view>
+      <view class="order-time" wx:else>{{res.dep_date}}</view>
       <view class="order-num">订单编号: {{res.order_num}}</view>
     </view>
   </view>
